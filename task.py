@@ -78,27 +78,27 @@ def _get_polls() -> str:
 
 
 def main():
-    messages = []
+    output = []
 
     # FTE
     session = requests.Session()
 
     if gcb_summary := _get_gcb(session):
-        messages.append(gcb_summary)
+        output.append(gcb_summary)
 
     sleep(1)
 
     if feed_summary := _get_feed(session):
-        messages.append(feed_summary)
+        output.append(feed_summary)
 
     session.close()
 
     # polls
     if polls_summary := _get_polls():
-        messages.append(polls_summary)
+        output.append(polls_summary)
 
-    if messages:
-        send_email('FTE/Polls Alert', '\n\n__\n\n'.join(messages))
+    if output:
+        send_email('FTE/Polls Alert', '\n\n__\n\n'.join(output))
 
 
 if __name__ == '__main__':

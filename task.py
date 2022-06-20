@@ -61,9 +61,7 @@ def _get_polls() -> str:
         if re.search(_POLLS_PATTERN, title):
             polls.append(dict(title=title, pubdate=pubdate))
 
-    if polls:
-        return '\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
-    return ''
+    return '\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 
 def main():

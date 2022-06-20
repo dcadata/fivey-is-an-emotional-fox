@@ -1,3 +1,4 @@
+import re
 from time import sleep
 
 import pandas as pd
@@ -5,6 +6,8 @@ import requests
 from bs4 import BeautifulSoup
 
 from messaging import send_email
+
+_POLLS_PATTERN = '#MI|#..(Sen|SEN|Gov|GOV) General'
 
 
 def _get_gcb(session: requests.Session) -> str:
@@ -40,16 +43,47 @@ def _get_forecast(session: requests.Session) -> str:
     return forecast_summary if forecast_summary != open('data/forecast_summary.txt').read() else ''
 
 
+def _get_polls() -> str:
+    previous_latest_link = open('data/polls.txt').read()
+    response = requests.get('https://nitter.net/PollTrackerUSA/rss')
+    soup = BeautifulSoup(response.text, 'xml')
+    tweets = soup.select('item')
+    open('data/polls.txt', 'w').write(tweets[0].find('link').text)
+
+    polls = []
+    for tweet in tweets:
+        if tweet.find('link').text == previous_latest_link:
+            break
+        title, pubdate = map(lambda x: tweet.find(x).text.strip(), ('title', 'pubDate'))
+        if re.search(_POLLS_PATTERN, title):
+            polls.append(dict(title=title, pubdate=pubdate))
+
+    return '\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls) if polls else ''
+
+
 def main():
+    messages = []
+
+    # FTE
     session = requests.Session()
+
     if gcb_summary := _get_gcb(session):
-        send_email('FTE GCB Alert', gcb_summary)
+        messages.append(gcb_summary)
         open('data/gcb_summary.txt', 'w').write(gcb_summary)
+
     sleep(1)
+
     if forecast_summary := _get_forecast(session):
-        send_email('FTE Forecast Alert', forecast_summary)
+        messages.append(forecast_summary)
         open('data/forecast_summary.txt', 'w').write(forecast_summary)
+
     session.close()
+
+    # polls
+    if polls_summary := _get_polls():
+        messages.append(polls_summary)
+
+    send_email('FTE/Polls Alert', '\n\n__\n\n'.join(messages))
 
 
 if __name__ == '__main__':

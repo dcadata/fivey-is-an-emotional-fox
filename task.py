@@ -32,7 +32,7 @@ def _get_gcb(session: requests.Session) -> str:
     return gcb_summary if gcb_summary != open('data/gcb_summary.txt').read() else ''
 
 
-def _get_forecast(session: requests.Session) -> str:
+def _get_feed(session: requests.Session) -> str:
     response = session.get('https://fivethirtyeight.com/politics/feed/')
     feed = BeautifulSoup(response.text, 'xml')
     data = []
@@ -73,7 +73,7 @@ def main():
 
     sleep(1)
 
-    if forecast_summary := _get_forecast(session):
+    if forecast_summary := _get_feed(session):
         messages.append(forecast_summary)
         open('data/forecast_summary.txt', 'w').write(forecast_summary)
 

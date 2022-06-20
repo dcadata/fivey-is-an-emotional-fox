@@ -52,7 +52,7 @@ def _get_feed(session: requests.Session) -> str:
         list(map(lambda x: item.find(x).text, ('title', 'link', 'pubDate')))
         for item in feed.find_all('item') if 'forecast' in item.find('title').text.lower()
     ]
-    output = '\n\n___\n\n'.join('\n'.join(i) for i in data)
+    output = '\n\n'.join('\n'.join(i) for i in data)
     if output == _read_latest()['feed']:
         return ''
     _update_latest(dict(feed=output))
@@ -74,31 +74,33 @@ def _get_polls() -> str:
             polls.append(dict(title=title, pubdate=pubdate))
 
     _update_latest(dict(polls=tweets[0].find('link').text))
-    return '\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
+    return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 
 def main():
+    line = '=' * 16
+    section_header_format = line + '\n{}\n' + line
     output = []
 
     # FTE
     session = requests.Session()
 
     if gcb_summary := _get_gcb(session):
-        output.append(gcb_summary)
+        output.extend((section_header_format.format('FTE GCB'), gcb_summary))
 
     sleep(1)
 
     if feed_summary := _get_feed(session):
-        output.append(feed_summary)
+        output.extend((section_header_format.format('FTE Feed'), feed_summary))
 
     session.close()
 
     # polls
     if polls_summary := _get_polls():
-        output.append(polls_summary)
+        output.extend((section_header_format.format('Polls'), polls_summary))
 
     if output:
-        send_email('FTE/Polls Alert', '\n\n__\n\n'.join(output))
+        send_email('FTE/Polls Alert', '\n\n'.join(output))
 
 
 if __name__ == '__main__':

@@ -40,7 +40,7 @@ def _get_feed(session: requests.Session) -> str:
         if 'forecast' in item.find('title').text.lower():
             data.append([item.find(field).text for field in ('title', 'link', 'pubDate')])
     forecast_summary = '\n\n___\n\n'.join('\n'.join(i) for i in data)
-    return forecast_summary if forecast_summary != open('data/forecast_summary.txt').read() else ''
+    return forecast_summary if forecast_summary != open('data/feed_summary.txt').read() else ''
 
 
 def _get_polls() -> str:
@@ -73,9 +73,9 @@ def main():
 
     sleep(1)
 
-    if forecast_summary := _get_feed(session):
-        messages.append(forecast_summary)
-        open('data/forecast_summary.txt', 'w').write(forecast_summary)
+    if feed_summary := _get_feed(session):
+        messages.append(feed_summary)
+        open('data/feed_summary.txt', 'w').write(feed_summary)
 
     session.close()
 

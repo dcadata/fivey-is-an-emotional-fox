@@ -1,1 +1,1 @@
-{"gcb": "D: 42.43\nR: 44.7\nR+2.27", "feed": "", "polls": "https://nitter.net/PollTrackerUSA/status/1538602513309478912#m"}
+{"gcb": "D: 42.43\nR: 44.7\nR+2.27", "feed": "", "polls": "https://nitter.net/PollTrackerUSA/status/1538886497180569602#m"}

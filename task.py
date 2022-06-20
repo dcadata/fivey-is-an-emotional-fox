@@ -29,7 +29,9 @@ def _get_gcb(session: requests.Session) -> str:
     estimates = data.groupby('candidate').pct_estimate.sum()
 
     gcb_summary = 'D: {D}\nR: {R}\nR+{difference}'.format(difference=difference, **estimates)
-    return gcb_summary if gcb_summary != open('data/gcb_summary.txt').read() else ''
+    if gcb_summary != open('data/gcb_summary.txt').read():
+        return gcb_summary
+    return ''
 
 
 def _get_feed(session: requests.Session) -> str:
@@ -40,7 +42,9 @@ def _get_feed(session: requests.Session) -> str:
         if 'forecast' in item.find('title').text.lower():
             data.append([item.find(field).text for field in ('title', 'link', 'pubDate')])
     forecast_summary = '\n\n___\n\n'.join('\n'.join(i) for i in data)
-    return forecast_summary if forecast_summary != open('data/feed_summary.txt').read() else ''
+    if forecast_summary != open('data/feed_summary.txt').read():
+        return forecast_summary
+    return ''
 
 
 def _get_polls() -> str:
@@ -58,7 +62,9 @@ def _get_polls() -> str:
         if re.search(_POLLS_PATTERN, title):
             polls.append(dict(title=title, pubdate=pubdate))
 
-    return '\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls) if polls else ''
+    if polls:
+        return '\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
+    return ''
 
 
 def main():

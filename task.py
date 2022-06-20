@@ -36,10 +36,10 @@ def _get_gcb(session: requests.Session) -> str:
 def _get_feed(session: requests.Session) -> str:
     response = session.get('https://fivethirtyeight.com/politics/feed/')
     feed = BeautifulSoup(response.text, 'xml')
-    data = []
-    for item in feed.find_all('item'):
-        if 'forecast' in item.find('title').text.lower():
-            data.append([item.find(field).text for field in ('title', 'link', 'pubDate')])
+    data = [
+        list(map(lambda x: item.find(x).text, ('title', 'link', 'pubDate')))
+        for item in feed.find_all('item') if 'forecast' in item.find('title').text.lower()
+    ]
     summary = '\n\n___\n\n'.join('\n'.join(i) for i in data)
     if summary != open('data/feed_summary.txt').read():
         return summary

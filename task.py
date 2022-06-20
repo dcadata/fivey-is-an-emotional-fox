@@ -89,7 +89,6 @@ def main():
         output.extend((section_header_format.format('FTE GCB'), gcb_summary))
 
     sleep(1)
-
     if feed_summary := _get_feed(session):
         output.extend((section_header_format.format('FTE Feed'), feed_summary))
 

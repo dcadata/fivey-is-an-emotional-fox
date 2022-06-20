@@ -86,7 +86,8 @@ def main():
     if polls_summary := _get_polls():
         messages.append(polls_summary)
 
-    send_email('FTE/Polls Alert', '\n\n__\n\n'.join(messages))
+    if messages:
+        send_email('FTE/Polls Alert', '\n\n__\n\n'.join(messages))
 
 
 if __name__ == '__main__':

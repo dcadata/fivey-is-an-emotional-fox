@@ -50,8 +50,8 @@ def _get_feed(session: requests.Session) -> str:
 def _get_polls() -> str:
     previous_latest_link = open('data/polls.txt').read()
     response = requests.get('https://nitter.net/PollTrackerUSA/rss')
-    soup = BeautifulSoup(response.text, 'xml')
-    tweets = soup.select('item')
+    feed = BeautifulSoup(response.text, 'xml')
+    tweets = feed.select('item')
     open('data/polls.txt', 'w').write(tweets[0].find('link').text)
 
     polls = []

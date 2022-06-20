@@ -20,8 +20,7 @@ def _get_gcb(session: requests.Session) -> str:
     open(filepath, 'wb').write(new_content)
 
     data = pd.read_csv(filepath, usecols=['candidate', 'pct_estimate', 'election'])
-    data = data[data.election == '2022-11-08'].drop(columns=['election'])
-    data = data.iloc[-2:]
+    data = data[data.election == '2022-11-08'].drop(columns=['election']).iloc[-2:]
     data.candidate = data.candidate.apply(lambda x: x[0])
     estimates = data.groupby('candidate').pct_estimate.sum()
     difference = round(estimates['R'] - estimates['D'], 2)

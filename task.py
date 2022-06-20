@@ -28,9 +28,9 @@ def _get_gcb(session: requests.Session) -> str:
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
     estimates = data.groupby('candidate').pct_estimate.sum()
 
-    gcb_summary = 'D: {D}\nR: {R}\nR+{difference}'.format(difference=difference, **estimates)
-    if gcb_summary != open('data/gcb_summary.txt').read():
-        return gcb_summary
+    summary = 'D: {D}\nR: {R}\nR+{difference}'.format(difference=difference, **estimates)
+    if summary != open('data/gcb_summary.txt').read():
+        return summary
     return ''
 
 
@@ -41,9 +41,9 @@ def _get_feed(session: requests.Session) -> str:
     for item in feed.find_all('item'):
         if 'forecast' in item.find('title').text.lower():
             data.append([item.find(field).text for field in ('title', 'link', 'pubDate')])
-    forecast_summary = '\n\n___\n\n'.join('\n'.join(i) for i in data)
-    if forecast_summary != open('data/feed_summary.txt').read():
-        return forecast_summary
+    summary = '\n\n___\n\n'.join('\n'.join(i) for i in data)
+    if summary != open('data/feed_summary.txt').read():
+        return summary
     return ''
 
 

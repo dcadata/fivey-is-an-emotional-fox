@@ -3,7 +3,7 @@ name: FTE and Polls Notifier
 on:
   workflow_dispatch:
   schedule:
-    - cron: '13 */2 * * *'
+    - cron: '13 * * * *'
 
 jobs:
   scheduled:

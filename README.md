@@ -9,3 +9,5 @@ To set this up for yourself:
     * `EMAIL_SENDER`: the email address that will send the notification (I recommend making a new Gmail account)
     * `EMAIL_PASSWORD`: the password associated with `EMAIL_SENDER` (if possible, use an app-specific password)
     * `EMAIL_RECIPIENT`: the email address that will receive the notification
+
+Please note that this is an unofficial project - it's not affiliated in any way with FiveThirtyEight or Fivey the Fox.

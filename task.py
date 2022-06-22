@@ -99,6 +99,7 @@ def main():
     if polls_summary := _get_polls():
         output.extend((section_header_format.format('Polls'), polls_summary))
 
+    # send email
     if output:
         send_email('FTE/Polls Alert', '\n\n'.join(output))
 

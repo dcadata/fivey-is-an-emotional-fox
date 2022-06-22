@@ -31,11 +31,11 @@ def _get_gcb(session: requests.Session) -> str:
 
     data = pd.read_csv(data_filepath, usecols=['candidate', 'pct_estimate', 'election'])
     data = data[data.election == '2022-11-08'].drop(columns=['election']).iloc[-2:]
-    data.candidate = data.candidate.apply(lambda x: x[0])
-    estimates = data.groupby('candidate').pct_estimate.sum()
+    data['party'] = data.candidate.apply(lambda x: x[0])
+    estimates = data.groupby('party').pct_estimate.sum()
     difference = round(estimates['R'] - estimates['D'], 2)
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
-    estimates = data.groupby('candidate').pct_estimate.sum()
+    estimates = data.groupby('party').pct_estimate.sum()
 
     output = 'D: {D}\nR: {R}\nR+{difference}'.format(difference=difference, **estimates)
     if output == _read_latest()['gcb']:

@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 from messaging import send_email
 
 _POLLS_PATTERN = '#MI|#..(Sen|SEN|Gov|GOV) General'
-_GENERIC_BALLOT_DATA_FILEPATH = 'data/generic_ballot_averages.csv'
 
 
 def _read_latest() -> dict:
@@ -24,13 +23,15 @@ def _update_latest(new_data: dict) -> None:
 
 
 def _get_gcb(session: requests.Session) -> str:
-    existing_content = open(_GENERIC_BALLOT_DATA_FILEPATH, 'rb').read()
+    data_filepath = 'data/generic_ballot_averages.csv'
+
+    existing_content = open(data_filepath, 'rb').read()
     new_content = session.get('https://projects.fivethirtyeight.com/polls/data/generic_ballot_averages.csv').content
     if existing_content == new_content:
         return ''
-    open(_GENERIC_BALLOT_DATA_FILEPATH, 'wb').write(new_content)
+    open(data_filepath, 'wb').write(new_content)
 
-    data = pd.read_csv(_GENERIC_BALLOT_DATA_FILEPATH, usecols=['candidate', 'pct_estimate', 'election'])
+    data = pd.read_csv(data_filepath, usecols=['candidate', 'pct_estimate', 'election'])
     data = data[data.election == '2022-11-08'].drop(columns=['election']).iloc[-2:]
     data.candidate = data.candidate.apply(lambda x: x[0])
     estimates = data.groupby('candidate').pct_estimate.sum()

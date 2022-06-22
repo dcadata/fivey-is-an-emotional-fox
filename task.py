@@ -37,11 +37,11 @@ def _get_gcb(session: requests.Session) -> str:
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
     estimates = data.groupby('party').pct_estimate.sum()
 
-    output = 'D: {D}\nR: {R}\nR+{difference}'.format(difference=difference, **estimates)
-    if output == _read_latest()['gcb']:
+    output_data = dict(**estimates, difference=difference)
+    if output_data == _read_latest()['gcb']:
         return ''
-    _update_latest(dict(gcb=output))
-    return output
+    _update_latest(dict(gcb=output_data))
+    return 'D: {D}\nR: {R}\nR+{difference}'.format(**output_data)
 
 
 def _get_feed(session: requests.Session) -> str:

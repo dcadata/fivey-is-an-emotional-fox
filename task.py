@@ -8,8 +8,6 @@ from bs4 import BeautifulSoup
 
 from messaging import send_email
 
-_POLLS_PATTERN = '#MI|#..(Sen|SEN|Gov|GOV) General'
-
 
 def _read_latest() -> dict:
     data_from_file = json.load(open('data/latest.txt'))
@@ -61,6 +59,8 @@ def _get_feed(session: requests.Session) -> str:
 
 
 def _get_polls() -> str:
+    polls_pattern = '#MI|#..(Sen|SEN|Gov|GOV) General'
+
     response = requests.get('https://nitter.net/PollTrackerUSA/rss')
     feed = BeautifulSoup(response.text, 'xml')
     tweets = feed.select('item')
@@ -71,7 +71,7 @@ def _get_polls() -> str:
         if tweet.find('link').text == previous_latest_link:
             break
         title, pubdate = map(lambda x: tweet.find(x).text.strip(), ('title', 'pubDate'))
-        if re.search(_POLLS_PATTERN, title):
+        if re.search(polls_pattern, title):
             polls.append(dict(title=title, pubdate=pubdate))
 
     _update_latest(dict(polls=tweets[0].find('link').text))

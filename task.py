@@ -33,6 +33,7 @@ def _get_gcb(session: requests.Session) -> str:
     data = pd.read_csv(data_filepath, usecols=['candidate', 'pct_estimate', 'election'])
     data = data[data.election == '2022-11-08'].drop(columns=['election']).iloc[-2:]
     data['party'] = data.candidate.apply(lambda x: x[0])
+
     estimates = data.groupby('party').pct_estimate.sum()
     lead = estimates['R'] - estimates['D']
 

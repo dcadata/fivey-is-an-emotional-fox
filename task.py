@@ -10,14 +10,14 @@ from messaging import send_email
 
 
 def _read_latest() -> dict:
-    data_from_file = json.load(open('data/latest.txt'))
+    data_from_file = json.load(open('data/latest.json'))
     return data_from_file
 
 
 def _update_latest(new_data: dict) -> None:
     data_from_file = _read_latest()
     data_from_file.update(new_data)
-    json.dump(data_from_file, open('data/latest.txt', 'w'))
+    json.dump(data_from_file, open('data/latest.json', 'w'))
 
 
 def _get_gcb(session: requests.Session) -> str:

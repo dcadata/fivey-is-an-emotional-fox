@@ -63,8 +63,10 @@ def _get_polls() -> str:
     response = requests.get('https://nitter.net/PollTrackerUSA/rss')
     feed = BeautifulSoup(response.text, 'xml')
     tweets = feed.select('item')
-    previous_latest_link = _read_latest()['polls']
+    if not tweets:
+        return ''
 
+    previous_latest_link = _read_latest()['polls']
     polls = []
     for tweet in tweets:
         if tweet.find('link').text == previous_latest_link:

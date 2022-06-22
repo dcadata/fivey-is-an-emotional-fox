@@ -22,6 +22,7 @@ def _update_latest(new_data: dict) -> None:
 
 def _get_gcb(session: requests.Session) -> str:
     data_filepath = 'data/generic_ballot_averages.csv'
+    notification_threshold = 0.02
 
     existing_content = open(data_filepath, 'rb').read()
     new_content = session.get('https://projects.fivethirtyeight.com/polls/data/generic_ballot_averages.csv').content
@@ -33,15 +34,15 @@ def _get_gcb(session: requests.Session) -> str:
     data = data[data.election == '2022-11-08'].drop(columns=['election']).iloc[-2:]
     data['party'] = data.candidate.apply(lambda x: x[0])
     estimates = data.groupby('party').pct_estimate.sum()
-    difference = round(estimates['R'] - estimates['D'], 2)
+    lead = estimates['R'] - estimates['D']
+
+    if abs(lead - _read_latest()['gcb']) < notification_threshold:
+        return ''
+    _update_latest(dict(gcb=lead))
+
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
     estimates = data.groupby('party').pct_estimate.sum()
-
-    output_data = dict(**estimates, difference=difference)
-    if output_data == _read_latest()['gcb']:
-        return ''
-    _update_latest(dict(gcb=output_data))
-    return 'D: {D}\nR: {R}\nR+{difference}'.format(**output_data)
+    return 'D: {D}\nR: {R}\nR+{lead}'.format(**estimates, lead=round(lead, 2))
 
 
 def _get_feed(session: requests.Session) -> str:

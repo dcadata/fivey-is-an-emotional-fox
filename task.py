@@ -79,25 +79,26 @@ def _get_polls() -> str:
 
 
 def main():
-    line = '=' * 16
-    section_header_format = line + '\n{}\n' + line
     output = []
 
     # FTE
     session = requests.Session()
 
     if gcb_summary := _get_gcb(session):
-        output.extend((section_header_format.format('FTE GCB'), gcb_summary))
+        output.append('FTE GCB')
+        output.append(gcb_summary)
 
     sleep(1)
     if feed_summary := _get_feed(session):
-        output.extend((section_header_format.format('FTE Feed'), feed_summary))
+        output.append('FTE Feed')
+        output.append(feed_summary)
 
     session.close()
 
     # polls
     if polls_summary := _get_polls():
-        output.extend((section_header_format.format('Polls'), polls_summary))
+        output.append('Polls')
+        output.append(polls_summary)
 
     # send email
     if output:

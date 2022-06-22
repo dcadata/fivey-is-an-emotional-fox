@@ -42,8 +42,7 @@ def _get_gcb(session: requests.Session) -> str:
     _update_latest(dict(gcb=lead))
 
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
-    estimates = data.groupby('party').pct_estimate.sum()
-    return 'D: {D}\nR: {R}\nR+{lead}'.format(**estimates, lead=round(lead, 2))
+    return 'D: {D}\nR: {R}\nR+{lead}'.format(lead=round(lead, 2), **data.groupby('party').pct_estimate.sum())
 
 
 def _get_feed(session: requests.Session) -> str:

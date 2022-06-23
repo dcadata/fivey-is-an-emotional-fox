@@ -34,15 +34,18 @@ def _get_gcb(session: requests.Session) -> str:
     data = data[data.election == '2022-11-08'].drop(columns=['election']).iloc[-2:]
     data['party'] = data.candidate.apply(lambda x: x[0])
 
-    estimates = data.groupby('party').pct_estimate.sum()
-    lead = estimates['R'] - estimates['D']
+    unrounded_estimates = data.groupby('party').pct_estimate.sum()
+    unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
-    if abs(lead - _read_latest()['gcb']) < notification_threshold:
+    if abs(unrounded_lead - _read_latest()['gcb']) < notification_threshold:
         return ''
-    _update_latest(dict(gcb=lead))
+    _update_latest(dict(gcb=unrounded_lead))
 
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
-    return 'D: {D}\nR: {R}\nR+{lead}'.format(lead=round(lead, 2), **data.groupby('party').pct_estimate.sum())
+    return 'D: {D}\nR: {R}\n{leader}+{lead}'.format(
+        lead=round(unrounded_lead, 2), leader='D' if unrounded_lead > 0 else 'R',
+        **data.groupby('party').pct_estimate.sum(),
+    )
 
 
 def _get_feed(session: requests.Session) -> str:

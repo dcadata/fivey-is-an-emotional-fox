@@ -91,24 +91,21 @@ def main():
     session = requests.Session()
 
     if gcb_summary := _get_gcb(session):
-        output.append('FTE GCB')
-        output.append(gcb_summary)
+        output.append(('FTE GCB Alert', gcb_summary))
 
     sleep(1)
     if feed_summary := _get_feed(session):
-        output.append('FTE Feed')
-        output.append(feed_summary)
+        output.append(('FTE Feed Alert', feed_summary))
 
     session.close()
 
     # polls
     if polls_summary := _get_polls():
-        output.append('Polls')
-        output.append(polls_summary)
+        output.append(('Polls Alert', polls_summary))
 
-    # send email
-    if output:
-        send_email('FTE/Polls Alert', '\n\n'.join(output))
+    # send messages
+    for i in output:
+        send_email(*i)
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-name: FTE and Polls Notifier
+name: Refresh and Notify
 
 on:
   workflow_dispatch:

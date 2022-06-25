@@ -10,12 +10,12 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def send_email(subject: str, body: str) -> None:
+def send_email(subject: str, body: str, to: str) -> None:
     sender = environ['EMAIL_SENDER']
     msg = MIMEText(body)
     msg['Subject'] = subject
     msg['From'] = sender
-    msg['To'] = environ['EMAIL_RECIPIENT']
+    msg['To'] = to
 
     server = SMTP_SSL(host='smtp.gmail.com', port=465)
     server.login(sender, environ['EMAIL_PASSWORD'])
@@ -57,7 +57,7 @@ def _get_gcb(session: requests.Session) -> str:
 
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
     return 'D: {D}\nR: {R}\n{leader}+{lead}'.format(
-        lead=abs(round(unrounded_lead, 2)), leader='D' if unrounded_lead > 0 else 'R',
+        lead=round(unrounded_lead, 2), leader='D' if unrounded_lead > 0 else 'R',
         **data.groupby('party').pct_estimate.sum(),
     )
 
@@ -99,27 +99,18 @@ def _get_polls() -> str:
 
 
 def main():
-    output = []
-
     # FTE
     session = requests.Session()
-
     if gcb_summary := _get_gcb(session):
-        output.append(('FTE GCB Alert', gcb_summary))
-
+        send_email('FTE GCB Alert', gcb_summary, environ['TEXT_RECIPIENT'])
     sleep(1)
     if feed_summary := _get_feed(session):
-        output.append(('FTE Feed Alert', feed_summary))
-
+        send_email('FTE Feed Alert', feed_summary, environ['EMAIL_RECIPIENT'])
     session.close()
 
     # polls
     if polls_summary := _get_polls():
-        output.append(('Polls Alert', polls_summary))
-
-    # send messages
-    for i in output:
-        send_email(*i)
+        send_email('Polls Alert', polls_summary, environ['EMAIL_RECIPIENT'])
 
 
 if __name__ == '__main__':

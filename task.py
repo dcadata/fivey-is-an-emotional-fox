@@ -1,12 +1,26 @@
 import json
 import re
+from email.mime.text import MIMEText
+from os import environ
+from smtplib import SMTP_SSL
 from time import sleep
 
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-from messaging import send_email
+
+def send_email(subject: str, body: str) -> None:
+    sender = environ['EMAIL_SENDER']
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = sender
+    msg['To'] = environ['EMAIL_RECIPIENT']
+
+    server = SMTP_SSL(host='smtp.gmail.com', port=465)
+    server.login(sender, environ['EMAIL_PASSWORD'])
+    server.send_message(msg)
+    server.quit()
 
 
 def _read_latest() -> dict:

@@ -22,7 +22,7 @@ def _update_latest(new_data: dict) -> None:
 
 def _get_gcb(session: requests.Session) -> str:
     data_filepath = 'data/generic_ballot_averages.csv'
-    notification_threshold = 0.02
+    notification_threshold = 0.01
 
     existing_content = open(data_filepath, 'rb').read()
     new_content = session.get('https://projects.fivethirtyeight.com/polls/data/generic_ballot_averages.csv').content

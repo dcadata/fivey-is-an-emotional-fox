@@ -77,7 +77,7 @@ def _get_feed(session: requests.Session) -> str:
 
 
 def _get_polls() -> str:
-    polls_pattern = '#MI|#..(Sen|SEN|Gov|GOV) General'
+    polls_pattern = '#MI|Michigan|#..(Sen|SEN|Gov|GOV) General'
 
     response = requests.get('https://nitter.net/PollTrackerUSA/rss')
     feed = BeautifulSoup(response.text, 'xml')

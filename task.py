@@ -57,7 +57,7 @@ def _get_gcb(session: requests.Session) -> str:
 
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
     return '\nD: {D}\nR: {R}\n{leader}+{lead}'.format(
-        lead=round(unrounded_lead, 2), leader='D' if unrounded_lead > 0 else 'R',
+        lead=abs(round(unrounded_lead, 2)), leader='D' if unrounded_lead > 0 else 'R',
         **data.groupby('party').pct_estimate.sum(),
     )
 

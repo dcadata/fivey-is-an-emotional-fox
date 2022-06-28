@@ -9,6 +9,9 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
+_GCB_NOTIFICATION_THRESHOLD = 0.01
+_POLLS_PATTERN = '#MI|Michigan|#..(Sen|SEN|Gov|GOV) General'
+
 
 def _send_email(subject: str, body: str, to: str) -> None:
     sender = environ['EMAIL_SENDER']
@@ -36,7 +39,6 @@ def _update_latest(new_data: dict) -> None:
 
 def _get_gcb(session: requests.Session) -> str:
     data_filepath = 'data/generic_ballot_averages.csv'
-    notification_threshold = 0.01
 
     existing_content = open(data_filepath, 'rb').read()
     new_content = session.get('https://projects.fivethirtyeight.com/polls/data/generic_ballot_averages.csv').content
@@ -51,7 +53,7 @@ def _get_gcb(session: requests.Session) -> str:
     unrounded_estimates = data.groupby('party').pct_estimate.sum()
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
-    if abs(unrounded_lead - _read_latest()['gcb']) < notification_threshold:
+    if abs(unrounded_lead - _read_latest()['gcb']) < _GCB_NOTIFICATION_THRESHOLD:
         return ''
     _update_latest(dict(gcb=unrounded_lead))
 
@@ -77,8 +79,6 @@ def _get_feed(session: requests.Session) -> str:
 
 
 def _get_polls() -> str:
-    polls_pattern = '#MI|Michigan|#..(Sen|SEN|Gov|GOV) General'
-
     response = requests.get('https://nitter.net/PollTrackerUSA/rss')
     feed = BeautifulSoup(response.text, 'xml')
     tweets = feed.select('item')
@@ -91,7 +91,7 @@ def _get_polls() -> str:
         if tweet.find('link').text == previous_latest_link:
             break
         title, pubdate = map(lambda x: tweet.find(x).text.strip(), ('title', 'pubDate'))
-        if re.search(polls_pattern, title):
+        if re.search(_POLLS_PATTERN, title):
             polls.append(dict(title=title, pubdate=pubdate))
 
     _update_latest(dict(polls=tweets[0].find('link').text))

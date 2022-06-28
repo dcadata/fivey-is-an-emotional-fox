@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def send_email(subject: str, body: str, to: str) -> None:
+def _send_email(subject: str, body: str, to: str) -> None:
     sender = environ['EMAIL_SENDER']
     msg = MIMEText(body)
     msg['Subject'] = subject
@@ -102,15 +102,15 @@ def main():
     # FTE
     session = requests.Session()
     if gcb_summary := _get_gcb(session):
-        send_email('FTE GCB Alert', gcb_summary, environ['TEXT_RECIPIENT'])
+        _send_email('FTE GCB Alert', gcb_summary, environ['TEXT_RECIPIENT'])
     sleep(1)
     if feed_summary := _get_feed(session):
-        send_email('FTE Feed Alert', feed_summary, environ['EMAIL_RECIPIENT'])
+        _send_email('FTE Feed Alert', feed_summary, environ['EMAIL_RECIPIENT'])
     session.close()
 
     # polls
     if polls_summary := _get_polls():
-        send_email('Polls Alert', polls_summary, environ['EMAIL_RECIPIENT'])
+        _send_email('Polls Alert', polls_summary, environ['EMAIL_RECIPIENT'])
 
 
 if __name__ == '__main__':

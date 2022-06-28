@@ -53,13 +53,17 @@ def _get_gcb(session: requests.Session) -> str:
     unrounded_estimates = data.groupby('party').pct_estimate.sum()
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
-    if abs(unrounded_lead - _read_latest()['gcb']) < _GCB_NOTIFICATION_THRESHOLD:
+    change_since_latest = unrounded_lead - _read_latest()['gcb']
+    if abs(change_since_latest) < _GCB_NOTIFICATION_THRESHOLD:
         return ''
     _update_latest(dict(gcb=unrounded_lead))
 
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
-    return '\nD: {D}\nR: {R}\n{leader}+{lead}'.format(
-        lead=abs(round(unrounded_lead, 2)), leader='D' if unrounded_lead > 0 else 'R',
+    return '\nD: {D}\nR: {R}\n{leader}+{lead}\n[Δ]{change_since_latest_gainer}+{change_since_latest}'.format(
+        lead=abs(round(unrounded_lead, 2)),
+        leader='D' if unrounded_lead > 0 else 'R',
+        change_since_latest_gainer='D' if change_since_latest > 0 else 'R',
+        change_since_latest=abs(round(change_since_latest, 2)),
         **data.groupby('party').pct_estimate.sum(),
     )
 

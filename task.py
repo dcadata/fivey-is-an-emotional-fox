@@ -60,7 +60,7 @@ def _get_gcb(session: requests.Session) -> str:
     _update_latest(dict(gcb=unrounded_lead))
 
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
-    return 'D: {D} / R: {R}\n{leader}+{lead} / Δ{change_since_latest_gainer}+{change_since_latest}'.format(
+    return 'D: {D} / R: {R}\n{leader}+{lead} / chg: {change_since_latest_gainer}+{change_since_latest}'.format(
         lead=abs(round(unrounded_lead, 2)),
         leader='D' if unrounded_lead > 0 else 'R',
         change_since_latest=abs(round(change_since_latest, 2)),

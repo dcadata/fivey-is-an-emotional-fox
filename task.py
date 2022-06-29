@@ -55,7 +55,7 @@ def _get_gcb(session: requests.Session) -> str:
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
     change_since_latest = unrounded_lead - _read_latest()['gcb']
-    if abs(change_since_latest) < _CONFIG['config']['gcb_notification_threshold']:
+    if abs(change_since_latest) < float(_CONFIG['config']['gcb_notification_threshold']):
         return ''
     _update_latest(dict(gcb=unrounded_lead))
 

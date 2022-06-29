@@ -62,8 +62,8 @@ def _get_gcb(session: requests.Session) -> str:
     return '\nD: {D}\nR: {R}\n{leader}+{lead}\n[Δ]{change_since_latest_gainer}+{change_since_latest}'.format(
         lead=abs(round(unrounded_lead, 2)),
         leader='D' if unrounded_lead > 0 else 'R',
-        change_since_latest_gainer='D' if change_since_latest > 0 else 'R',
         change_since_latest=abs(round(change_since_latest, 2)),
+        change_since_latest_gainer='D' if change_since_latest > 0 else 'R',
         **data.groupby('party').pct_estimate.sum(),
     )
 
@@ -104,13 +104,18 @@ def _get_polls() -> str:
 
 def main():
     # FTE
+    fte_messages = []
+
     session = requests.Session()
     if gcb_summary := _get_gcb(session):
-        _send_email('FTE GCB Alert', gcb_summary, environ['TEXT_RECIPIENT'])
+        fte_messages.append(gcb_summary)
     sleep(1)
     if feed_summary := _get_feed(session):
-        _send_email('FTE Feed Alert', feed_summary, environ['EMAIL_RECIPIENT'])
+        fte_messages.append(feed_summary)
     session.close()
+
+    if fte_messages:
+        _send_email('FTE GCB/Feed Alert', '\n\n---\n\n'.join(fte_messages), environ['TEXT_RECIPIENT'])
 
     # polls
     if polls_summary := _get_polls():

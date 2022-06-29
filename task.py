@@ -1,3 +1,4 @@
+import configparser
 import json
 import re
 from email.mime.text import MIMEText
@@ -9,8 +10,8 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-_GCB_NOTIFICATION_THRESHOLD = 0.01
-_POLLS_PATTERN = '#MI|Michigan|#..(Sen|SEN|Gov|GOV) General'
+_CONFIG = configparser.ConfigParser()
+_CONFIG.read('config.ini')
 
 
 def _send_email(subject: str, body: str, to: str) -> None:
@@ -54,7 +55,7 @@ def _get_gcb(session: requests.Session) -> str:
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
     change_since_latest = unrounded_lead - _read_latest()['gcb']
-    if abs(change_since_latest) < _GCB_NOTIFICATION_THRESHOLD:
+    if abs(change_since_latest) < _CONFIG['config']['gcb_notification_threshold']:
         return ''
     _update_latest(dict(gcb=unrounded_lead))
 
@@ -95,7 +96,7 @@ def _get_polls() -> str:
         if tweet.find('link').text == previous_latest_link:
             break
         title, pubdate = map(lambda x: tweet.find(x).text.strip(), ('title', 'pubDate'))
-        if re.search(_POLLS_PATTERN, title):
+        if re.search(_CONFIG['config']['polls_pattern'], title):
             polls.append(dict(title=title, pubdate=pubdate))
 
     _update_latest(dict(polls=tweets[0].find('link').text))

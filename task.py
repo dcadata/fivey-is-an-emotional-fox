@@ -115,7 +115,7 @@ def _get_polls() -> str:
     if not tweets:
         return ''
 
-    previous_latest_link = _read_latest()['polls']
+    previous_latest_link = _read_latest().get('polls')
     polls = []
     for tweet in tweets:
         if tweet.find('link').text == previous_latest_link:

@@ -69,20 +69,6 @@ def _get_gcb(session: requests.Session) -> str:
     )
 
 
-def _get_feed(session: requests.Session) -> str:
-    response = session.get('https://fivethirtyeight.com/politics/feed/')
-    feed = BeautifulSoup(response.text, 'xml')
-    data = [
-        list(map(lambda x: item.find(x).text, ('title', 'link', 'pubDate')))
-        for item in feed.find_all('item') if 'forecast' in item.find('title').text.lower()
-    ]
-    output = '\n\n'.join('\n'.join(i) for i in data)
-    if output == _read_latest()['feed']:
-        return ''
-    _update_latest(dict(feed=output))
-    return output
-
-
 def _get_polls() -> str:
     if not _CONFIG['config'].get('polls_pattern'):
         return ''
@@ -111,15 +97,15 @@ def main():
     fte_messages = []
 
     session = requests.Session()
+
     if gcb_summary := _get_gcb(session):
         fte_messages.append(gcb_summary)
     sleep(1)
-    if feed_summary := _get_feed(session):
-        fte_messages.append(feed_summary)
+
     session.close()
 
     if fte_messages:
-        _send_email('FTE GCB/Feed Alert', '\n\n---\n\n'.join(fte_messages), environ['TEXT_RECIPIENT'])
+        _send_email('FTE GCB/Forecast Alert', '\n\n---\n\n'.join(fte_messages), environ['TEXT_RECIPIENT'])
 
     # polls
     if polls_summary := _get_polls():

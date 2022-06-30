@@ -73,9 +73,9 @@ def _get_gcb(session: requests.Session) -> str:
     )
 
 
-def _get_senate_national_forecast(session: requests.Session) -> str:
-    data_filepath = 'data/senate_national_toplines_2022.csv'
-    url = 'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/senate_national_toplines_2022.csv'
+def _get_chamber_national_forecast(session: requests.Session, chamber: str) -> str:
+    data_filepath = f'data/{chamber}_national_toplines_2022.csv'
+    url = f'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/{chamber}_national_toplines_2022.csv'
 
     existing_content = open(data_filepath, 'rb').read()
     new_content = session.get(url).content
@@ -93,40 +93,12 @@ def _get_senate_national_forecast(session: requests.Session) -> str:
         seatsD=int(data.median_seats_Dparty),
         seatsR=int(data.median_seats_Rparty),
     )
-    if current == _read_latest()['senate_national']:
+    if current == _read_latest()[f'{chamber}_national']:
         return ''
-    _update_latest(dict(senate_national=current))
+    _update_latest({f'{chamber}_national': current})
 
-    return 'SENATE ({expression_choice})\nControl: D:{probD}% R:{probR}%\nSeats: D:{seatsD} R:{seatsR}'.format(
-        **current, expression_choice=expression_choice[1:])
-
-
-def _get_house_national_forecast(session: requests.Session) -> str:
-    data_filepath = 'data/house_national_toplines_2022.csv'
-    url = 'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/house_national_toplines_2022.csv'
-
-    existing_content = open(data_filepath, 'rb').read()
-    new_content = session.get(url).content
-    if existing_content == new_content:
-        return ''
-    open(data_filepath, 'wb').write(new_content)
-
-    expression_choice = _CONFIG['config'].get('fte_forecast', '_deluxe')
-    data = pd.read_csv(data_filepath, usecols=[
-        'expression', 'chamber_Dparty', 'chamber_Rparty', 'median_seats_Dparty', 'median_seats_Rparty'])
-    data = data[data.expression == expression_choice].drop(columns=['expression']).iloc[0]
-    current = dict(
-        probD=int(data.chamber_Dparty.round(2) * 100),
-        probR=int(data.chamber_Rparty.round(2) * 100),
-        seatsD=int(data.median_seats_Dparty),
-        seatsR=int(data.median_seats_Rparty),
-    )
-    if current == _read_latest()['house_national']:
-        return ''
-    _update_latest(dict(house_national=current))
-
-    return 'HOUSE ({expression_choice})\nControl: D:{probD}% R:{probR}%\nSeats: D:{seatsD} R:{seatsR}'.format(
-        **current, expression_choice=expression_choice[1:])
+    return '{chamber} ({expression_choice})\nControl: D:{probD}% R:{probR}%\nSeats: D:{seatsD} R:{seatsR}'.format(
+        **current, chamber=chamber.upper(), expression_choice=expression_choice[1:])
 
 
 def _get_polls() -> str:

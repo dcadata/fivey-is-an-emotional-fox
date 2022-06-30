@@ -72,7 +72,6 @@ def _get_gcb(session: requests.Session) -> str:
 def _get_senate_national_forecast(session: requests.Session) -> str:
     data_filepath = 'data/senate_national_toplines_2022.csv'
     url = 'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/senate_national_toplines_2022.csv'
-    expression_choice = _CONFIG['config'].get('fte_forecast', '_deluxe')
 
     existing_content = open(data_filepath, 'rb').read()
     new_content = session.get(url).content
@@ -80,6 +79,7 @@ def _get_senate_national_forecast(session: requests.Session) -> str:
         return ''
     open(data_filepath, 'wb').write(new_content)
 
+    expression_choice = _CONFIG['config'].get('fte_forecast', '_deluxe')
     data = pd.read_csv(data_filepath, usecols=[
         'expression', 'chamber_Dparty', 'chamber_Rparty', 'median_seats_Dparty', 'median_seats_Rparty'])
     data = data[data.expression == expression_choice].drop(columns=['expression']).iloc[0]

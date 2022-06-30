@@ -74,7 +74,7 @@ def _get_gcb(session: requests.Session) -> str:
 
 
 def _get_chamber_national_forecast(session: requests.Session, chamber: str) -> str:
-    if not _CONFIG['forecasts'].get(f'notify_{chamber}'):
+    if not _CONFIG['forecasts_national'].get(f'notify_{chamber}'):
         return ''
 
     data_filepath = f'data/{chamber}_national_toplines_2022.csv'
@@ -86,7 +86,7 @@ def _get_chamber_national_forecast(session: requests.Session, chamber: str) -> s
         return ''
     open(data_filepath, 'wb').write(new_content)
 
-    expression_choice = _CONFIG['forecasts'].get('expression', '_deluxe')
+    expression_choice = _CONFIG['forecasts_national'].get('expression', '_deluxe')
     data = pd.read_csv(data_filepath, usecols=[
         'expression', 'chamber_Dparty', 'chamber_Rparty', 'median_seats_Dparty', 'median_seats_Rparty'])
     data = data[data.expression == expression_choice].drop(columns=['expression']).iloc[0]

@@ -58,7 +58,7 @@ def _get_gcb(session: requests.Session) -> str:
     unrounded_estimates = data.groupby('party').pct_estimate.sum()
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
-    change_since_latest = unrounded_lead - _read_latest().get('gcb')
+    change_since_latest = unrounded_lead - _read_latest()['gcb']
     if abs(change_since_latest) < float(_CONFIG['gcb']['threshold']):
         return ''
     _update_latest(dict(gcb=unrounded_lead))

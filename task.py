@@ -84,6 +84,9 @@ def _get_feed(session: requests.Session) -> str:
 
 
 def _get_polls() -> str:
+    if not _CONFIG['config'].get('polls_pattern'):
+        return ''
+
     response = requests.get('https://nitter.net/PollTrackerUSA/rss')
     feed = BeautifulSoup(response.text, 'xml')
     tweets = feed.select('item')

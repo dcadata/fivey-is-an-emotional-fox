@@ -39,7 +39,7 @@ def _update_latest(new_data: dict) -> None:
 
 
 def _get_gcb(session: requests.Session) -> str:
-    if not _CONFIG['config'].get('gcb_notification_threshold'):
+    if not _CONFIG['gcb'].get('notify'):
         return ''
 
     data_filepath = 'data/generic_ballot_averages.csv'
@@ -59,7 +59,7 @@ def _get_gcb(session: requests.Session) -> str:
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
     change_since_latest = unrounded_lead - _read_latest()['gcb']
-    if abs(change_since_latest) < float(_CONFIG['config']['gcb_notification_threshold']):
+    if abs(change_since_latest) < float(_CONFIG['gcb']['threshold']):
         return ''
     _update_latest(dict(gcb=unrounded_lead))
 
@@ -74,7 +74,7 @@ def _get_gcb(session: requests.Session) -> str:
 
 
 def _get_chamber_national_forecast(session: requests.Session, chamber: str) -> str:
-    if not _CONFIG['config'].get(f'fte_{chamber}'):
+    if not _CONFIG['forecasts'].get(f'notify_{chamber}'):
         return ''
 
     data_filepath = f'data/{chamber}_national_toplines_2022.csv'
@@ -86,7 +86,7 @@ def _get_chamber_national_forecast(session: requests.Session, chamber: str) -> s
         return ''
     open(data_filepath, 'wb').write(new_content)
 
-    expression_choice = _CONFIG['config'].get('fte_forecast', '_deluxe')
+    expression_choice = _CONFIG['forecasts'].get('expression', '_deluxe')
     data = pd.read_csv(data_filepath, usecols=[
         'expression', 'chamber_Dparty', 'chamber_Rparty', 'median_seats_Dparty', 'median_seats_Rparty'])
     data = data[data.expression == expression_choice].drop(columns=['expression']).iloc[0]
@@ -105,7 +105,7 @@ def _get_chamber_national_forecast(session: requests.Session, chamber: str) -> s
 
 
 def _get_polls() -> str:
-    if not _CONFIG['config'].get('polls_pattern'):
+    if not _CONFIG['polls'].get('notify'):
         return ''
 
     response = requests.get('https://nitter.net/PollTrackerUSA/rss')
@@ -120,7 +120,7 @@ def _get_polls() -> str:
         if tweet.find('link').text == previous_latest_link:
             break
         title, pubdate = map(lambda x: tweet.find(x).text.strip(), ('title', 'pubDate'))
-        if re.search(_CONFIG['config']['polls_pattern'], title):
+        if re.search(_CONFIG['polls']['pattern'], title):
             polls.append(dict(title=title, pubdate=pubdate))
 
     _update_latest(dict(polls=tweets[0].find('link').text))

@@ -97,9 +97,9 @@ def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
         seatsR=int(data.median_seats_Rparty),
         expression=data.expression[1:],
     )
-    if current == _read_latest()[f'{chamber}_national']:
+    if current == _read_latest().get(chamber):
         return ''
-    _update_latest({f'{chamber}_national': current})
+    _update_latest({chamber: current})
 
     return '{chamber} ({expression})\nControl: D:{probD}% R:{probR}%\nSeats: D:{seatsD} R:{seatsR}'.format(
         **current, chamber=chamber.upper())

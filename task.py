@@ -187,28 +187,31 @@ def _get_polls() -> str:
     return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 
-def main():
-    # FTE
-    fte_messages = []
+def _get_all_fte() -> list:
+    funcs = (
+        _get_gcb,
+        lambda x: _get_chamber_forecast(x, 'senate'),
+        lambda x: _get_chamber_forecast(x, 'house'),
+        lambda x: _get_seat_forecasts(x, 'senate'),
+        lambda x: _get_seat_forecasts(x, 'house'),
+        lambda x: _get_seat_forecasts(x, 'governor'),
+    )
     session = requests.Session()
-    for func in (
-            _get_gcb,
-            lambda x: _get_chamber_forecast(x, 'senate'),
-            lambda x: _get_chamber_forecast(x, 'house'),
-            lambda x: _get_seat_forecasts(x, 'senate'),
-            lambda x: _get_seat_forecasts(x, 'house'),
-            lambda x: _get_seat_forecasts(x, 'governor'),
-    ):
+    messages = []
+    for func in funcs:
         if message := func(session):
-            fte_messages.append(message)
+            messages.append(message)
         sleep(1)
     session.close()
-    if fte_messages:
-        _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages), environ['TEXT_RECIPIENT'])
+    return messages
 
-    # polls
-    if polls_summary := _get_polls():
-        _send_email('Polls Alert', polls_summary, environ['EMAIL_RECIPIENT'])
+
+def main():
+    if messages := _get_all_fte():
+        _send_email('FTE GCB/Forecast Alert', '\n\n'.join(messages), environ['TEXT_RECIPIENT'])
+
+    if polls_message := _get_polls():
+        _send_email('Polls Alert', polls_message, environ['EMAIL_RECIPIENT'])
 
 
 if __name__ == '__main__':

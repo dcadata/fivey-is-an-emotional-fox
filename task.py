@@ -39,7 +39,7 @@ def _update_latest(new_data: dict) -> None:
 
 
 def _get_gcb(session: requests.Session) -> str:
-    if not _CONFIG['gcb'].get('notify'):
+    if not _CONFIG['gcb'].getboolean('notify'):
         return ''
 
     data_filepath = 'data/generic_ballot_averages.csv'
@@ -59,7 +59,7 @@ def _get_gcb(session: requests.Session) -> str:
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
     change_since_latest = unrounded_lead - _read_latest()['gcb']
-    if abs(change_since_latest) < float(_CONFIG['gcb']['threshold']):
+    if abs(change_since_latest) < _CONFIG['gcb'].getfloat('threshold'):
         return ''
     _update_latest(dict(gcb=unrounded_lead))
 
@@ -74,7 +74,7 @@ def _get_gcb(session: requests.Session) -> str:
 
 
 def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
-    if not _CONFIG['forecasts_national'].get(chamber):
+    if not _CONFIG['forecasts_national'].getboolean(chamber):
         return ''
 
     data_filepath = f'data/{chamber}_national_toplines_2022.csv'
@@ -165,7 +165,7 @@ def _get_seat_forecasts(session: requests.Session, chamber_or_office: str) -> st
 
 
 def _get_polls() -> str:
-    if not _CONFIG['polls'].get('notify'):
+    if not _CONFIG['polls'].getboolean('notify'):
         return ''
 
     response = requests.get('https://nitter.net/PollTrackerUSA/rss')

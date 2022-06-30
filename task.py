@@ -73,7 +73,7 @@ def _get_gcb(session: requests.Session) -> str:
     )
 
 
-def _get_chamber_national_forecast(session: requests.Session, chamber: str) -> str:
+def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
     if not _CONFIG['forecasts_national'].get(f'notify_{chamber}'):
         return ''
 
@@ -89,19 +89,20 @@ def _get_chamber_national_forecast(session: requests.Session, chamber: str) -> s
     expression_choice = _CONFIG['forecasts_national'].get('expression', '_deluxe')
     data = pd.read_csv(data_filepath, usecols=[
         'expression', 'chamber_Dparty', 'chamber_Rparty', 'median_seats_Dparty', 'median_seats_Rparty'])
-    data = data[data.expression == expression_choice].drop(columns=['expression']).iloc[0]
+    data = data[data.expression == expression_choice].iloc[0]
     current = dict(
         probD=int(data.chamber_Dparty.round(2) * 100),
         probR=int(data.chamber_Rparty.round(2) * 100),
         seatsD=int(data.median_seats_Dparty),
         seatsR=int(data.median_seats_Rparty),
+        expression=data.expression[1:],
     )
     if current == _read_latest()[f'{chamber}_national']:
         return ''
     _update_latest({f'{chamber}_national': current})
 
-    return '{chamber} ({expression_choice})\nControl: D:{probD}% R:{probR}%\nSeats: D:{seatsD} R:{seatsR}'.format(
-        **current, chamber=chamber.upper(), expression_choice=expression_choice[1:])
+    return '{chamber} ({expression})\nControl: D:{probD}% R:{probR}%\nSeats: D:{seatsD} R:{seatsR}'.format(
+        **current, chamber=chamber.upper())
 
 
 def _get_polls() -> str:
@@ -133,8 +134,8 @@ def main():
     session = requests.Session()
     for func in (
             _get_gcb,
-            lambda x: _get_chamber_national_forecast(x, 'senate'),
-            lambda x: _get_chamber_national_forecast(x, 'house'),
+            lambda x: _get_chamber_forecast(x, 'senate'),
+            lambda x: _get_chamber_forecast(x, 'house'),
     ):
         if message := func(session):
             fte_messages.append(message)

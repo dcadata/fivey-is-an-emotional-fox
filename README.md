@@ -15,5 +15,6 @@ To set this up for yourself:
         * _Lite_: "What Election Day looks like based on polls alone"
         * _Classic_: "What Election Day looks like based on polls, fundraising, past voting patterns and more"
         * _Deluxe_: "What Election Day looks like when we add experts' ratings to the Classic forecast"
+* In the `data` directory, delete `latest.json`. Rename `latest.json.example` to `latest.json`.
 
 Please note that this is an unofficial project - it's not affiliated in any way with FiveThirtyEight or Fivey the Fox.

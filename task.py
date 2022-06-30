@@ -74,6 +74,9 @@ def _get_gcb(session: requests.Session) -> str:
 
 
 def _get_chamber_national_forecast(session: requests.Session, chamber: str) -> str:
+    if not _CONFIG['config'].get(f'fte_{chamber}'):
+        return ''
+
     data_filepath = f'data/{chamber}_national_toplines_2022.csv'
     url = f'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/{chamber}_national_toplines_2022.csv'
 
@@ -127,17 +130,18 @@ def _get_polls() -> str:
 def main():
     # FTE
     fte_messages = []
-
     session = requests.Session()
-
-    if gcb_summary := _get_gcb(session):
-        fte_messages.append(gcb_summary)
-    sleep(1)
-
+    for func in (
+            _get_gcb,
+            lambda x: _get_chamber_national_forecast(x, 'senate'),
+            lambda x: _get_chamber_national_forecast(x, 'house'),
+    ):
+        if message := func(session):
+            fte_messages.append(message)
+        sleep(1)
     session.close()
-
     if fte_messages:
-        _send_email('FTE GCB/Forecast Alert', '\n\n---\n\n'.join(fte_messages), environ['TEXT_RECIPIENT'])
+        _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages), environ['TEXT_RECIPIENT'])
 
     # polls
     if polls_summary := _get_polls():

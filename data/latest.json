@@ -1,1 +1,16 @@
-{"gcb": -2.1274590000000018, "senate_national": {"probD": 59, "probR": 41, "seatsD": 50, "seatsR": 50}, "house_national": {"probD": 12, "probR": 88, "seatsD": 196, "seatsR": 239}, "polls": "https://nitter.net/PollTrackerUSA/status/1542237952650125313#m"}
+{
+  "gcb": -2.1274590000000018,
+  "senate": {
+    "probD": 59,
+    "probR": 41,
+    "seatsD": 50,
+    "seatsR": 50
+  },
+  "house": {
+    "probD": 12,
+    "probR": 88,
+    "seatsD": 196,
+    "seatsR": 239
+  },
+  "polls": "https://nitter.net/PollTrackerUSA/status/1542237952650125313#m"
+}

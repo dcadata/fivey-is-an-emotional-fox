@@ -1,15 +1,1 @@
-{
-  "gcb": -2.1274590000000018,
-  "senate": {
-    "probD": 59,
-    "probR": 41,
-    "seatsD": 50,
-    "seatsR": 50
-  },
-  "house": {
-    "probD": 1,
-    "probR": 88,
-    "seatsD": 196,
-    "seatsR": 239
-  }
-}
+{"gcb": -2.1274590000000018, "senate": {"probD": 59, "probR": 41, "seatsD": 50, "seatsR": 50}, "house": {"probD": 1, "probR": 88, "seatsD": 196, "seatsR": 239}, "PA": {"nameD": "Fetterman", "nameR": "Oz", "probD": 63, "probR": 37, "vsD": 49.8, "vsR": 47.1, "margin": 2.7, "margin_leader": "D"}, "WI": {"nameD": "Barnes", "nameR": "Johnson", "probD": 32, "probR": 68, "vsD": 46.6, "vsR": 50.2, "margin": 3.6, "margin_leader": "R"}, "AZ": {"nameD": "Kelly", "nameR": "Masters", "probD": 73, "probR": 27, "vsD": 51.2, "vsR": 45.5, "margin": 5.8, "margin_leader": "D"}, "MI-3": {"nameD": "Scholten", "nameR": "Meijer", "probD": 12, "probR": 88, "vsD": 45.1, "vsR": 54.9, "margin": 9.7, "margin_leader": "R"}, "MI-10": {"nameD": "Marlinga", "nameR": "James", "probD": 20, "probR": 80, "vsD": 46.7, "vsR": 53.3, "margin": 6.7, "margin_leader": "R"}, "MI-11": {"nameD": "Stevens", "nameR": "DenOtter", "probD": 85, "probR": 15, "vsD": 54.2, "vsR": 45.8, "margin": 8.4, "margin_leader": "D"}, "polls": "https://nitter.net/PollTrackerUSA/status/1542237952650125313#m"}

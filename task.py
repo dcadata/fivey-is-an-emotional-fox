@@ -39,6 +39,9 @@ def _update_latest(new_data: dict) -> None:
 
 
 def _get_gcb(session: requests.Session) -> str:
+    if not _CONFIG['config'].get('gcb_notification_threshold'):
+        return ''
+
     data_filepath = 'data/generic_ballot_averages.csv'
     url = 'https://projects.fivethirtyeight.com/polls/data/generic_ballot_averages.csv'
 

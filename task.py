@@ -69,7 +69,7 @@ def _get_gcb(session: requests.Session) -> str:
     )
 
 
-def _get_senate_forecast(session: requests.Session) -> str:
+def _get_senate_national_forecast(session: requests.Session) -> str:
     data_filepath = 'data/senate_national_toplines_2022.csv'
     url = 'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/senate_national_toplines_2022.csv'
     expression_choice = _CONFIG['config'].get('fte_forecast', '_deluxe')

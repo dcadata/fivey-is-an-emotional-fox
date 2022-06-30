@@ -40,9 +40,10 @@ def _update_latest(new_data: dict) -> None:
 
 def _get_gcb(session: requests.Session) -> str:
     data_filepath = 'data/generic_ballot_averages.csv'
+    url = 'https://projects.fivethirtyeight.com/polls/data/generic_ballot_averages.csv'
 
     existing_content = open(data_filepath, 'rb').read()
-    new_content = session.get('https://projects.fivethirtyeight.com/polls/data/generic_ballot_averages.csv').content
+    new_content = session.get(url).content
     if existing_content == new_content:
         return ''
     open(data_filepath, 'wb').write(new_content)

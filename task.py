@@ -123,8 +123,8 @@ def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
     _update_latest({f'{chamber}_{seat}': status})
     return (
         '{seat}\n'
-        '. Prob(win): {nameD}(D):{probD}% {nameR}(R):{probR}%\n'
-        '. VS: D:{vsD}% R:{vsR}% ({margin_leader}+{margin})'
+        'Prob(win): {nameD}(D):{probD}% {nameR}(R):{probR}%\n'
+        'VS: D:{vsD}% R:{vsR}% ({margin_leader}+{margin})'
     ).format(**status, seat=seat.upper())
 
 
@@ -159,7 +159,7 @@ def _get_seat_forecasts(session: requests.Session, chamber_or_office: str) -> st
         data, chamber_or_office, seat) for seat in seats.upper().split()]))
     if not current:
         return ''
-    current.insert(0, '\n{chamber} DETAILS ({expression_choice})'.format(
+    current.insert(0, '{chamber} DETAILS ({expression_choice})'.format(
         chamber=chamber_or_office.upper(), expression_choice=expression_choice[1:]))
     return '\n'.join(current)
 

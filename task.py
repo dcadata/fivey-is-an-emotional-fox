@@ -74,7 +74,7 @@ def _get_gcb(session: requests.Session) -> str:
 
 
 def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
-    if not _CONFIG['forecasts_national'].get(f'notify_{chamber}'):
+    if not _CONFIG['forecasts_national'].get(chamber):
         return ''
 
     data_filepath = f'data/{chamber}_national_toplines_2022.csv'

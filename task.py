@@ -128,17 +128,16 @@ def _get_one_seat_status(data: pd.DataFrame, seat: str) -> str:
     ).format(**status, seat=seat.upper())
 
 
-def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
-    seats = _CONFIG['forecasts_seats'].get(chamber)
+def _get_seat_forecasts(session: requests.Session, chamber_or_office: str) -> str:
+    seats = _CONFIG['forecasts_seats'].get(chamber_or_office)
     if not seats:
         return ''
 
-    if chamber == 'senate':
-        data_filename = 'senate_state_toplines_2022.csv'
-    elif chamber == 'house':
-        data_filename = 'house_district_toplines_2022.csv'
-    else:
-        return ''
+    data_filename = dict(
+        senate='senate_state_toplines_2022.csv',
+        house='house_district_toplines_2022.csv',
+        governor='governor_state_toplines_2022.csv',
+    )[chamber_or_office]
 
     data_filepath = f'data/{data_filename}'
     url = f'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/{data_filename}'
@@ -160,7 +159,7 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
     if not current:
         return ''
     current.insert(0, '\n{chamber} DETAILS ({expression_choice})'.format(
-        chamber=chamber.upper(), expression_choice=expression_choice[1:]))
+        chamber=chamber_or_office.upper(), expression_choice=expression_choice[1:]))
     return '\n'.join(current)
 
 
@@ -197,6 +196,7 @@ def main():
             lambda x: _get_chamber_forecast(x, 'house'),
             lambda x: _get_seat_forecasts(x, 'senate'),
             lambda x: _get_seat_forecasts(x, 'house'),
+            lambda x: _get_seat_forecasts(x, 'governor'),
     ):
         if message := func(session):
             fte_messages.append(message)

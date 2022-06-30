@@ -105,7 +105,7 @@ def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
         **current, chamber=chamber.upper())
 
 
-def _get_one_seat_status(data: pd.DataFrame, seat: str) -> str:
+def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
     seat_data = data[data.district.str.startswith(seat)].iloc[0]
     margin = seat_data.mean_netpartymargin.round(1)
     status = dict(
@@ -118,9 +118,9 @@ def _get_one_seat_status(data: pd.DataFrame, seat: str) -> str:
         margin=abs(margin),
         margin_leader='D' if margin > 0 else 'R',
     )
-    if status == _read_latest().get(seat):
+    if status == _read_latest().get(f'{chamber}_{seat}'):
         return ''
-    _update_latest({seat: status})
+    _update_latest({f'{chamber}_{seat}': status})
     return (
         '{seat}\n'
         '. Prob(win): {nameD}(D):{probD}% {nameR}(R):{probR}%\n'
@@ -155,7 +155,8 @@ def _get_seat_forecasts(session: requests.Session, chamber_or_office: str) -> st
     ])
     data = data[data.expression == expression_choice].drop_duplicates(subset=['district'], keep='first')
 
-    current = list(filter(None, [_get_one_seat_status(data, seat) for seat in seats.upper().split()]))
+    current = list(filter(None, [_get_one_seat_status(
+        data, chamber_or_office, seat) for seat in seats.upper().split()]))
     if not current:
         return ''
     current.insert(0, '\n{chamber} DETAILS ({expression_choice})'.format(

@@ -195,6 +195,8 @@ def main():
             _get_gcb,
             lambda x: _get_chamber_forecast(x, 'senate'),
             lambda x: _get_chamber_forecast(x, 'house'),
+            lambda x: _get_seat_forecasts(x, 'senate'),
+            lambda x: _get_seat_forecasts(x, 'house'),
     ):
         if message := func(session):
             fte_messages.append(message)

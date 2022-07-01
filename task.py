@@ -128,8 +128,8 @@ def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
     ).format(**status, seat=seat.upper())
 
 
-def _get_seat_forecasts(session: requests.Session, chamber_or_office: str) -> str:
-    seats = _CONFIG['forecasts_seats'].get(chamber_or_office)
+def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
+    seats = _CONFIG['forecasts_seats'].get(chamber)
     if not seats:
         return ''
 
@@ -137,7 +137,7 @@ def _get_seat_forecasts(session: requests.Session, chamber_or_office: str) -> st
         senate='senate_state_toplines_2022.csv',
         house='house_district_toplines_2022.csv',
         governor='governor_state_toplines_2022.csv',
-    )[chamber_or_office]
+    )[chamber]
 
     data_filepath = f'data/{data_filename}'
     url = f'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/{data_filename}'
@@ -156,11 +156,11 @@ def _get_seat_forecasts(session: requests.Session, chamber_or_office: str) -> st
     data = data[data.expression == expression_choice].drop_duplicates(subset=['district'], keep='first')
 
     current = list(filter(None, [_get_one_seat_status(
-        data, chamber_or_office, seat) for seat in seats.upper().split()]))
+        data, chamber, seat) for seat in seats.upper().split()]))
     if not current:
         return ''
     current.insert(0, '{chamber} DETAILS ({expression_choice})'.format(
-        chamber=chamber_or_office.upper(), expression_choice=expression_choice[1:]))
+        chamber=chamber.upper(), expression_choice=expression_choice[1:]))
     return '\n'.join(current)
 
 

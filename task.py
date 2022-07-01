@@ -147,8 +147,7 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
         'district', 'expression', 'name_D1', 'name_R1', 'winner_Dparty', 'winner_Rparty', 'mean_netpartymargin'])
     data = data[data.expression == expression_choice].drop_duplicates(subset=['district'], keep='first')
 
-    current = list(filter(None, [_get_one_seat_status(
-        data, chamber, seat) for seat in seats.upper().split()]))
+    current = list(filter(None, [_get_one_seat_status(data, chamber, seat) for seat in seats.upper().split()]))
     if not current:
         return ''
     current.insert(0, '{chamber} DETAILS ({expression_choice})'.format(

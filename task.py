@@ -113,19 +113,14 @@ def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
         nameR=seat_data.name_R1.rsplit(None, 1)[1],
         probD=int(seat_data.winner_Dparty.round(2) * 100),
         probR=int(seat_data.winner_Rparty.round(2) * 100),
-        vsD=seat_data.voteshare_mean_D1.round(1),
-        vsR=seat_data.voteshare_mean_R1.round(1),
         margin=abs(margin),
         margin_leader='D' if margin > 0 else 'R',
     )
     if status == _read_latest().get(f'{chamber}_{seat}'):
         return ''
     _update_latest({f'{chamber}_{seat}': status})
-    return (
-        '{seat}\n'
-        'Prob(win): {nameD}(D):{probD}% {nameR}(R):{probR}%\n'
-        'VS: D:{vsD}% R:{vsR}% ({margin_leader}+{margin})'
-    ).format(**status, seat=seat.upper())
+    return '{seat}\nProb(win): {nameD}(D):{probD}% {nameR}(R):{probR}% ({margin_leader}+{margin})'.format(
+        **status, seat=seat.upper())
 
 
 def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
@@ -150,9 +145,7 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
 
     expression_choice = _CONFIG['forecasts_seats'].get('expression', '_deluxe')
     data = pd.read_csv(data_filepath, usecols=[
-        'district', 'expression', 'name_D1', 'name_R1', 'winner_Dparty', 'winner_Rparty',
-        'voteshare_mean_D1', 'voteshare_mean_R1', 'mean_netpartymargin',
-    ])
+        'district', 'expression', 'name_D1', 'name_R1', 'winner_Dparty', 'winner_Rparty', 'mean_netpartymargin'])
     data = data[data.expression == expression_choice].drop_duplicates(subset=['district'], keep='first')
 
     current = list(filter(None, [_get_one_seat_status(

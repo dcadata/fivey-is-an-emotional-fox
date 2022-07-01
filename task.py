@@ -133,7 +133,6 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
         house='house_district_toplines_2022.csv',
         governor='governor_state_toplines_2022.csv',
     )[chamber]
-
     data_filepath = f'data/{data_filename}'
     url = f'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/{data_filename}'
 

@@ -155,11 +155,11 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
     return '\n'.join(current)
 
 
-def _get_polls() -> str:
+def _get_polls_from_twitter() -> str:
     if not _CONFIG['polls'].getboolean('notify'):
         return ''
 
-    response = requests.get('https://nitter.net/PollTrackerUSA/rss')
+    response = requests.get('https://nitter.net/{}/rss'.format(_CONFIG['polls']['twitter_username']))
     feed = BeautifulSoup(response.text, 'xml')
     tweets = feed.select('item')
     if not tweets:
@@ -198,11 +198,11 @@ def _get_all_fte() -> list:
 
 
 def main():
-    if messages := _get_all_fte():
-        _send_email('FTE GCB/Forecast Alert', '\n\n'.join(messages), environ['EMAIL_RECIPIENT'])
+    if fte_messages := _get_all_fte():
+        _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages), environ['EMAIL_RECIPIENT'])
 
-    if polls_message := _get_polls():
-        _send_email('Polls Alert', polls_message, environ['EMAIL_RECIPIENT'])
+    if twitter_polls_messages := _get_polls_from_twitter():
+        _send_email('Polls Alert', twitter_polls_messages, environ['EMAIL_RECIPIENT'])
 
 
 if __name__ == '__main__':

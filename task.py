@@ -119,7 +119,7 @@ def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
     if status == _read_latest().get(f'{chamber}_{seat}'):
         return ''
     _update_latest({f'{chamber}_{seat}': status})
-    return '{seat}\nProb(win): {nameD}(D):{probD}% {nameR}(R):{probR}% ({margin_leader}+{margin})'.format(
+    return '{seat}: {nameD}(D):{probD}% {nameR}(R):{probR}% ({margin_leader}+{margin})'.format(
         **status, seat=seat.upper())
 
 

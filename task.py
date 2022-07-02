@@ -109,8 +109,8 @@ def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
     seat_data = data[data.district.str.startswith(seat)].iloc[0]
     margin = seat_data.mean_netpartymargin.round(1)
     status = dict(
-        nameD=seat_data.name_D1.rsplit(None, 1)[1],
-        nameR=seat_data.name_R1.rsplit(None, 1)[1],
+        nameD=seat_data.name_D1.split(None, 1)[1],
+        nameR=seat_data.name_R1.split(None, 1)[1],
         probD=int(seat_data.winner_Dparty.round(2) * 100),
         probR=int(seat_data.winner_Rparty.round(2) * 100),
         margin=abs(margin),

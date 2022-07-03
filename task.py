@@ -156,10 +156,11 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
 
 
 def _get_polls_from_twitter() -> str:
-    if not _CONFIG['polls'].getboolean('notify'):
+    twitter_username = _CONFIG['polls'].get('twitter_username')
+    if not twitter_username:
         return ''
 
-    response = requests.get('https://nitter.net/{}/rss'.format(_CONFIG['polls']['twitter_username']))
+    response = requests.get('https://nitter.net/{}/rss'.format(twitter_username))
     feed = BeautifulSoup(response.text, 'xml')
     tweets = feed.select('item')
     if not tweets:

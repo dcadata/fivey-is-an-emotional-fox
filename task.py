@@ -58,17 +58,17 @@ def _get_gcb(session: requests.Session) -> str:
     unrounded_estimates = data.groupby('party').pct_estimate.sum()
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
-    change_since_latest = unrounded_lead - _read_latest().get('gcb', 0)
-    if abs(change_since_latest) < _CONFIG['gcb'].getfloat('threshold'):
+    change_from_previous = unrounded_lead - _read_latest().get('gcb', 0)
+    if abs(change_from_previous) < _CONFIG['gcb'].getfloat('threshold'):
         return ''
     _update_latest(dict(gcb=unrounded_lead))
 
     data.pct_estimate = data.pct_estimate.apply(lambda x: round(x, 2))
-    return 'GCB\nD:{D} R:{R}\n{leader}+{lead} (chg: {change_since_latest_gainer}+{change_since_latest})'.format(
+    return 'GCB\nD:{D} R:{R}\n{leader}+{lead} (chg: {change_gainer}+{change})'.format(
         lead=abs(round(unrounded_lead, 2)),
         leader='D' if unrounded_lead > 0 else 'R',
-        change_since_latest=abs(round(change_since_latest, 2)),
-        change_since_latest_gainer='D' if change_since_latest > 0 else 'R',
+        change=abs(round(change_from_previous, 2)),
+        change_gainer='D' if change_from_previous > 0 else 'R',
         **data.groupby('party').pct_estimate.sum(),
     )
 

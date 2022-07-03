@@ -97,12 +97,14 @@ def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
         seatsR=int(data.median_seats_Rparty),
         expression=data.expression[1:],
     )
-    if current == _read_latest().get(chamber):
+    previous = _read_latest().get(chamber)
+    if current == previous:
         return ''
     _update_latest({chamber: current})
 
-    return '{chamber} ({expression})\nControl: D:{probD}% R:{probR}%\nSeats: D:{seatsD} R:{seatsR}'.format(
-        **current, chamber=chamber.upper())
+    probD_change = (current['probD'] - previous['probD']) if previous.get('probD') else 0
+    return '{chamber} ({expression})\nControl: D:{probD}% R:{probR}% ({change_gainer}+{change}%)\nSeats: D:{seatsD} R:{seatsR}'.format(
+        chamber=chamber.upper(), change=abs(probD_change), change_gainer='D' if probD_change > 0 else 'R', **current)
 
 
 def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:

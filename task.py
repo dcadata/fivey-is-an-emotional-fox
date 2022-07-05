@@ -14,12 +14,12 @@ _CONFIG = configparser.ConfigParser()
 _CONFIG.read('config.ini')
 
 
-def _send_email(subject: str, body: str, to: str) -> None:
+def _send_email(subject: str, body: str) -> None:
     sender = environ['EMAIL_SENDER']
     msg = MIMEText(body)
     msg['Subject'] = subject
     msg['From'] = sender
-    msg['To'] = to
+    msg['To'] = environ['EMAIL_RECIPIENT']
 
     server = SMTP_SSL(host='smtp.gmail.com', port=465)
     server.login(sender, environ['EMAIL_PASSWORD'])
@@ -199,10 +199,10 @@ def _get_all_fte() -> list:
 
 def main():
     if fte_messages := _get_all_fte():
-        _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages), environ['EMAIL_RECIPIENT'])
+        _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages))
 
     if twitter_polls_messages := _get_polls_from_twitter():
-        _send_email('Polls Alert', twitter_polls_messages, environ['EMAIL_RECIPIENT'])
+        _send_email('Polls Alert', twitter_polls_messages)
 
 
 if __name__ == '__main__':

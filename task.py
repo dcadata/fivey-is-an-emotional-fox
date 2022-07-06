@@ -121,7 +121,8 @@ def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
         margin=abs(margin),
         margin_leader='D' if margin > 0 else 'R',
     )
-    if status == _read_latest().get(f'{chamber}_{seat}'):
+    latest = _read_latest().get(f'{chamber}_{seat}', {})
+    if status['probD'] == latest.get('probD') and status['probR'] == latest.get('probR'):
         return ''
     _update_latest({f'{chamber}_{seat}': status})
     return '{seat}: {nameD}(D):{probD}% {nameR}(R):{probR}% ({margin_leader}+{margin})'.format(

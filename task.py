@@ -161,7 +161,7 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
 
 
 def _get_polls_from_twitter() -> str:
-    twitter_username = _CONFIG['polls'].get('twitter_username')
+    twitter_username = _CONFIG['twitter_polls'].get('username')
     if not twitter_username:
         return ''
 
@@ -171,13 +171,13 @@ def _get_polls_from_twitter() -> str:
     if not tweets:
         return ''
 
-    previous_latest_link = _read_latest().get('polls')
+    previous_latest_link = _read_latest().get('twitter_polls')
     polls = []
     for tweet in tweets:
         if tweet.find('link').text == previous_latest_link:
             break
         title, pubdate = map(lambda x: tweet.find(x).text.strip(), ('title', 'pubDate'))
-        if re.search(_CONFIG['polls']['pattern'], title):
+        if re.search(_CONFIG['twitter_polls']['pattern'], title):
             polls.append(dict(title=title, pubdate=pubdate))
 
     _update_latest(dict(polls=tweets[0].find('link').text))

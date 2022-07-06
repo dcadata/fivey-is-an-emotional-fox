@@ -205,8 +205,10 @@ def _get_all_fte() -> list:
 
 def main():
     if fte_messages := _get_all_fte():
-        # _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages))
-        _send_text(environ['PHONE_NUMBER'], '\n\n'.join(fte_messages))
+        if environ.get('PHONE_NUMBER'):
+            _send_text(environ['PHONE_NUMBER'], '\n\n'.join(fte_messages))
+        else:
+            _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages))
 
     if twitter_polls_messages := _get_polls_from_twitter():
         _send_email('Polls Alert', twitter_polls_messages)

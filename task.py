@@ -180,7 +180,7 @@ def _get_polls_from_twitter() -> str:
         if re.search(_CONFIG['twitter_polls']['pattern'], title):
             polls.append(dict(title=title, pubdate=pubdate))
 
-    _update_latest(dict(polls=tweets[0].find('link').text))
+    _update_latest(dict(twitter_polls=tweets[0].find('link').text))
     return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 

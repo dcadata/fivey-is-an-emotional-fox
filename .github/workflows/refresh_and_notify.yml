@@ -19,6 +19,10 @@ jobs:
           EMAIL_SENDER: ${{secrets.EMAIL_SENDER}}
           EMAIL_PASSWORD: ${{secrets.EMAIL_PASSWORD}}
           EMAIL_RECIPIENT: ${{secrets.EMAIL_RECIPIENT}}
+          ACCT_SID: ${{secrets.ACCT_SID}}
+          TOKEN: ${{secrets.TOKEN}}
+          SERV_SID: ${{secrets.SERV_SID}}
+          PHONE_NUMBER: ${{secrets.PHONE_NUMBER}}
       - name: Commit and push if changed
         run: |-
           git config user.name "Actions"

@@ -9,6 +9,7 @@ from time import sleep
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from twilio.rest import Client
 
 _CONFIG = configparser.ConfigParser()
 _CONFIG.read('config.ini')
@@ -25,6 +26,11 @@ def _send_email(subject: str, body: str) -> None:
     server.login(sender, environ['EMAIL_PASSWORD'])
     server.send_message(msg)
     server.quit()
+
+
+def _send_text(to: str, body: str) -> None:
+    client = Client(environ['ACCT_SID'], environ['TOKEN'])
+    client.messages.create(to=to, body=body, messaging_service_sid=environ['SERV_SID'])
 
 
 def _read_latest() -> dict:
@@ -199,7 +205,8 @@ def _get_all_fte() -> list:
 
 def main():
     if fte_messages := _get_all_fte():
-        _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages))
+        # _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages))
+        _send_text(environ['PHONE_NUMBER'], '\n\n'.join(fte_messages))
 
     if twitter_polls_messages := _get_polls_from_twitter():
         _send_email('Polls Alert', twitter_polls_messages)

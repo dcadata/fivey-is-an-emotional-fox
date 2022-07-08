@@ -70,29 +70,5 @@
     "margin": 6.9,
     "margin_leader": "D"
   },
-  "governor_GA": {
-    "nameD": "Abrams",
-    "nameR": "Kemp",
-    "probD": 13,
-    "probR": 87,
-    "margin": 7.7,
-    "margin_leader": "R"
-  },
-  "governor_KS": {
-    "nameD": "Kelly",
-    "nameR": "Schmidt",
-    "probD": 46,
-    "probR": 54,
-    "margin": 0.7,
-    "margin_leader": "R"
-  },
-  "governor_FL": {
-    "nameD": "Crist",
-    "nameR": "DeSantis",
-    "probD": 6,
-    "probR": 94,
-    "margin": 11.2,
-    "margin_leader": "R"
-  },
   "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1545503586028851200#m"
 }

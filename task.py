@@ -41,7 +41,7 @@ def _read_latest() -> dict:
 def _update_latest(new_data: dict) -> None:
     data_from_file = _read_latest()
     data_from_file.update(new_data)
-    json.dump(data_from_file, open('data/latest.json', 'w'), indent=4)
+    json.dump(data_from_file, open('data/latest.json', 'w'), indent=2)
 
 
 def _get_gcb(session: requests.Session) -> str:

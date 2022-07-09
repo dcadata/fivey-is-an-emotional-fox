@@ -234,7 +234,7 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
 
     lines = [_get_matching_gcb_polls_for_one_row(full_data, unseen_row[1]) for unseen_row in unseen_data.iterrows()]
     match_col_names = ('Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)')
-    lines.append('"Previous" poll must match on {}'.format(', '.join(match_col_names)))
+    lines.append('Matched poll must match on {}'.format(', '.join(match_col_names)))
     return '\n\n'.join(lines)
 
 

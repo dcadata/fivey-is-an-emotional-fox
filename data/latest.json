@@ -1,8 +1,8 @@
 {
   "gcb": -1.7768680000000003,
   "senate": {
-    "probD": 57,
-    "probR": 42,
+    "probD": 59,
+    "probR": 41,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "classic"
@@ -17,9 +17,9 @@
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Meijer",
-    "probD": 12,
-    "probR": 88,
-    "margin": 9.4,
+    "probD": 11,
+    "probR": 89,
+    "margin": 9.5,
     "margin_leader": "R"
   },
   "house_MI-10": {
@@ -70,5 +70,5 @@
     "margin": 6.9,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1545503586028851200#m"
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1545551590341369857#m"
 }

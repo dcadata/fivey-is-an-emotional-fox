@@ -185,7 +185,60 @@ def _get_polls_from_twitter() -> str:
     return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 
-def _get_all_fte() -> list:
+def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.Series) -> str:
+    data = full_data.copy()
+    for match_col in ('pollster_id', 'sponsor_ids', 'methodology', 'population'):
+        data = data[data[match_col] == unseen_row[match_col]].copy()
+
+    data.fte_grade = data.fte_grade.fillna('Unrated')
+    data.population = data.population.apply(lambda x: x.upper())
+    data['margin'] = (data.dem - data.rep).round(1)
+    data['leader_margin'] = data.margin.apply(lambda x: f'{"D" if x > 0 else "R"}+{abs(x)}')
+    data = data.iloc[:2]
+    records = data.to_dict('records')
+    change = data.margin.iloc[1] - data.margin.iloc[0]
+
+    lines = [
+        'Pollster: {display_name} | Grade: {fte_grade} | Method: {methodology}\nSponsor(s): {sponsors}'.format(
+            **records[0]),
+        *[
+            '{start_date}-{end_date} ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin} [[details]({url})]'.format(
+                **record) for record in records
+        ],
+        'Change: {gainer}+{change}'.format(change=abs(change), gainer='R' if change > 0 else 'D'),
+    ]
+    return '\n'.join(lines)
+
+
+def _get_matching_gcb_polls(session: requests.Session) -> str:
+    data_filepath = 'data/generic_ballot_polls.csv'
+    url = 'https://projects.fivethirtyeight.com/polls/data/generic_ballot_polls.csv'
+
+    existing_content = open(data_filepath, 'rb').read()
+    new_content = session.get(url).content
+    if existing_content == new_content:
+        return ''
+    seen_poll_ids = pd.read_csv(data_filepath).poll_id.unique()
+    open(data_filepath, 'wb').write(new_content)
+    full_data = pd.read_csv(data_filepath)
+
+    full_data = full_data.dropna(subset=['pollster_id', 'display_name'])
+    for col in ('methodology', 'population'):
+        full_data[col] = full_data[col].fillna('Not Specified')
+    for col in ('sponsor_ids', 'sponsors'):
+        full_data[col] = full_data[col].fillna('No Sponsor')
+
+    unseen_data = full_data[~full_data.poll_id.isin(seen_poll_ids)].copy()
+    if not len(unseen_data):
+        return ''
+
+    lines = [_get_matching_gcb_polls_for_one_row(full_data, unseen_row[1]) for unseen_row in unseen_data.iterrows()]
+    match_col_names = ('Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)')
+    lines.append('"Previous" poll must match on {}'.format(', '.join(match_col_names)))
+    return '\n\n'.join(lines)
+
+
+def _get_fte_messages(session: requests.Session) -> list:
     funcs = (
         _get_gcb,
         lambda x: _get_chamber_forecast(x, 'senate'),
@@ -194,22 +247,27 @@ def _get_all_fte() -> list:
         lambda x: _get_seat_forecasts(x, 'house'),
         lambda x: _get_seat_forecasts(x, 'governor'),
     )
-    session = requests.Session()
     messages = []
     for func in funcs:
         if message := func(session):
             messages.append(message)
         sleep(1)
-    session.close()
     return messages
 
 
 def main():
-    if fte_messages := _get_all_fte():
+    session = requests.Session()
+
+    if fte_messages := _get_fte_messages(session):
         if environ.get('PHONE_NUMBER'):
             _send_text('\n\n'.join(fte_messages))
         else:
             _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages))
+
+    if matching_gcb_polls_message := _get_matching_gcb_polls(session):
+        _send_email('FTE GCB Poll Alert', matching_gcb_polls_message)
+
+    session.close()
 
     if twitter_polls_messages := _get_polls_from_twitter():
         _send_email('Polls Alert', twitter_polls_messages)

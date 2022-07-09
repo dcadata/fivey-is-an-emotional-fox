@@ -194,7 +194,7 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
     data.population = data.population.apply(lambda x: x.upper())
     data['margin'] = (data.dem - data.rep).round(1)
     data['leader_margin'] = data.margin.apply(lambda x: f'{"D" if x > 0 else "R"}+{abs(x)}')
-    data = data.iloc[:2]
+    data = data.iloc[:2].assign(order=('Recent', 'Previous'))
     records = data.to_dict('records')
     change = data.margin.iloc[1] - data.margin.iloc[0]
 
@@ -202,7 +202,7 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
         'Pollster: {display_name} | Grade: {fte_grade} | Method: {methodology}\nSponsor(s): {sponsors}'.format(
             **records[0]),
         *[
-            '{start_date}-{end_date} ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin} [[details]({url})]'.format(
+            '{order}: {start_date}-{end_date} ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin} | [details]({url})'.format(
                 **record) for record in records
         ],
         'Change: {gainer}+{change}'.format(change=abs(change), gainer='R' if change > 0 else 'D'),
@@ -232,9 +232,9 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     if not len(unseen_data):
         return ''
 
-    lines = [_get_matching_gcb_polls_for_one_row(full_data, unseen_row[1]) for unseen_row in unseen_data.iterrows()]
+    lines = [_get_matching_gcb_polls_for_one_row(full_data, unseen_row) for _, unseen_row in unseen_data.iterrows()]
     match_col_names = ('Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)')
-    lines.append('Matched poll must match on {}'.format(', '.join(match_col_names)))
+    lines.append('Matched poll must match on {0}'.format(', '.join(match_col_names)))
     return '\n\n'.join(lines)
 
 

@@ -10,15 +10,15 @@
   "house": {
     "probD": 13,
     "probR": 87,
-    "seatsD": 196,
-    "seatsR": 239,
+    "seatsD": 197,
+    "seatsR": 238,
     "expression": "classic"
   },
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Meijer",
-    "probD": 11,
-    "probR": 89,
+    "probD": 12,
+    "probR": 88,
     "margin": 9.5,
     "margin_leader": "R"
   },
@@ -57,8 +57,8 @@
   "governor_WI": {
     "nameD": "Evers",
     "nameR": "Kleefisch",
-    "probD": 75,
-    "probR": 25,
+    "probD": 76,
+    "probR": 24,
     "margin": 5.3,
     "margin_leader": "D"
   },

@@ -1,5 +1,5 @@
 {
-  "gcb": -1.9910560000000004,
+  "gcb": -2.0202390000000037,
   "senate": {
     "probD": 57,
     "probR": 42,
@@ -8,8 +8,8 @@
     "expression": "classic"
   },
   "house": {
-    "probD": 13,
-    "probR": 87,
+    "probD": 12,
+    "probR": 88,
     "seatsD": 196,
     "seatsR": 239,
     "expression": "classic"
@@ -70,5 +70,5 @@
     "margin": 6.9,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1546502499028312064#m"
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1546538619363540992#m"
 }

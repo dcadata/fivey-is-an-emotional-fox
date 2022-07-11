@@ -1,8 +1,8 @@
 {
   "gcb": -1.7646530000000027,
   "senate": {
-    "probD": 59,
-    "probR": 41,
+    "probD": 57,
+    "probR": 42,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "classic"
@@ -10,8 +10,8 @@
   "house": {
     "probD": 13,
     "probR": 87,
-    "seatsD": 197,
-    "seatsR": 238,
+    "seatsD": 196,
+    "seatsR": 239,
     "expression": "classic"
   },
   "house_MI-3": {

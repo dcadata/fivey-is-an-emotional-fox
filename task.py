@@ -187,10 +187,9 @@ def _get_polls_from_twitter() -> str:
 
 def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.Series) -> str:
     data = full_data.copy()
-    for match_col in ('pollster_id', 'sponsor_ids', 'methodology', 'population'):
+    for match_col in ('pollster_id', 'sponsor_ids', 'methodology', 'population', 'internal', 'partisan'):
         data = data[data[match_col] == unseen_row[match_col]].copy()
 
-    data.fte_grade = data.fte_grade.fillna('Unrated')
     data.population = data.population.apply(lambda x: x.upper())
     data['margin'] = (data.dem - data.rep).round(1)
     data['leader_margin'] = data.margin.apply(lambda x: f'{"D" if x > 0 else "R"}+{abs(x)}')
@@ -202,7 +201,7 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
     change = data.margin.iloc[1] - data.margin.iloc[0]
 
     lines = [
-        'Pollster: {display_name} | Grade: {fte_grade} | Method: {methodology}\nSponsor(s): {sponsors}'.format(
+        'Pollster: {display_name} | Grade: {fte_grade} | Method: {methodology}\nSponsor(s): {sponsors} | Partisan: {partisan} | Internal: {internal}'.format(
             **records[0]),
         *[
             '{order}: {start_date}-{end_date} ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin} | [details]({url})'.format(
@@ -230,13 +229,18 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
         full_data[col] = full_data[col].fillna('Not Specified')
     for col in ('sponsor_ids', 'sponsors'):
         full_data[col] = full_data[col].fillna('No Sponsor')
+    full_data.internal = full_data.internal.fillna(False)
+    full_data.partisan = full_data.partisan.fillna('No')
+    full_data.fte_grade = full_data.fte_grade.fillna('Unrated')
 
     unseen_data = full_data[~full_data.poll_id.isin(seen_poll_ids)].copy()
     if not len(unseen_data):
         return ''
 
     lines = [_get_matching_gcb_polls_for_one_row(full_data, unseen_row) for _, unseen_row in unseen_data.iterrows()]
-    match_col_names = ('Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)')
+    match_col_names = (
+        'Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)', 'Partisan/Internal',
+    )
     lines.append('Matched poll must match on {0}'.format(', '.join(match_col_names)))
     return '\n\n'.join(filter(None, lines))
 

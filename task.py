@@ -194,7 +194,10 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
     data.population = data.population.apply(lambda x: x.upper())
     data['margin'] = (data.dem - data.rep).round(1)
     data['leader_margin'] = data.margin.apply(lambda x: f'{"D" if x > 0 else "R"}+{abs(x)}')
-    data = data.iloc[:2].assign(order=('Recent', 'Previous'))
+    try:
+        data = data.iloc[:2].assign(order=('Recent', 'Previous'))
+    except ValueError:  # if len(data) < 2, length of assigned won't match
+        return ''
     records = data.to_dict('records')
     change = data.margin.iloc[1] - data.margin.iloc[0]
 

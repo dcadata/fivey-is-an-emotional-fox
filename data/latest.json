@@ -1,5 +1,5 @@
 {
-  "gcb": -1.7646530000000027,
+  "gcb": -1.9910560000000004,
   "senate": {
     "probD": 57,
     "probR": 42,
@@ -57,9 +57,9 @@
   "governor_WI": {
     "nameD": "Evers",
     "nameR": "Kleefisch",
-    "probD": 76,
-    "probR": 24,
-    "margin": 5.3,
+    "probD": 75,
+    "probR": 25,
+    "margin": 5.2,
     "margin_leader": "D"
   },
   "governor_MN": {

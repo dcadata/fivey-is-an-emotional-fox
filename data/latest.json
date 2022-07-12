@@ -1,8 +1,8 @@
 {
-  "gcb": -2.0202390000000037,
+  "gcb": -2.079414,
   "senate": {
-    "probD": 57,
-    "probR": 42,
+    "probD": 56,
+    "probR": 43,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "classic"
@@ -10,16 +10,16 @@
   "house": {
     "probD": 12,
     "probR": 88,
-    "seatsD": 196,
-    "seatsR": 239,
+    "seatsD": 195,
+    "seatsR": 240,
     "expression": "classic"
   },
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Meijer",
-    "probD": 12,
-    "probR": 88,
-    "margin": 9.5,
+    "probD": 11,
+    "probR": 89,
+    "margin": 9.8,
     "margin_leader": "R"
   },
   "house_MI-10": {
@@ -33,9 +33,9 @@
   "house_MI-11": {
     "nameD": "Stevens",
     "nameR": "DenOtter",
-    "probD": 85,
-    "probR": 15,
-    "margin": 8.6,
+    "probD": 84,
+    "probR": 16,
+    "margin": 8.2,
     "margin_leader": "D"
   },
   "governor_MI": {
@@ -65,10 +65,10 @@
   "governor_MN": {
     "nameD": "Walz",
     "nameR": "Jensen",
-    "probD": 81,
-    "probR": 19,
-    "margin": 6.9,
+    "probD": 80,
+    "probR": 20,
+    "margin": 6.6,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1546666196086530048#m"
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1546870604208504832#m"
 }

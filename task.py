@@ -277,7 +277,7 @@ def main():
     session.close()
 
     if twitter_polls_messages := _get_polls_from_twitter():
-        _send_email('Polls Alert', twitter_polls_messages)
+        _send_email('Twitter Polls Alert', twitter_polls_messages)
 
 
 if __name__ == '__main__':

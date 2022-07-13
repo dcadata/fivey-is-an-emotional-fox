@@ -1,5 +1,5 @@
 {
-  "gcb": -1.9434590000000043,
+  "gcb": -1.9110490000000055,
   "senate": {
     "probD": 57,
     "probR": 42,
@@ -17,9 +17,9 @@
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Meijer",
-    "probD": 11,
-    "probR": 89,
-    "margin": 9.8,
+    "probD": 12,
+    "probR": 88,
+    "margin": 9.6,
     "margin_leader": "R"
   },
   "house_MI-10": {
@@ -41,9 +41,9 @@
   "governor_MI": {
     "nameD": "Whitmer",
     "nameR": "Kelley",
-    "probD": 97,
-    "probR": 3,
-    "margin": 18.3,
+    "probD": 98,
+    "probR": 2,
+    "margin": 15.0,
     "margin_leader": "D"
   },
   "governor_PA": {
@@ -57,9 +57,9 @@
   "governor_WI": {
     "nameD": "Evers",
     "nameR": "Kleefisch",
-    "probD": 75,
-    "probR": 25,
-    "margin": 5.2,
+    "probD": 76,
+    "probR": 24,
+    "margin": 5.3,
     "margin_leader": "D"
   },
   "governor_MN": {
@@ -70,5 +70,5 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547239544948490241#m"
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547256463445352448#m"
 }

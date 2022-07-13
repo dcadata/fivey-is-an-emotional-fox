@@ -213,6 +213,9 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
 
 
 def _get_matching_gcb_polls(session: requests.Session) -> str:
+    if not _CONFIG['gcb'].getboolean('notify_with_matching_polls'):
+        return ''
+
     data_filepath = 'data/generic_ballot_polls.csv'
     url = 'https://projects.fivethirtyeight.com/polls/data/generic_ballot_polls.csv'
 

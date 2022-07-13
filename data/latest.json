@@ -1,8 +1,8 @@
 {
   "gcb": -1.9110490000000055,
   "senate": {
-    "probD": 57,
-    "probR": 42,
+    "probD": 59,
+    "probR": 41,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "classic"
@@ -49,9 +49,9 @@
   "governor_PA": {
     "nameD": "Shapiro",
     "nameR": "Mastriano",
-    "probD": 75,
-    "probR": 25,
-    "margin": 4.9,
+    "probD": 76,
+    "probR": 24,
+    "margin": 4.8,
     "margin_leader": "D"
   },
   "governor_WI": {

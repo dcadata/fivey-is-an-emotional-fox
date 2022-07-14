@@ -1,8 +1,8 @@
 {
   "gcb": -1.9110490000000055,
   "senate": {
-    "probD": 59,
-    "probR": 41,
+    "probD": 57,
+    "probR": 42,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "classic"
@@ -49,8 +49,8 @@
   "governor_PA": {
     "nameD": "Shapiro",
     "nameR": "Mastriano",
-    "probD": 76,
-    "probR": 24,
+    "probD": 75,
+    "probR": 25,
     "margin": 4.8,
     "margin_leader": "D"
   },
@@ -70,5 +70,5 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547256463445352448#m"
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547391502678114304#m"
 }

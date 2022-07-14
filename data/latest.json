@@ -1,8 +1,8 @@
 {
   "gcb": -1.9110490000000055,
   "senate": {
-    "probD": 57,
-    "probR": 42,
+    "probD": 59,
+    "probR": 41,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "classic"
@@ -33,8 +33,8 @@
   "house_MI-11": {
     "nameD": "Stevens",
     "nameR": "DenOtter",
-    "probD": 86,
-    "probR": 14,
+    "probD": 85,
+    "probR": 15,
     "margin": 8.5,
     "margin_leader": "D"
   },
@@ -70,5 +70,5 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547391502678114304#m"
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547585373181644801#m"
 }

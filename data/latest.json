@@ -1,15 +1,15 @@
 {
   "gcb": -1.7587240000000008,
   "senate": {
-    "probD": 59,
-    "probR": 41,
+    "probD": 60,
+    "probR": 40,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "classic"
   },
   "house": {
-    "probD": 12,
-    "probR": 88,
+    "probD": 13,
+    "probR": 87,
     "seatsD": 197,
     "seatsR": 238,
     "expression": "classic"
@@ -33,8 +33,8 @@
   "house_MI-11": {
     "nameD": "Stevens",
     "nameR": "DenOtter",
-    "probD": 86,
-    "probR": 14,
+    "probD": 85,
+    "probR": 15,
     "margin": 8.6,
     "margin_leader": "D"
   },
@@ -49,9 +49,9 @@
   "governor_PA": {
     "nameD": "Shapiro",
     "nameR": "Mastriano",
-    "probD": 75,
-    "probR": 25,
-    "margin": 4.8,
+    "probD": 76,
+    "probR": 24,
+    "margin": 4.9,
     "margin_leader": "D"
   },
   "governor_WI": {

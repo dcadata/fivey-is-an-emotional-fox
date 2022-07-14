@@ -1,17 +1,17 @@
 {
   "gcb": -1.7587240000000008,
   "senate": {
-    "probD": 60,
-    "probR": 40,
+    "probD": 59,
+    "probR": 41,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "classic"
   },
   "house": {
-    "probD": 12,
-    "probR": 88,
-    "seatsD": 196,
-    "seatsR": 239,
+    "probD": 13,
+    "probR": 87,
+    "seatsD": 197,
+    "seatsR": 238,
     "expression": "classic"
   },
   "house_MI-3": {
@@ -33,17 +33,17 @@
   "house_MI-11": {
     "nameD": "Stevens",
     "nameR": "DenOtter",
-    "probD": 85,
-    "probR": 15,
-    "margin": 8.5,
+    "probD": 86,
+    "probR": 14,
+    "margin": 8.6,
     "margin_leader": "D"
   },
   "governor_MI": {
     "nameD": "Whitmer",
     "nameR": "Kelley",
-    "probD": 98,
-    "probR": 2,
-    "margin": 15.0,
+    "probD": 97,
+    "probR": 3,
+    "margin": 14.9,
     "margin_leader": "D"
   },
   "governor_PA": {

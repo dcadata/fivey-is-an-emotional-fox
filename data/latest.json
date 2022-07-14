@@ -8,8 +8,8 @@
     "expression": "classic"
   },
   "house": {
-    "probD": 12,
-    "probR": 88,
+    "probD": 13,
+    "probR": 87,
     "seatsD": 196,
     "seatsR": 239,
     "expression": "classic"
@@ -33,9 +33,9 @@
   "house_MI-11": {
     "nameD": "Stevens",
     "nameR": "DenOtter",
-    "probD": 85,
-    "probR": 15,
-    "margin": 8.3,
+    "probD": 86,
+    "probR": 14,
+    "margin": 8.5,
     "margin_leader": "D"
   },
   "governor_MI": {

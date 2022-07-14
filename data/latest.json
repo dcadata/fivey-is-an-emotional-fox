@@ -8,8 +8,8 @@
     "expression": "classic"
   },
   "house": {
-    "probD": 13,
-    "probR": 87,
+    "probD": 12,
+    "probR": 88,
     "seatsD": 197,
     "seatsR": 238,
     "expression": "classic"
@@ -41,8 +41,8 @@
   "governor_MI": {
     "nameD": "Whitmer",
     "nameR": "Kelley",
-    "probD": 97,
-    "probR": 3,
+    "probD": 98,
+    "probR": 2,
     "margin": 14.9,
     "margin_leader": "D"
   },

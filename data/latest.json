@@ -70,5 +70,61 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547776776092336129#m"
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547776776092336129#m",
+  "senate_PA": {
+    "nameD": "Fetterman",
+    "nameR": "Oz",
+    "probD": 65,
+    "probR": 35,
+    "margin": 2.8,
+    "margin_leader": "D"
+  },
+  "senate_WI": {
+    "nameD": "Barnes",
+    "nameR": "Johnson",
+    "probD": 34,
+    "probR": 66,
+    "margin": 3.3,
+    "margin_leader": "R"
+  },
+  "senate_AZ": {
+    "nameD": "Kelly",
+    "nameR": "Masters",
+    "probD": 68,
+    "probR": 32,
+    "margin": 4.0,
+    "margin_leader": "D"
+  },
+  "senate_GA": {
+    "nameD": "Warnock",
+    "nameR": "Walker",
+    "probD": 52,
+    "probR": 48,
+    "margin": 0.9,
+    "margin_leader": "D"
+  },
+  "senate_NH": {
+    "nameD": "Hassan",
+    "nameR": "Bolduc",
+    "probD": 72,
+    "probR": 28,
+    "margin": 4.9,
+    "margin_leader": "D"
+  },
+  "senate_NV": {
+    "nameD": "Masto",
+    "nameR": "Laxalt",
+    "probD": 57,
+    "probR": 42,
+    "margin": 1.5,
+    "margin_leader": "D"
+  },
+  "senate_OH": {
+    "nameD": "Ryan",
+    "nameR": "Vance",
+    "probD": 31,
+    "probR": 69,
+    "margin": 4.0,
+    "margin_leader": "R"
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "gcb": -1.7721890000000045,
+  "gcb": -1.7918579999999977,
   "senate": {
     "probD": 60,
     "probR": 40,
@@ -10,24 +10,24 @@
   "house": {
     "probD": 13,
     "probR": 87,
-    "seatsD": 196,
-    "seatsR": 239,
+    "seatsD": 197,
+    "seatsR": 238,
     "expression": "classic"
   },
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Meijer",
-    "probD": 12,
-    "probR": 88,
-    "margin": 9.6,
+    "probD": 13,
+    "probR": 87,
+    "margin": 9.4,
     "margin_leader": "R"
   },
   "house_MI-10": {
     "nameD": "Marlinga",
     "nameR": "James",
-    "probD": 20,
-    "probR": 80,
-    "margin": 6.7,
+    "probD": 21,
+    "probR": 79,
+    "margin": 6.5,
     "margin_leader": "R"
   },
   "house_MI-11": {
@@ -41,8 +41,8 @@
   "governor_MI": {
     "nameD": "Whitmer",
     "nameR": "Kelley",
-    "probD": 97,
-    "probR": 3,
+    "probD": 98,
+    "probR": 2,
     "margin": 14.9,
     "margin_leader": "D"
   },

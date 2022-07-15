@@ -33,16 +33,16 @@
   "house_MI-11": {
     "nameD": "Stevens",
     "nameR": "DenOtter",
-    "probD": 85,
-    "probR": 15,
-    "margin": 8.6,
+    "probD": 86,
+    "probR": 14,
+    "margin": 8.5,
     "margin_leader": "D"
   },
   "governor_MI": {
     "nameD": "Whitmer",
     "nameR": "Kelley",
-    "probD": 98,
-    "probR": 2,
+    "probD": 97,
+    "probR": 3,
     "margin": 14.9,
     "margin_leader": "D"
   },

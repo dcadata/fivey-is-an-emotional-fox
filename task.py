@@ -103,11 +103,11 @@ def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
         seatsR=int(data.median_seats_Rparty),
         expression=data.expression[1:],
     )
-    latest = _read_latest().get(chamber)
-    if current == latest:
-        return ''
-    threshold = _CONFIG['forecasts_national'].getfloat('threshold')
     try:
+        latest = _read_latest()[chamber]
+        if current == latest:
+            return ''
+        threshold = _CONFIG['forecasts_national'].getfloat('threshold')
         if threshold and threshold > abs(current['probD'] - latest['probD']):
             return ''
     except KeyError:
@@ -120,7 +120,7 @@ def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
 def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
     seat_data = data[data.district.str.startswith(seat)].iloc[0]
     margin = seat_data.mean_netpartymargin.round(1)
-    status = dict(
+    current = dict(
         nameD=seat_data.name_D1.rsplit(None, 1)[1],
         nameR=seat_data.name_R1.rsplit(None, 1)[1],
         probD=int(seat_data.winner_Dparty.round(2) * 100),
@@ -128,12 +128,15 @@ def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
         margin=abs(margin),
         margin_leader='D' if margin > 0 else 'R',
     )
-    latest = _read_latest().get(f'{chamber}_{seat}', {})
-    if status['probD'] == latest.get('probD') and status['probR'] == latest.get('probR'):
-        return ''
-    _update_latest({f'{chamber}_{seat}': status})
+    try:
+        latest = _read_latest()[f'{chamber}_{seat}']
+        if current['probD'] == latest['probD']:
+            return ''
+    except KeyError:
+        pass
+    _update_latest({f'{chamber}_{seat}': current})
     return '{seat}: {nameD}(D):{probD}% {nameR}(R):{probR}% ({margin_leader}+{margin})'.format(
-        **status, seat=seat.upper())
+        **current, seat=seat.upper())
 
 
 def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:

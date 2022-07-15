@@ -132,6 +132,9 @@ def _get_one_seat_status(data: pd.DataFrame, chamber: str, seat: str) -> str:
         latest = _read_latest()[f'{chamber}_{seat}']
         if current['probD'] == latest['probD']:
             return ''
+        threshold = _CONFIG['forecasts_seats'].getfloat('threshold')
+        if threshold and threshold > abs(current['probD'] - latest['probD']):
+            return ''
     except KeyError:
         pass
     _update_latest({f'{chamber}_{seat}': current})

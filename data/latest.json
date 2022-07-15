@@ -10,8 +10,8 @@
   "house": {
     "probD": 13,
     "probR": 87,
-    "seatsD": 197,
-    "seatsR": 238,
+    "seatsD": 196,
+    "seatsR": 239,
     "expression": "classic"
   },
   "house_MI-3": {
@@ -49,8 +49,8 @@
   "governor_PA": {
     "nameD": "Shapiro",
     "nameR": "Mastriano",
-    "probD": 76,
-    "probR": 24,
+    "probD": 75,
+    "probR": 25,
     "margin": 4.9,
     "margin_leader": "D"
   },
@@ -70,5 +70,5 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547594771866144768#m"
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1547776776092336129#m"
 }

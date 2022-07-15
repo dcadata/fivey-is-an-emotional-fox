@@ -103,8 +103,13 @@ def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
         seatsR=int(data.median_seats_Rparty),
         expression=data.expression[1:],
     )
-    if current == _read_latest().get(chamber):
+    latest = _read_latest().get(chamber)
+    if current == latest:
         return ''
+    if latest:
+        threshold = _CONFIG['forecasts_national'].getfloat('threshold')
+        if threshold and threshold > abs(current['probD'] - latest['probD']):
+            return ''
     _update_latest({chamber: current})
     return '{chamber} ({expression})\nControl: D:{probD}% R:{probR}%\nSeats: D:{seatsD} R:{seatsR}'.format(
         chamber=chamber.upper(), **current)

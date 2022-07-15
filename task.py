@@ -106,10 +106,12 @@ def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
     latest = _read_latest().get(chamber)
     if current == latest:
         return ''
-    if latest:
-        threshold = _CONFIG['forecasts_national'].getfloat('threshold')
+    threshold = _CONFIG['forecasts_national'].getfloat('threshold')
+    try:
         if threshold and threshold > abs(current['probD'] - latest['probD']):
             return ''
+    except KeyError:
+        pass
     _update_latest({chamber: current})
     return '{chamber} ({expression})\nControl: D:{probD}% R:{probR}%\nSeats: D:{seatsD} R:{seatsR}'.format(
         chamber=chamber.upper(), **current)

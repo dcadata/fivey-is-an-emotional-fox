@@ -70,7 +70,7 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1550218284217278464#m",
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1550232634743312384#m",
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
@@ -98,9 +98,9 @@
   "senate_GA": {
     "nameD": "Warnock",
     "nameR": "Walker",
-    "probD": 52,
-    "probR": 48,
-    "margin": 0.9,
+    "probD": 54,
+    "probR": 46,
+    "margin": 1.1,
     "margin_leader": "D"
   },
   "senate_NH": {
@@ -114,8 +114,8 @@
   "senate_NV": {
     "nameD": "Masto",
     "nameR": "Laxalt",
-    "probD": 59,
-    "probR": 41,
+    "probD": 57,
+    "probR": 42,
     "margin": 1.7,
     "margin_leader": "D"
   },

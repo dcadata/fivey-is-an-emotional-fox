@@ -114,8 +114,8 @@
   "senate_NV": {
     "nameD": "Masto",
     "nameR": "Laxalt",
-    "probD": 59,
-    "probR": 41,
+    "probD": 57,
+    "probR": 42,
     "margin": 1.6,
     "margin_leader": "D"
   },

@@ -1,5 +1,5 @@
 {
-  "gcb": -1.3476220000000012,
+  "gcb": -1.139403999999999,
   "senate": {
     "probD": 60,
     "probR": 40,
@@ -8,10 +8,10 @@
     "expression": "classic"
   },
   "house": {
-    "probD": 13,
-    "probR": 87,
-    "seatsD": 197,
-    "seatsR": 238,
+    "probD": 15,
+    "probR": 85,
+    "seatsD": 199,
+    "seatsR": 236,
     "expression": "classic"
   },
   "house_MI-3": {
@@ -57,9 +57,9 @@
   "governor_WI": {
     "nameD": "Evers",
     "nameR": "Kleefisch",
-    "probD": 76,
-    "probR": 24,
-    "margin": 5.3,
+    "probD": 78,
+    "probR": 22,
+    "margin": 5.8,
     "margin_leader": "D"
   },
   "governor_MN": {
@@ -90,9 +90,9 @@
   "senate_AZ": {
     "nameD": "Kelly",
     "nameR": "Masters",
-    "probD": 68,
-    "probR": 32,
-    "margin": 4.0,
+    "probD": 70,
+    "probR": 30,
+    "margin": 4.3,
     "margin_leader": "D"
   },
   "senate_GA": {
@@ -106,17 +106,17 @@
   "senate_NH": {
     "nameD": "Hassan",
     "nameR": "Bolduc",
-    "probD": 72,
-    "probR": 28,
-    "margin": 4.9,
+    "probD": 74,
+    "probR": 26,
+    "margin": 5.3,
     "margin_leader": "D"
   },
   "senate_NV": {
     "nameD": "Masto",
     "nameR": "Laxalt",
-    "probD": 57,
-    "probR": 42,
-    "margin": 1.6,
+    "probD": 59,
+    "probR": 41,
+    "margin": 1.7,
     "margin_leader": "D"
   },
   "senate_OH": {

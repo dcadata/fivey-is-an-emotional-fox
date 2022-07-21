@@ -1,5 +1,5 @@
 {
-  "gcb": -1.4475229999999968,
+  "gcb": -1.3476220000000012,
   "senate": {
     "probD": 60,
     "probR": 40,
@@ -70,7 +70,7 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1549763795135987712#m",
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1549944828175290368#m",
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
@@ -114,9 +114,9 @@
   "senate_NV": {
     "nameD": "Masto",
     "nameR": "Laxalt",
-    "probD": 57,
-    "probR": 42,
-    "margin": 1.5,
+    "probD": 59,
+    "probR": 41,
+    "margin": 1.6,
     "margin_leader": "D"
   },
   "senate_OH": {

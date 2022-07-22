@@ -1,8 +1,8 @@
 {
-  "gcb": -1.139403999999999,
+  "gcb": -0.9237499999999983,
   "senate": {
-    "probD": 60,
-    "probR": 40,
+    "probD": 62,
+    "probR": 38,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "classic"

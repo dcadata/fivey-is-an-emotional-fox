@@ -70,7 +70,7 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/Politics_Polls/status/1550142286566227969#m",
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1550520283987120132#m",
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
@@ -122,9 +122,9 @@
   "senate_OH": {
     "nameD": "Ryan",
     "nameR": "Vance",
-    "probD": 31,
-    "probR": 69,
-    "margin": 4.0,
+    "probD": 33,
+    "probR": 67,
+    "margin": 3.6,
     "margin_leader": "R"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "gcb": -1.0660319999999999,
+  "gcb": -1.0550849999999983,
   "senate": {
     "probD": 62,
     "probR": 38,
@@ -70,7 +70,7 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1551603673591169024#m",
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1551670873265930244#m",
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",

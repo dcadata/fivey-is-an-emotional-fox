@@ -70,7 +70,7 @@
     "margin": 6.7,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1551670873265930244#m",
+  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1551765093481865216#m",
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
@@ -114,9 +114,9 @@
   "senate_NV": {
     "nameD": "Masto",
     "nameR": "Laxalt",
-    "probD": 59,
-    "probR": 41,
-    "margin": 1.7,
+    "probD": 57,
+    "probR": 42,
+    "margin": 1.8,
     "margin_leader": "D"
   },
   "senate_OH": {

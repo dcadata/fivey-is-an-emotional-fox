@@ -1,5 +1,5 @@
 {
-  "gcb": -1.0550849999999983,
+  "gcb": -1.000123000000002,
   "senate": {
     "probD": 62,
     "probR": 38,
@@ -17,9 +17,9 @@
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Meijer",
-    "probD": 13,
-    "probR": 87,
-    "margin": 9.4,
+    "probD": 15,
+    "probR": 85,
+    "margin": 8.5,
     "margin_leader": "R"
   },
   "house_MI-10": {
@@ -49,9 +49,9 @@
   "governor_PA": {
     "nameD": "Shapiro",
     "nameR": "Mastriano",
-    "probD": 77,
-    "probR": 23,
-    "margin": 5.1,
+    "probD": 83,
+    "probR": 17,
+    "margin": 6.6,
     "margin_leader": "D"
   },
   "governor_WI": {
@@ -74,9 +74,9 @@
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
-    "probD": 65,
-    "probR": 35,
-    "margin": 2.8,
+    "probD": 69,
+    "probR": 31,
+    "margin": 3.8,
     "margin_leader": "D"
   },
   "senate_WI": {

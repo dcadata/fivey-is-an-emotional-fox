@@ -1,5 +1,5 @@
 {
-  "gcb": -0.6784620000000032,
+  "gcb": -0.6256770000000031,
   "senate": {
     "probD": 62,
     "probR": 38,
@@ -8,10 +8,10 @@
     "expression": "classic"
   },
   "house": {
-    "probD": 15,
-    "probR": 85,
-    "seatsD": 199,
-    "seatsR": 236,
+    "probD": 17,
+    "probR": 83,
+    "seatsD": 200,
+    "seatsR": 235,
     "expression": "classic"
   },
   "house_MI-3": {
@@ -33,9 +33,9 @@
   "house_MI-11": {
     "nameD": "Stevens",
     "nameR": "DenOtter",
-    "probD": 86,
-    "probR": 14,
-    "margin": 8.5,
+    "probD": 88,
+    "probR": 12,
+    "margin": 9.3,
     "margin_leader": "D"
   },
   "governor_MI": {
@@ -65,12 +65,12 @@
   "governor_MN": {
     "nameD": "Walz",
     "nameR": "Jensen",
-    "probD": 81,
-    "probR": 19,
-    "margin": 6.7,
+    "probD": 83,
+    "probR": 17,
+    "margin": 7.4,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1552139170465955851#m",
+  "twitter_polls": "https://nitter.net/Politics_Polls/status/1552297019141722114#m",
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
@@ -98,9 +98,9 @@
   "senate_GA": {
     "nameD": "Warnock",
     "nameR": "Walker",
-    "probD": 49,
-    "probR": 51,
-    "margin": 0.2,
+    "probD": 52,
+    "probR": 48,
+    "margin": 0.8,
     "margin_leader": "D"
   },
   "senate_NH": {

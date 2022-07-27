@@ -1,5 +1,5 @@
 {
-  "gcb": -1.000123000000002,
+  "gcb": -0.6784620000000032,
   "senate": {
     "probD": 62,
     "probR": 38,
@@ -82,9 +82,9 @@
   "senate_WI": {
     "nameD": "Barnes",
     "nameR": "Johnson",
-    "probD": 34,
-    "probR": 66,
-    "margin": 3.3,
+    "probD": 36,
+    "probR": 64,
+    "margin": 2.7,
     "margin_leader": "R"
   },
   "senate_AZ": {
@@ -98,9 +98,9 @@
   "senate_GA": {
     "nameD": "Warnock",
     "nameR": "Walker",
-    "probD": 54,
-    "probR": 46,
-    "margin": 1.1,
+    "probD": 49,
+    "probR": 51,
+    "margin": 0.2,
     "margin_leader": "D"
   },
   "senate_NH": {

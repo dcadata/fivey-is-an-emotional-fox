@@ -1,5 +1,5 @@
 {
-  "gcb": -0.6256770000000031,
+  "gcb": -0.542034000000001,
   "senate": {
     "probD": 62,
     "probR": 38,
@@ -90,9 +90,9 @@
   "senate_AZ": {
     "nameD": "Kelly",
     "nameR": "Masters",
-    "probD": 70,
-    "probR": 30,
-    "margin": 4.3,
+    "probD": 72,
+    "probR": 28,
+    "margin": 4.7,
     "margin_leader": "D"
   },
   "senate_GA": {
@@ -106,9 +106,9 @@
   "senate_NH": {
     "nameD": "Hassan",
     "nameR": "Bolduc",
-    "probD": 74,
-    "probR": 26,
-    "margin": 5.3,
+    "probD": 76,
+    "probR": 24,
+    "margin": 5.7,
     "margin_leader": "D"
   },
   "senate_NV": {

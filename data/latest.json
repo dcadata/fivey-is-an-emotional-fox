@@ -1,10 +1,10 @@
 {
-  "gcb": -0.542034000000001,
+  "gcb": -0.6822149999999993,
   "senate": {
-    "probD": 62,
-    "probR": 38,
-    "seatsD": 50,
-    "seatsR": 50,
+    "probD": 64,
+    "probR": 36,
+    "seatsD": 51,
+    "seatsR": 49,
     "expression": "classic"
   },
   "house": {
@@ -70,7 +70,7 @@
     "margin": 7.4,
     "margin_leader": "D"
   },
-  "twitter_polls": "https://nitter.net/Politics_Polls/status/1552297019141722114#m",
+  "twitter_polls": "https://nitter.net/Politics_Polls/status/1552375379452739587#m",
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
@@ -98,9 +98,9 @@
   "senate_GA": {
     "nameD": "Warnock",
     "nameR": "Walker",
-    "probD": 52,
-    "probR": 48,
-    "margin": 0.8,
+    "probD": 56,
+    "probR": 44,
+    "margin": 1.6,
     "margin_leader": "D"
   },
   "senate_NH": {

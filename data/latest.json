@@ -1,5 +1,5 @@
 {
-  "gcb": -0.542034000000001,
+  "gcb": -0.23436799999999636,
   "senate": {
     "probD": 64,
     "probR": 36,
@@ -114,9 +114,9 @@
   "senate_NV": {
     "nameD": "Masto",
     "nameR": "Laxalt",
-    "probD": 59,
-    "probR": 41,
-    "margin": 1.8,
+    "probD": 61,
+    "probR": 39,
+    "margin": 2.1,
     "margin_leader": "D"
   },
   "senate_OH": {

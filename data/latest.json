@@ -49,17 +49,17 @@
   "governor_PA": {
     "nameD": "Shapiro",
     "nameR": "Mastriano",
-    "probD": 83,
-    "probR": 17,
-    "margin": 6.6,
+    "probD": 87,
+    "probR": 13,
+    "margin": 7.6,
     "margin_leader": "D"
   },
   "governor_WI": {
     "nameD": "Evers",
     "nameR": "Kleefisch",
-    "probD": 78,
-    "probR": 22,
-    "margin": 5.8,
+    "probD": 80,
+    "probR": 20,
+    "margin": 6.3,
     "margin_leader": "D"
   },
   "governor_MN": {
@@ -74,9 +74,9 @@
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
-    "probD": 74,
-    "probR": 26,
-    "margin": 5.1,
+    "probD": 76,
+    "probR": 24,
+    "margin": 5.6,
     "margin_leader": "D"
   },
   "senate_WI": {
@@ -90,9 +90,9 @@
   "senate_AZ": {
     "nameD": "Kelly",
     "nameR": "Masters",
-    "probD": 72,
-    "probR": 28,
-    "margin": 4.7,
+    "probD": 76,
+    "probR": 24,
+    "margin": 5.7,
     "margin_leader": "D"
   },
   "senate_GA": {
@@ -114,9 +114,9 @@
   "senate_NV": {
     "nameD": "Masto",
     "nameR": "Laxalt",
-    "probD": 61,
-    "probR": 39,
-    "margin": 2.1,
+    "probD": 63,
+    "probR": 37,
+    "margin": 2.5,
     "margin_leader": "D"
   },
   "senate_OH": {

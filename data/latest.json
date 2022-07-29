@@ -1,8 +1,8 @@
 {
   "gcb": -0.23436799999999636,
   "senate": {
-    "probD": 64,
-    "probR": 36,
+    "probD": 67,
+    "probR": 33,
     "seatsD": 51,
     "seatsR": 49,
     "expression": "classic"
@@ -74,9 +74,9 @@
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
-    "probD": 69,
-    "probR": 31,
-    "margin": 3.8,
+    "probD": 74,
+    "probR": 26,
+    "margin": 5.1,
     "margin_leader": "D"
   },
   "senate_WI": {
@@ -122,9 +122,9 @@
   "senate_OH": {
     "nameD": "Ryan",
     "nameR": "Vance",
-    "probD": 33,
-    "probR": 67,
-    "margin": 3.6,
+    "probD": 40,
+    "probR": 60,
+    "margin": 2.0,
     "margin_leader": "R"
   }
 }

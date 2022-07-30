@@ -3,7 +3,7 @@ name: Refresh and Notify
 on:
   workflow_dispatch:
   schedule:
-    - cron: '26 */2 * * *'
+    - cron: '26 * * * *'
 
 jobs:
   scheduled:

@@ -65,9 +65,9 @@
   "governor_MN": {
     "nameD": "Walz",
     "nameR": "Jensen",
-    "probD": 83,
-    "probR": 17,
-    "margin": 7.4,
+    "probD": 88,
+    "probR": 12,
+    "margin": 8.7,
     "margin_leader": "D"
   },
   "twitter_polls": "https://nitter.net/PollTrackerUSA/status/1553789692730015744#m",

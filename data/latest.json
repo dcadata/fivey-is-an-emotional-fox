@@ -74,9 +74,9 @@
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
-    "probD": 76,
-    "probR": 24,
-    "margin": 5.6,
+    "probD": 80,
+    "probR": 20,
+    "margin": 6.3,
     "margin_leader": "D"
   },
   "senate_WI": {

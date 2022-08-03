@@ -8,10 +8,10 @@
     "expression": "classic"
   },
   "house": {
-    "probD": 17,
-    "probR": 83,
-    "seatsD": 200,
-    "seatsR": 235,
+    "probD": 20,
+    "probR": 80,
+    "seatsD": 202,
+    "seatsR": 233,
     "expression": "classic"
   },
   "house_MI-3": {
@@ -25,9 +25,9 @@
   "house_MI-10": {
     "nameD": "Marlinga",
     "nameR": "James",
-    "probD": 23,
-    "probR": 77,
-    "margin": 5.8,
+    "probD": 25,
+    "probR": 75,
+    "margin": 5.2,
     "margin_leader": "R"
   },
   "house_MI-11": {

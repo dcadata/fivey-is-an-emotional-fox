@@ -282,11 +282,11 @@ def _get_fte_messages(session: requests.Session) -> list:
 def main():
     session = requests.Session()
 
-    if fte_messages := _get_fte_messages(session):
+    if fte_messages := '\n\n'.join(_get_fte_messages(session)):
         if environ.get('PHONE_NUMBER'):
-            _send_text('\n\n'.join(fte_messages))
+            _send_text(fte_messages)
         else:
-            _send_email('FTE GCB/Forecast Alert', '\n\n'.join(fte_messages))
+            _send_email('FTE GCB/Forecast Alert', fte_messages)
 
     if matching_gcb_polls_message := _get_matching_gcb_polls(session):
         _send_email('FTE GCB Poll Alert', matching_gcb_polls_message)

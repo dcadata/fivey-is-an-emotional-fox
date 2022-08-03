@@ -1,5 +1,5 @@
 {
-  "gcb": -0.26415500000000236,
+  "gcb": -0.07988399999999984,
   "senate": {
     "probD": 69,
     "probR": 31,
@@ -16,11 +16,11 @@
   },
   "house_MI-3": {
     "nameD": "Scholten",
-    "nameR": "Meijer",
-    "probD": 15,
-    "probR": 85,
-    "margin": 8.5,
-    "margin_leader": "R"
+    "nameR": "Gibbs",
+    "probD": 71,
+    "probR": 28,
+    "margin": 4.2,
+    "margin_leader": "D"
   },
   "house_MI-10": {
     "nameD": "Marlinga",
@@ -32,10 +32,10 @@
   },
   "house_MI-11": {
     "nameD": "Stevens",
-    "nameR": "DenOtter",
-    "probD": 88,
-    "probR": 12,
-    "margin": 9.3,
+    "nameR": "Ambrose",
+    "probD": 93,
+    "probR": 7,
+    "margin": 12.3,
     "margin_leader": "D"
   },
   "governor_MI": {

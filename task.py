@@ -248,6 +248,7 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     full_data.internal = full_data.internal.fillna(False)
     full_data.partisan = full_data.partisan.fillna('No')
     full_data.fte_grade = full_data.fte_grade.fillna('Unrated')
+    full_data.sample_size = full_data.sample_size.fillna(0).apply(int)
 
     unseen_data = full_data[~full_data.poll_id.isin(seen_poll_ids)].copy()
     if not len(unseen_data):

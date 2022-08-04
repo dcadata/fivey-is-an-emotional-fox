@@ -82,9 +82,9 @@
   "senate_WI": {
     "nameD": "Barnes",
     "nameR": "Johnson",
-    "probD": 36,
-    "probR": 64,
-    "margin": 2.7,
+    "probD": 38,
+    "probR": 62,
+    "margin": 2.5,
     "margin_leader": "R"
   },
   "senate_AZ": {

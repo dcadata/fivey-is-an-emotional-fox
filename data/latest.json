@@ -1,8 +1,8 @@
 {
   "gcb": -0.010913000000002171,
   "senate": {
-    "probD": 69,
-    "probR": 31,
+    "probD": 71,
+    "probR": 28,
     "seatsD": 51,
     "seatsR": 49,
     "expression": "classic"
@@ -122,9 +122,9 @@
   "senate_OH": {
     "nameD": "Ryan",
     "nameR": "Vance",
-    "probD": 40,
-    "probR": 60,
-    "margin": 2.0,
+    "probD": 44,
+    "probR": 56,
+    "margin": 1.2,
     "margin_leader": "R"
   }
 }

@@ -33,9 +33,9 @@
   "house_MI-11": {
     "nameD": "Stevens",
     "nameR": "Ambrose",
-    "probD": 93,
-    "probR": 7,
-    "margin": 12.3,
+    "probD": 95,
+    "probR": 5,
+    "margin": 13.1,
     "margin_leader": "D"
   },
   "governor_MI": {

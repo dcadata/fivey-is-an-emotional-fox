@@ -80,12 +80,7 @@ def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
 
     data_filepath = f'data/{chamber}_national_toplines_2022.csv'
     url = f'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/{chamber}_national_toplines_2022.csv'
-
-    existing_content = open(data_filepath, 'rb').read()
-    new_content = session.get(url).content
-    if existing_content == new_content:
-        return ''
-    open(data_filepath, 'wb').write(new_content)
+    open(data_filepath, 'wb').write(session.get(url).content)
 
     expression_choice = _CONFIG['forecasts_national'].get('expression', '_deluxe')
     data = pd.read_csv(data_filepath, usecols=[

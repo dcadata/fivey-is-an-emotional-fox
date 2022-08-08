@@ -13,6 +13,11 @@ from twilio.rest import Client
 
 _CONFIG = configparser.ConfigParser()
 _CONFIG.read('config.ini')
+_TOPLINE_FILENAMES = dict(
+    senate='senate_state_toplines_2022.csv',
+    house='house_district_toplines_2022.csv',
+    governor='governor_state_toplines_2022.csv',
+)
 
 
 def _send_email(subject: str, body: str) -> None:
@@ -137,11 +142,7 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
     if not seats:
         return ''
 
-    data_filename = dict(
-        senate='senate_state_toplines_2022.csv',
-        house='house_district_toplines_2022.csv',
-        governor='governor_state_toplines_2022.csv',
-    )[chamber]
+    data_filename = _TOPLINE_FILENAMES[chamber]
     data_filepath = f'data/{data_filename}'
     url = f'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/{data_filename}'
     open(data_filepath, 'wb').write(session.get(url).content)

@@ -199,16 +199,18 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
     change = data.margin.iloc[1] - data.margin.iloc[0]
 
     first_record = records[0]
-    first_line = ['Pollster: {display_name} | Grade: {fte_grade} | Method: {methodology}\nSponsor(s): {sponsors}']
+    first_line = 'Pollster: {display_name} | Grade: {fte_grade} | Method: {methodology}'
+    second_line = ['Sponsor(s): {sponsors}']
     if first_record['partisan']:
-        first_line.append('Partisan: {partisan}')
+        second_line.append('Partisan: {partisan}')
     if first_record['internal']:
-        first_line.append('Internal: {internal}')
+        second_line.append('Internal: {internal}')
 
     lines = [
         '{order}: {start_date}-{end_date} ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin} | [details]({url})'.format(
             **record) for record in records]
-    lines.insert(0, ' | '.join(first_line).format(**first_record))
+    lines.insert(0, first_line.format(**first_record))
+    lines.insert(1, ' | '.join(second_line).format(**first_record))
     lines.append('Change: {gainer}+{change}'.format(change=abs(change), gainer='R' if change > 0 else 'D'))
     return '\n'.join(lines)
 

@@ -144,12 +144,7 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
     )[chamber]
     data_filepath = f'data/{data_filename}'
     url = f'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/{data_filename}'
-
-    existing_content = open(data_filepath, 'rb').read()
-    new_content = session.get(url).content
-    if existing_content == new_content:
-        return ''
-    open(data_filepath, 'wb').write(new_content)
+    open(data_filepath, 'wb').write(session.get(url).content)
 
     expression_choice = _CONFIG['forecasts_seats'].get('expression', '_deluxe')
     data = pd.read_csv(data_filepath, usecols=[

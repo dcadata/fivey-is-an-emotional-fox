@@ -50,12 +50,7 @@ def _get_gcb(session: requests.Session) -> str:
 
     data_filepath = 'data/generic_ballot_averages.csv'
     url = 'https://projects.fivethirtyeight.com/polls/data/generic_ballot_averages.csv'
-
-    existing_content = open(data_filepath, 'rb').read()
-    new_content = session.get(url).content
-    if existing_content == new_content:
-        return ''
-    open(data_filepath, 'wb').write(new_content)
+    open(data_filepath, 'wb').write(session.get(url).content)
 
     data = pd.read_csv(data_filepath, usecols=['candidate', 'pct_estimate', 'election'])
     data = data[data.election == '2022-11-08'].drop(columns=['election']).iloc[-2:]

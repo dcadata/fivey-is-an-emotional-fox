@@ -234,7 +234,7 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     for col in ('sponsor_ids', 'sponsors'):
         full_data[col] = full_data[col].fillna('No Sponsor')
     full_data.internal = full_data.internal.fillna(False)
-    full_data.partisan = full_data.partisan.fillna('No')
+    full_data.partisan = full_data.partisan.fillna(False)
     full_data.fte_grade = full_data.fte_grade.fillna('Unrated')
     full_data.sample_size = full_data.sample_size.fillna(0).apply(int)
 

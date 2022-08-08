@@ -277,7 +277,7 @@ def main():
             _send_email('FTE GCB/Forecast Alert', fte_messages)
 
     if matching_gcb_polls_message := _get_matching_gcb_polls(session):
-        _send_email('FTE GCB Poll Alert', matching_gcb_polls_message)
+        _send_email('FTE GCB Polls Alert', matching_gcb_polls_message)
 
     session.close()
 

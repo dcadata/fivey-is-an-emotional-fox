@@ -207,10 +207,12 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
         second_line.append('Internal: {internal}')
 
     lines = [
+        'Pollster: {display_name} | Grade: {fte_grade} | Method: {methodology}'.format(**first_record),
+        ' | '.join(second_line).format(**first_record),
+    ]
+    lines.extend(
         '{order}: {start_date}-{end_date} ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin} | [details]({url})'.format(
-            **record) for record in records]
-    lines.insert(0, 'Pollster: {display_name} | Grade: {fte_grade} | Method: {methodology}'.format(**first_record))
-    lines.insert(1, ' | '.join(second_line).format(**first_record))
+            **record) for record in records)
     lines.append('Change: {gainer}+{change}'.format(change=abs(change), gainer='R' if change > 0 else 'D'))
     return '\n'.join(lines)
 

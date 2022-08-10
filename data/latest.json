@@ -56,10 +56,10 @@
   },
   "governor_WI": {
     "nameD": "Evers",
-    "nameR": "Kleefisch",
-    "probD": 80,
-    "probR": 20,
-    "margin": 6.3,
+    "nameR": "Michels",
+    "probD": 91,
+    "probR": 9,
+    "margin": 10.2,
     "margin_leader": "D"
   },
   "governor_MN": {

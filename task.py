@@ -250,7 +250,7 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     match_col_names = (
         'Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)', 'Partisan/Internal',
     )
-    lines.append('Matched poll must match on {0}'.format(', '.join(match_col_names)))
+    lines.append('Matched poll matches on {0}'.format(', '.join(match_col_names)))
     return '\n\n'.join(filter(None, lines))
 
 

@@ -15,15 +15,17 @@ def compare_forecast_expressions(chamber: str) -> None:
     df.probD = df.probD.round(2)
 
     func = lambda x: df[df.expression == x].drop(columns='expression')
-    merged = func('_lite').merge(func('_classic'), on='district', suffixes=('', '_classic')).merge(
-        func('_deluxe'), on='district', suffixes=('', '_deluxe'))
-    merged = merged.rename(columns=dict(district='seat', probD='probD_lite'))
+    merged = func('_deluxe').merge(func('_classic'), on='district', suffixes=('', '_classic')).merge(
+        func('_lite'), on='district', suffixes=('', '_lite'))
+    merged = merged.rename(columns=dict(district='seat', probD='probD_deluxe'))
 
     if chamber in ('senate', 'governor'):
         merged.seat = merged.seat.apply(lambda x: x[:2])
 
-    merged['probD_lite_minus_deluxe'] = (merged.probD_deluxe - merged.probD_lite).round(2)
-    merged = merged.sort_values('probD_lite_minus_deluxe')
+    merged['probD_deluxe_minus_lite'] = merged.probD_deluxe - merged.probD_lite
+    merged['probD_deluxe_minus_lite_abs'] = merged.probD_deluxe_minus_lite.apply(abs).round(2)
+    merged.probD_deluxe_minus_lite = merged.probD_deluxe_minus_lite.round(2)
+    merged = merged.sort_values('probD_deluxe_minus_lite_abs', ascending=False)
     merged.to_csv(f'forecast_expression_comparisons/{chamber}.csv', index=False)
 
 

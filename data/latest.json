@@ -122,9 +122,9 @@
   "senate_OH": {
     "nameD": "Ryan",
     "nameR": "Vance",
-    "probD": 42,
-    "probR": 57,
-    "margin": 1.5,
+    "probD": 45,
+    "probR": 55,
+    "margin": 1.1,
     "margin_leader": "R"
   }
 }

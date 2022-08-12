@@ -68,7 +68,7 @@ def _get_gcb(session: requests.Session) -> str:
     change_from_previous = unrounded_lead - _read_latest().get('gcb_average', 0)
     if abs(change_from_previous) < _CONFIG['gcb_average'].getfloat('threshold'):
         return ''
-    _update_latest(dict(gcb=unrounded_lead))
+    _update_latest(dict(gcb_average=unrounded_lead))
 
     data.pct_estimate = data.pct_estimate.round(2)
     return 'GCB\nD:{D} R:{R}\n{leader}+{lead} (chg: {change_gainer}+{change})'.format(

@@ -50,7 +50,7 @@ def _update_latest(new_data: dict) -> None:
 
 
 def _get_gcb(session: requests.Session) -> str:
-    if not _CONFIG['gcb'].getboolean('notify'):
+    if not _CONFIG['gcb_average'].getboolean('notify'):
         return ''
 
     data_filepath = 'data/generic_ballot_averages.csv'
@@ -64,8 +64,8 @@ def _get_gcb(session: requests.Session) -> str:
     unrounded_estimates = data.groupby('party').pct_estimate.sum()
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
-    change_from_previous = unrounded_lead - _read_latest().get('gcb', 0)
-    if abs(change_from_previous) < _CONFIG['gcb'].getfloat('threshold'):
+    change_from_previous = unrounded_lead - _read_latest().get('gcb_average', 0)
+    if abs(change_from_previous) < _CONFIG['gcb_average'].getfloat('threshold'):
         return ''
     _update_latest(dict(gcb=unrounded_lead))
 
@@ -218,7 +218,7 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
 
 
 def _get_matching_gcb_polls(session: requests.Session) -> str:
-    if not _CONFIG['gcb'].getboolean('notify_with_matching_polls'):
+    if not _CONFIG['gcb_polls'].getboolean('notify'):
         return ''
 
     data_filepath = 'data/generic_ballot_polls.csv'

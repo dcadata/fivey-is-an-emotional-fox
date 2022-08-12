@@ -1,6 +1,7 @@
 import configparser
 import json
 import re
+from datetime import datetime, timedelta
 from email.mime.text import MIMEText
 from os import environ
 from smtplib import SMTP_SSL
@@ -191,13 +192,19 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
 
     data.population = data.population.apply(lambda x: x.upper())
     data['margin'] = (data.dem - data.rep).round(1)
-    data['leader_margin'] = data.margin.apply(lambda x: f'{"D" if x > 0 else "R"}+{abs(x)}')
-    try:
-        data = data.iloc[:2].assign(order=('Recent', 'Previous'))
-    except ValueError:  # if len(data) < 2, length of assigned won't match
+    data['leader_margin'] = data.margin.apply(lambda x: f'**{"" if x == 0 else ("D" if x > 0 else "R")}+{abs(x)}**')
+    data['end_date_dttm'] = data.end_date.apply(pd.to_datetime)
+    data = data[data.end_date_dttm >= datetime.today() - timedelta(days=30)].iloc[:5]
+    if not len(data):
         return ''
+    data.end_date = data.end_date.apply(lambda x: x[:-3])
+    data.start_date = data.start_date.apply(lambda x: x[:-3])
+    margin_diff = data.margin.diff(-1)
+    data['change'] = margin_diff.apply(abs)
+    data['change_text'] = data.change.apply(lambda x: (
+        '' if pd.isna(x) else (f' (Change: {{gainer}}+{x})' if x > 0 else ' (Change: +0.0)')))
+    data['gainer'] = margin_diff.apply(lambda x: '' if x == 0 else ('D' if x > 0 else 'R'))
     records = data.to_dict('records')
-    change = data.margin.iloc[1] - data.margin.iloc[0]
 
     first_record = records[0]
     first_line = [
@@ -210,15 +217,13 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
         second_line.append('Partisan: {partisan}')
     if first_record['internal']:
         second_line.append('Internal: {internal}')
+    poll_format = '[{start_date}-{end_date}]({url}) ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin}{change_text}'
 
     lines = [
         ' | '.join(first_line).format(**first_record),
         ' | '.join(second_line).format(**first_record),
     ]
-    lines.extend(
-        '{order}: {start_date}-{end_date} ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin} | [details]({url})'.format(
-            **record) for record in records)
-    lines.append('Change: {gainer}+{change}'.format(change=abs(change), gainer='R' if change > 0 else 'D'))
+    lines.extend(poll_format.format(**record).format(**record) for record in records)
     return '\n'.join(lines)
 
 

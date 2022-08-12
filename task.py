@@ -282,8 +282,6 @@ def main():
     if matching_gcb_polls_message := _get_matching_gcb_polls(session):
         _send_email('FTE GCB Polls Alert', matching_gcb_polls_message)
 
-    _update_latest(dict(gcb_polls=matching_gcb_polls_message))
-
     session.close()
 
     if twitter_polls_messages := _get_polls_from_twitter():

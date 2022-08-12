@@ -247,11 +247,14 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
         return ''
 
     lines = [_get_matching_gcb_polls_for_one_row(full_data, unseen_row) for _, unseen_row in unseen_data.iterrows()]
+    lines = list(filter(None, lines))
+    if not lines:
+        return ''
     match_col_names = (
         'Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)', 'Partisan/Internal',
     )
     lines.append('Matched poll matches on {0}'.format(', '.join(match_col_names)))
-    return '\n\n'.join(filter(None, lines))
+    return '\n\n'.join(lines)
 
 
 def _get_fte_messages(session: requests.Session) -> list:

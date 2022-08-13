@@ -19,6 +19,9 @@ _TOPLINE_FILENAMES = dict(
     house='house_district_toplines_2022.csv',
     governor='governor_state_toplines_2022.csv',
 )
+_MATCHED_GCB_POLL_MESSAGE = 'New GCB poll: matched on {0}'.format(', '.join((
+    'Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)', 'Partisan/Internal',
+)))
 
 
 def _send_email(subject: str, body: str) -> None:

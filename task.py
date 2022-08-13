@@ -213,7 +213,7 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
         second_line.append('Partisan: {partisan}')
     if first_record['internal']:
         second_line.append('Internal: {internal}')
-    poll_format = '[{start_date}-{end_date}]({url}) ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin}{change_text}'
+    poll_format = '{start_date}-{end_date} ({sample_size} {population}): D:{dem} R:{rep} => {leader_margin}{change_text}'
 
     lines = [' | '.join(line).format(**first_record) for line in (first_line, second_line)]
     lines.extend(poll_format.format(**record).format(**record) for record in records)

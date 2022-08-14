@@ -15,6 +15,10 @@ from twilio.rest import Client
 _CONFIG = configparser.ConfigParser()
 _CONFIG.read('config.ini')
 _FTE_FORECAST_BASE_URL = 'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/'
+_NATIONAL_TOPLINE_FILENAMES = dict(
+    senate='senate_national_toplines_2022.csv',
+    house='house_national_toplines_2022.csv',
+)
 _DISTRICT_TOPLINE_FILENAMES = dict(
     senate='senate_state_toplines_2022.csv',
     house='house_district_toplines_2022.csv',
@@ -88,8 +92,9 @@ def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:
     if not _CONFIG['forecasts_national'].getboolean(chamber):
         return ''
 
-    data_filepath = f'data/{chamber}_national_toplines_2022.csv'
-    url = f'{_FTE_FORECAST_BASE_URL}{chamber}_national_toplines_2022.csv'
+    data_filename = _NATIONAL_TOPLINE_FILENAMES[chamber]
+    data_filepath = f'data/{data_filename}'
+    url = f'{_FTE_FORECAST_BASE_URL}{data_filename}'
     open(data_filepath, 'wb').write(session.get(url).content)
 
     expression_choice = _CONFIG['forecasts_national'].get('expression', '_deluxe')

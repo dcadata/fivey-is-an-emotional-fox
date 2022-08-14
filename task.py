@@ -164,30 +164,6 @@ def _get_seat_forecasts(session: requests.Session, chamber: str) -> str:
     return '\n'.join(current)
 
 
-def _get_polls_from_twitter() -> str:
-    try:
-        rss_url = '{rss_base_url}/{username}/rss'.format(**_CONFIG['twitter_polls'])
-    except KeyError:
-        return ''
-
-    response = requests.get(rss_url)
-    tweets = BeautifulSoup(response.text, 'xml').select('item')
-    if not tweets:
-        return ''
-
-    previous_latest_link = _read_latest().get('twitter_polls')
-    polls = []
-    for tweet in tweets:
-        if tweet.find('link').text == previous_latest_link:
-            break
-        title, pubdate = map(lambda x: tweet.find(x).text.strip(), ('title', 'pubDate'))
-        if re.search(_CONFIG['twitter_polls']['pattern'], title):
-            polls.append(dict(title=title, pubdate=pubdate))
-
-    _update_latest(dict(twitter_polls=tweets[0].find('link').text))
-    return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
-
-
 def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.Series) -> str:
     data = full_data.copy()
     for match_col in ('pollster_id', 'sponsor_ids', 'methodology', 'population', 'internal', 'partisan'):
@@ -254,6 +230,30 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
 
     lines = [_get_matching_gcb_polls_for_one_row(full_data, unseen_row) for _, unseen_row in unseen_data.iterrows()]
     return '\n\n'.join(filter(None, lines))
+
+
+def _get_polls_from_twitter() -> str:
+    try:
+        rss_url = '{rss_base_url}/{username}/rss'.format(**_CONFIG['twitter_polls'])
+    except KeyError:
+        return ''
+
+    response = requests.get(rss_url)
+    tweets = BeautifulSoup(response.text, 'xml').select('item')
+    if not tweets:
+        return ''
+
+    previous_latest_link = _read_latest().get('twitter_polls')
+    polls = []
+    for tweet in tweets:
+        if tweet.find('link').text == previous_latest_link:
+            break
+        title, pubdate = map(lambda x: tweet.find(x).text.strip(), ('title', 'pubDate'))
+        if re.search(_CONFIG['twitter_polls']['pattern'], title):
+            polls.append(dict(title=title, pubdate=pubdate))
+
+    _update_latest(dict(twitter_polls=tweets[0].find('link').text))
+    return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 
 def _get_fte_messages(session: requests.Session) -> list:

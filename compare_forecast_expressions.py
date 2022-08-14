@@ -2,13 +2,13 @@ from time import sleep
 
 import pandas as pd
 
-from task import _DISTRICT_TOPLINE_FILENAMES
+from task import _FTE_FORECAST_BASE_URL, _DISTRICT_TOPLINE_FILENAMES
 
 
 def compare_forecast_expressions(chamber: str) -> None:
     chamber = chamber.lower()
-    url = f'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/{_DISTRICT_TOPLINE_FILENAMES[chamber]}'
 
+    url = f'{_FTE_FORECAST_BASE_URL}{_DISTRICT_TOPLINE_FILENAMES[chamber]}'
     df = pd.read_csv(url, usecols=['district', 'expression', 'winner_Dparty'])
     df = df.drop_duplicates(subset=['district', 'expression'], keep='first')
     df = df.rename(columns=dict(winner_Dparty='probD'))

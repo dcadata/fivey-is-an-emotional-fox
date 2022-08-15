@@ -1,5 +1,5 @@
 {
-  "gcb_average": 0.3896140000000017,
+  "gcb_average": 0.45493600000000356,
   "senate": {
     "probD": 73,
     "probR": 27,
@@ -98,9 +98,9 @@
   "senate_GA": {
     "nameD": "Warnock",
     "nameR": "Walker",
-    "probD": 56,
-    "probR": 44,
-    "margin": 1.6,
+    "probD": 54,
+    "probR": 46,
+    "margin": 1.4,
     "margin_leader": "D"
   },
   "senate_NH": {

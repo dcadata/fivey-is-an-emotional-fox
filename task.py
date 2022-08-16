@@ -241,9 +241,9 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     return '\n\n'.join(filter(None, lines))
 
 
-def _get_polls_from_twitter() -> str:
+def _get_twitter() -> str:
     try:
-        rss_url = '{rss_base_url}/{username}/rss'.format(**_CONFIG['twitter_polls'])
+        rss_url = '{rss_base_url}/{username}/rss'.format(**_CONFIG['twitter'])
     except KeyError:
         return ''
 
@@ -252,16 +252,16 @@ def _get_polls_from_twitter() -> str:
     if not tweets:
         return ''
 
-    previous_latest_link = _read_latest().get('twitter_polls')
+    previous_latest_link = _read_latest().get('twitter')
     polls = []
     for tweet in tweets:
         if tweet.find('link').text == previous_latest_link:
             break
         title, pubdate = map(lambda x: tweet.find(x).text.strip(), ('title', 'pubDate'))
-        if re.search(_CONFIG['twitter_polls']['pattern'], title):
+        if re.search(_CONFIG['twitter']['pattern'], title):
             polls.append(dict(title=title, pubdate=pubdate))
 
-    _update_latest(dict(twitter_polls=tweets[0].find('link').text))
+    _update_latest(dict(twitter=tweets[0].find('link').text))
     return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 
@@ -296,8 +296,8 @@ def main():
 
     session.close()
 
-    if twitter_polls_messages := _get_polls_from_twitter():
-        _send_email('Twitter Polls Alert', twitter_polls_messages)
+    if twitter_messages := _get_twitter():
+        _send_email('Twitter Alert', twitter_messages)
 
 
 if __name__ == '__main__':

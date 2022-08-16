@@ -1,17 +1,17 @@
 {
   "gcb_average": 0.45493600000000356,
   "senate": {
-    "probD": 73,
-    "probR": 27,
+    "probD": 75,
+    "probR": 25,
     "seatsD": 51,
     "seatsR": 49,
     "expression": "classic"
   },
   "house": {
-    "probD": 20,
-    "probR": 80,
-    "seatsD": 202,
-    "seatsR": 233,
+    "probD": 22,
+    "probR": 78,
+    "seatsD": 204,
+    "seatsR": 231,
     "expression": "classic"
   },
   "house_MI-3": {

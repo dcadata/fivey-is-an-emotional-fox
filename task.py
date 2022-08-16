@@ -244,6 +244,7 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
 def _get_twitter() -> str:
     try:
         rss_url = '{rss_base_url}/{username}/rss'.format(**_CONFIG['twitter'])
+        username = _CONFIG['twitter']['username']
     except KeyError:
         return ''
 
@@ -252,7 +253,7 @@ def _get_twitter() -> str:
     if not tweets:
         return ''
 
-    previous_latest_link = _read_latest().get('twitter')
+    previous_latest_link = _read_latest().get('twitter', {}).get(username)
     polls = []
     for tweet in tweets:
         if tweet.find('link').text == previous_latest_link:
@@ -261,7 +262,7 @@ def _get_twitter() -> str:
         if re.search(_CONFIG['twitter']['pattern'], title):
             polls.append(dict(title=title, pubdate=pubdate))
 
-    _update_latest(dict(twitter=tweets[0].find('link').text))
+    _update_latest(dict(twitter={username: tweets[0].find('link').text}))
     return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 

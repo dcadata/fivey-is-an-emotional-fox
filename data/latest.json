@@ -49,9 +49,9 @@
   "governor_PA": {
     "nameD": "Shapiro",
     "nameR": "Mastriano",
-    "probD": 87,
-    "probR": 13,
-    "margin": 7.6,
+    "probD": 89,
+    "probR": 11,
+    "margin": 7.9,
     "margin_leader": "D"
   },
   "governor_WI": {

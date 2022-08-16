@@ -241,10 +241,9 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     return '\n\n'.join(filter(None, lines))
 
 
-def _get_twitter() -> str:
+def _get_twitter(username: str) -> str:
     try:
-        rss_url = '{rss_base_url}/{username}/rss'.format(**_CONFIG['twitter'])
-        username = _CONFIG['twitter']['username']
+        rss_url = '{rss_base_url}/{username}/rss'.format(**_CONFIG['twitter'], username=username)
     except KeyError:
         return ''
 
@@ -262,7 +261,9 @@ def _get_twitter() -> str:
         if re.search(_CONFIG['twitter']['pattern'], title):
             polls.append(dict(title=title, pubdate=pubdate))
 
-    _update_latest(dict(twitter={username: tweets[0].find('link').text}))
+    previous = _read_latest().get('twitter', {})
+    previous.update({username: tweets[0].find('link').text})
+    _update_latest(dict(twitter=previous))
     return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 
@@ -297,8 +298,9 @@ def main():
 
     session.close()
 
-    if twitter_messages := _get_twitter():
-        _send_email('Twitter Alert', twitter_messages)
+    if twitter_messages := list(filter(None, [
+        _get_twitter(username) for username in _CONFIG['twitter']['usernames'].split()])):
+        _send_email('Twitter Alert', '\n\n'.join(twitter_messages))
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 {
-  "gcb_average": 0.5337519999999998,
+  "gcb_average": 0.5035529999999966,
   "senate": {
     "probD": 75,
     "probR": 25,
@@ -65,15 +65,15 @@
   "governor_MN": {
     "nameD": "Walz",
     "nameR": "Jensen",
-    "probD": 88,
-    "probR": 12,
-    "margin": 8.7,
+    "probD": 90,
+    "probR": 10,
+    "margin": 9.2,
     "margin_leader": "D"
   },
   "twitter": {
     "PollTrackerUSA": "https://nitter.net/PollTrackerUSA/status/1559664761113124868#m",
     "MediumBuying": "https://nitter.net/MediumBuying/status/1559716980910956545#m",
-    "Politics_Polls": "https://nitter.net/Politics_Polls/status/1559929381191041024#m"
+    "Politics_Polls": "https://nitter.net/Politics_Polls/status/1559935152683450369#m"
   },
   "senate_PA": {
     "nameD": "Fetterman",
@@ -102,9 +102,9 @@
   "senate_GA": {
     "nameD": "Warnock",
     "nameR": "Walker",
-    "probD": 54,
-    "probR": 46,
-    "margin": 1.4,
+    "probD": 56,
+    "probR": 44,
+    "margin": 1.5,
     "margin_leader": "D"
   },
   "senate_NH": {

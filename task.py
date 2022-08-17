@@ -270,6 +270,7 @@ def _get_twitter(username: str) -> str:
 def _get_election_results() -> str:
     response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')
     page = BeautifulSoup(response.text, 'xml')
+    total_votes = int(page.find('Textbox5').find('Textbox13')['votes3'])
     candidate_results = page.find('CandidateResults').find('Report', attrs={'Name': 'CandidateResultsRPT'})
     candidates = candidate_results.find_all('chGroup')
 
@@ -277,12 +278,12 @@ def _get_election_results() -> str:
     for candidate in candidates:
         totals = candidate.find('Textbox13')
         candidate_data = dict(
-            name=candidate.find('candidateNameTextBox4')['candidateNameTextBox4'].split(None, 1)[0],
+            name=candidate.find('candidateNameTextBox4')['candidateNameTextBox4'].split(',', 1)[0],
             party=candidate.find('Textbox2')['Textbox14'].strip(),
             votes=int(totals['vot8']),
             voteShare=int(round(float(totals['Textbox17']) * 1000)) / 10,
         )
-        candidate_data['text'] = '{name} ({party}): {total:,} ({voteShare}%)'.format(**candidate_data)
+        candidate_data['text'] = '{name} ({party}): {votes:,} ({voteShare}%)'.format(**candidate_data)
         data.append(candidate_data)
 
     data = pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records')
@@ -290,7 +291,7 @@ def _get_election_results() -> str:
     data_filepath = 'data/AK-AL_special.json'
     if data == json.load(open(data_filepath)):
         return ''
-    message = '\n'.join(i['text'] for i in data)
+    message = '{0}\nTotal: {1:,}'.format('\n'.join(i['text'] for i in data), total_votes)
     json.dump(data, open(data_filepath, 'w'), indent=2)
     return message
 

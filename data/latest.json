@@ -25,9 +25,9 @@
   "house_MI-10": {
     "nameD": "Marlinga",
     "nameR": "James",
-    "probD": 25,
-    "probR": 75,
-    "margin": 5.2,
+    "probD": 27,
+    "probR": 73,
+    "margin": 4.7,
     "margin_leader": "R"
   },
   "house_MI-11": {
@@ -49,9 +49,9 @@
   "governor_PA": {
     "nameD": "Shapiro",
     "nameR": "Mastriano",
-    "probD": 89,
-    "probR": 11,
-    "margin": 7.9,
+    "probD": 91,
+    "probR": 9,
+    "margin": 8.7,
     "margin_leader": "D"
   },
   "governor_WI": {

@@ -277,7 +277,7 @@ def _get_election_results() -> str:
     for candidate in candidates:
         totals = candidate.find('Textbox13')
         candidate_data = dict(
-            name=candidate.find('candidateNameTextBox4')['candidateNameTextBox4'].strip(),
+            name=candidate.find('candidateNameTextBox4')['candidateNameTextBox4'].split(None, 1)[0],
             party=candidate.find('Textbox2')['Textbox14'].strip(),
             total=int(totals['vot8']),
             voteShare=int(round(float(totals['Textbox17']) * 1000)) / 10,

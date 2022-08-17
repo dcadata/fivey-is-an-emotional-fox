@@ -78,9 +78,9 @@
   "senate_PA": {
     "nameD": "Fetterman",
     "nameR": "Oz",
-    "probD": 80,
-    "probR": 20,
-    "margin": 6.3,
+    "probD": 84,
+    "probR": 16,
+    "margin": 7.5,
     "margin_leader": "D"
   },
   "senate_WI": {
@@ -118,9 +118,9 @@
   "senate_NV": {
     "nameD": "Masto",
     "nameR": "Laxalt",
-    "probD": 65,
-    "probR": 35,
-    "margin": 2.8,
+    "probD": 67,
+    "probR": 33,
+    "margin": 3.2,
     "margin_leader": "D"
   },
   "senate_OH": {

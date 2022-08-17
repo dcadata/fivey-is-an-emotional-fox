@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Peltola, Mary S.",
+    "party": "DEM",
+    "total": 56892,
+    "voteShare": 38.4,
+    "text": "Peltola, Mary S. (DEM): 56,892 (38.4%)"
+  },
+  {
+    "name": "Palin, Sarah",
+    "party": "REP",
+    "total": 48304,
+    "voteShare": 32.6,
+    "text": "Palin, Sarah (REP): 48,304 (32.6%)"
+  },
+  {
+    "name": "Begich, Nick",
+    "party": "REP",
+    "total": 43038,
+    "voteShare": 29.0,
+    "text": "Begich, Nick (REP): 43,038 (29.0%)"
+  },
+  {
+    "name": "Write-in",
+    "party": "",
+    "total": 2150,
+    "voteShare": 1.5,
+    "text": "Write-in (): 2,150 (1.5%)"
+  }
+]

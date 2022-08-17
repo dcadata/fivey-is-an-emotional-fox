@@ -267,6 +267,34 @@ def _get_twitter(username: str) -> str:
     return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 
+def _get_election_results() -> str:
+    response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')
+    page = BeautifulSoup(response.text, 'xml')
+    candidate_results = page.find('CandidateResults').find('Report', attrs={'Name': 'CandidateResultsRPT'})
+    candidates = candidate_results.find_all('chGroup')
+
+    data = []
+    for candidate in candidates:
+        totals = candidate.find('Textbox13')
+        candidate_data = dict(
+            name=candidate.find('candidateNameTextBox4')['candidateNameTextBox4'].strip(),
+            party=candidate.find('Textbox2')['Textbox14'].strip(),
+            total=int(totals['vot8']),
+            voteShare=int(round(float(totals['Textbox17']) * 1000)) / 10,
+        )
+        candidate_data['text'] = '{name} ({party}): {total:,} ({voteShare}%)'.format(**candidate_data)
+        data.append(candidate_data)
+
+    data = pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records')
+
+    data_filepath = 'data/AK-AL_special.json'
+    if data == json.load(open(data_filepath)):
+        return ''
+    message = '\n'.join(i['text'] for i in data)
+    json.dump(data, open(data_filepath, 'w'), indent=2)
+    return message
+
+
 def _get_fte_messages(session: requests.Session) -> list:
     funcs = (
         _get_gcb,
@@ -301,6 +329,9 @@ def main():
     if twitter_messages := list(filter(None, [
         _get_twitter(username) for username in _CONFIG['twitter']['usernames'].split()])):
         _send_email('Twitter Alert', '\n\n'.join(twitter_messages))
+
+    if election_results_message := _get_election_results():
+        _send_text(election_results_message)
 
 
 if __name__ == '__main__':

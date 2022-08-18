@@ -286,12 +286,15 @@ def _get_election_results() -> str:
         candidate_data['text'] = '{name} ({party}): {votes:,} ({voteShare}%)'.format(**candidate_data)
         data.append(candidate_data)
 
-    data = pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records')
+    data = dict(
+        candidateVotes=pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records'),
+        totalVotes=total_votes,
+    )
 
     data_filepath = 'data/AK-AL_special.json'
     if data == json.load(open(data_filepath)):
         return ''
-    message = '{0}\nTotal: {1:,}'.format('\n'.join(i['text'] for i in data), total_votes)
+    message = '{0}\nTotal: {1:,}'.format('\n'.join(i['text'] for i in data['candidateVotes']), total_votes)
     json.dump(data, open(data_filepath, 'w'), indent=2)
     return message
 

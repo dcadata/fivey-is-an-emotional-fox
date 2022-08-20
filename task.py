@@ -288,11 +288,14 @@ def _get_election_results() -> str:
 
     data = dict(
         candidateVotes=pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records'),
-        totalVotes=total_votes,
+        votesCounted=total_votes,
     )
 
     data_filepath = 'data/AK-AL_special.json'
-    if data == json.load(open(data_filepath)):
+    previous_data = json.load(open(data_filepath))
+    data['estVotesTotal'] = previous_data['estVotesTotal']
+    data['estVotesCountedPct'] = int(round((data['votesCounted'] / data['estVotesTotal']) * 100))
+    if data == previous_data:
         return ''
     message = '{0}\nTotal: {1:,}'.format('\n'.join(i['text'] for i in data['candidateVotes']), total_votes)
     json.dump(data, open(data_filepath, 'w'), indent=2)

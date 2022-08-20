@@ -270,25 +270,25 @@ def _get_twitter(username: str) -> str:
 def _get_alaska_special_election_results() -> str:
     response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')
     page = BeautifulSoup(response.text, 'xml')
-    total_votes = int(page.find('Textbox5').find('Textbox13')['votes3'])
+    votes_counted = int(page.find('Textbox5').find('Textbox13')['votes3'])
     candidate_results = page.find('CandidateResults').find('Report', attrs={'Name': 'CandidateResultsRPT'})
     candidates = candidate_results.find_all('chGroup')
 
     data = []
     for candidate in candidates:
-        totals = candidate.find('Textbox13')
+        candidate_totals = candidate.find('Textbox13')
         candidate_data = dict(
             name=candidate.find('candidateNameTextBox4')['candidateNameTextBox4'].split(',', 1)[0],
             party=candidate.find('Textbox2')['Textbox14'].strip(),
-            votes=int(totals['vot8']),
-            voteShare=int(round(float(totals['Textbox17']) * 1000)) / 10,
+            votes=int(candidate_totals['vot8']),
+            voteShare=int(round(float(candidate_totals['Textbox17']) * 1000)) / 10,
         )
         candidate_data['text'] = '{name} ({party}): {votes:,} ({voteShare}%)'.format(**candidate_data)
         data.append(candidate_data)
 
     data = dict(
         candidateVotes=pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records'),
-        votesCounted=total_votes,
+        votesCounted=votes_counted,
     )
 
     data_filepath = 'data/alaska_special.json'
@@ -297,7 +297,7 @@ def _get_alaska_special_election_results() -> str:
     data['estVotesCountedPct'] = int(round((data['votesCounted'] / data['estVotesTotal']) * 100))
     if data == previous_data:
         return ''
-    message = '{0}\nTotal: {1:,}'.format('\n'.join(i['text'] for i in data['candidateVotes']), total_votes)
+    message = '{0}\nTotal: {1:,}'.format('\n'.join(i['text'] for i in data['candidateVotes']), votes_counted)
     json.dump(data, open(data_filepath, 'w'), indent=2)
     return message
 

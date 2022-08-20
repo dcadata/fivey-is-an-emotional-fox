@@ -267,7 +267,7 @@ def _get_twitter(username: str) -> str:
     return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
 
 
-def _get_election_results() -> str:
+def _get_alaska_special_election_results() -> str:
     response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')
     page = BeautifulSoup(response.text, 'xml')
     total_votes = int(page.find('Textbox5').find('Textbox13')['votes3'])
@@ -291,7 +291,7 @@ def _get_election_results() -> str:
         votesCounted=total_votes,
     )
 
-    data_filepath = 'data/AK-AL_special.json'
+    data_filepath = 'data/alaska_special.json'
     previous_data = json.load(open(data_filepath))
     data['estVotesTotal'] = previous_data['estVotesTotal']
     data['estVotesCountedPct'] = int(round((data['votesCounted'] / data['estVotesTotal']) * 100))
@@ -337,7 +337,7 @@ def main():
         _get_twitter(username) for username in _CONFIG['twitter']['usernames'].split()])):
         _send_email('Twitter Alert', '\n\n'.join(twitter_messages))
 
-    if election_results_message := _get_election_results():
+    if election_results_message := _get_alaska_special_election_results():
         _send_text(election_results_message)
 
 

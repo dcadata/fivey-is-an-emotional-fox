@@ -270,7 +270,6 @@ def _get_twitter(username: str) -> str:
 def _get_alaska_special_election_results() -> str:
     response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')
     page = BeautifulSoup(response.text, 'xml')
-    votes_counted = int(page.find('Textbox5').find('Textbox13')['votes3'])
     candidate_results = page.find('CandidateResults').find('Report', attrs={'Name': 'CandidateResultsRPT'})
     candidates = candidate_results.find_all('chGroup')
 
@@ -286,18 +285,20 @@ def _get_alaska_special_election_results() -> str:
         candidate_data['text'] = '{name} ({party}): {votes:,} ({voteShare}%)'.format(**candidate_data)
         data.append(candidate_data)
 
-    data = dict(
-        candidateVotes=pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records'),
-        votesCounted=votes_counted,
-    )
+    votesCounted = int(page.find('Textbox5').find('Textbox13')['votes3'])
 
     data_filepath = 'data/alaska_special.json'
     previous_data = json.load(open(data_filepath))
-    data['estVotesTotal'] = previous_data['estVotesTotal']
-    data['estVotesCountedPct'] = int(round((data['votesCounted'] / data['estVotesTotal']) * 100))
+
+    data = dict(
+        candidateVotes=pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records'),
+        votesCounted=votesCounted,
+        estVotesTotal=previous_data['estVotesTotal'],
+        estVotesCountedPct=int(round((votesCounted / previous_data['estVotesTotal']) * 100)),
+    )
     if data == previous_data:
         return ''
-    message = '{0}\nTotal: {1:,}'.format('\n'.join(i['text'] for i in data['candidateVotes']), votes_counted)
+    message = '{0}\nTotal: {1:,}'.format('\n'.join(i['text'] for i in data['candidateVotes']), votesCounted)
     json.dump(data, open(data_filepath, 'w'), indent=2)
     return message
 

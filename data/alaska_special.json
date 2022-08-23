@@ -3,33 +3,33 @@
     {
       "name": "Peltola",
       "party": "DEM",
-      "votes": 58689,
-      "voteShare": 38.0,
-      "text": "Peltola (DEM): 58,689 (38.0%)"
+      "votes": 59824,
+      "voteShare": 38.2,
+      "text": "Peltola (DEM): 59,824 (38.2%)"
     },
     {
       "name": "Palin",
       "party": "REP",
-      "votes": 49262,
-      "voteShare": 31.9,
-      "text": "Palin (REP): 49,262 (31.9%)"
+      "votes": 49828,
+      "voteShare": 31.8,
+      "text": "Palin (REP): 49,828 (31.8%)"
     },
     {
       "name": "Begich",
       "party": "REP",
-      "votes": 44065,
-      "voteShare": 28.6,
-      "text": "Begich (REP): 44,065 (28.6%)"
+      "votes": 44588,
+      "voteShare": 28.5,
+      "text": "Begich (REP): 44,588 (28.5%)"
     },
     {
       "name": "Write-in ",
       "party": "",
-      "votes": 2288,
+      "votes": 2359,
       "voteShare": 1.5,
-      "text": "Write-in  (): 2,288 (1.5%)"
+      "text": "Write-in  (): 2,359 (1.5%)"
     }
   ],
-  "votesCounted": 154304,
+  "votesCounted": 156599,
   "estVotesTotal": 190004,
-  "estVotesCountedPct": 81
+  "estVotesCountedPct": 82
 }

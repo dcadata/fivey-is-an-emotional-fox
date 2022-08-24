@@ -1,7 +1,7 @@
 {
   "twitter": {
     "PollTrackerUSA": "https://nitter.net/PollTrackerUSA/status/1562456810724143105#m",
-    "MediumBuying": "https://nitter.net/MediumBuying/status/1562512616777748481#m",
+    "MediumBuying": "https://nitter.net/MediumBuying/status/1562521266439221249#m",
     "Politics_Polls": "https://nitter.net/Politics_Polls/status/1560707823041921034#m"
   },
   "gcb_average": 0.4428709999999967,
@@ -30,9 +30,9 @@
   "house_MI-10": {
     "nameD": "Marlinga",
     "nameR": "James",
-    "probD": 27,
-    "probR": 73,
-    "margin": 4.7,
+    "probD": 21,
+    "probR": 79,
+    "margin": 5.8,
     "margin_leader": "R"
   },
   "house_MI-11": {

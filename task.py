@@ -268,6 +268,9 @@ def _get_twitter(username: str) -> str:
 
 
 def _get_alaska_special_election_results() -> str:
+    if not _CONFIG['twitter'].getboolean('notify'):
+        return ''
+
     alaska_response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')
     page = BeautifulSoup(alaska_response.text, 'xml')
     candidate_results = page.find('CandidateResults').find('Report', attrs={'Name': 'CandidateResultsRPT'})

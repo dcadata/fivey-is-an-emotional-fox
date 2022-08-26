@@ -279,7 +279,7 @@ def _get_twitter_feeds() -> str:
 
 
 def _get_alaska_special_election_results() -> str:
-    if not _CONFIG['twitter'].getboolean('notify'):
+    if not _CONFIG['special'].getboolean('notify'):
         return ''
 
     alaska_response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')

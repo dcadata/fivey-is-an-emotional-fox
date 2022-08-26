@@ -2,7 +2,7 @@
   "candidateVotes": [
     {
       "name": "Peltola, Mary S.",
-      "first_name": "Peltola",
+      "lastName": "Peltola",
       "party": "DEM",
       "votes": 70730,
       "voteShare": 39.3,
@@ -10,7 +10,7 @@
     },
     {
       "name": "Palin, Sarah",
-      "first_name": "Palin",
+      "lastName": "Palin",
       "party": "REP",
       "votes": 56246,
       "voteShare": 31.2,
@@ -18,7 +18,7 @@
     },
     {
       "name": "Begich, Nick",
-      "first_name": "Begich",
+      "lastName": "Begich",
       "party": "REP",
       "votes": 50458,
       "voteShare": 28.0,
@@ -26,7 +26,7 @@
     },
     {
       "name": "Write-in",
-      "first_name": "Write-in",
+      "lastName": "Write-in",
       "party": "",
       "votes": 2760,
       "voteShare": 1.5,

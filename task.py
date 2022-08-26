@@ -279,14 +279,16 @@ def _get_alaska_special_election_results() -> str:
 
     data = []
     for candidate in candidates:
+        candidate_name = candidate.find('candidateNameTextBox4')['candidateNameTextBox4'].strip()
         candidate_totals = candidate.find('Textbox13')
         candidate_data = dict(
-            name=candidate.find('candidateNameTextBox4')['candidateNameTextBox4'].split(',', 1)[0],
+            name=candidate_name,
+            first_name=candidate_name.split(',', 1)[0],
             party=candidate.find('Textbox2')['Textbox14'].strip(),
             votes=int(candidate_totals['vot8']),
             voteShare=int(round(float(candidate_totals['Textbox17']) * 1000)) / 10,
         )
-        candidate_data['text'] = '{name} ({party}): {votes:,} ({voteShare}%)'.format(**candidate_data)
+        candidate_data['text'] = '{first_name} ({party}): {votes:,} ({voteShare}%)'.format(**candidate_data)
         data.append(candidate_data)
 
     votesCounted = int(page.find('Textbox5').find('Textbox13')['votes3'])

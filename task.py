@@ -268,10 +268,14 @@ def _get_twitter(username: str) -> str:
 
 
 def _get_alaska_special_election_results() -> str:
-    response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')
-    page = BeautifulSoup(response.text, 'xml')
+    alaska_response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')
+    page = BeautifulSoup(alaska_response.text, 'xml')
     candidate_results = page.find('CandidateResults').find('Report', attrs={'Name': 'CandidateResultsRPT'})
     candidates = candidate_results.find_all('chGroup')
+
+    politico_response = requests.get(
+        'https://www.politico.com/election-results/2022-house-results/2022-08-16/02/cd00Special/general.json')
+    progressPct = politico_response.json()['progressPct']
 
     data = []
     for candidate in candidates:
@@ -293,8 +297,7 @@ def _get_alaska_special_election_results() -> str:
     data = dict(
         candidateVotes=pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records'),
         votesCounted=votesCounted,
-        estVotesTotal=previous_data['estVotesTotal'],
-        estVotesCountedPct=int(round((votesCounted / previous_data['estVotesTotal']) * 100)),
+        progressPct=progressPct,
     )
     if data == previous_data:
         return ''

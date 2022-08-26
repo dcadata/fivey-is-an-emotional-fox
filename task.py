@@ -182,7 +182,7 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
     data['margin'] = (data.dem - data.rep).round(1)
     data['leader_margin'] = data.margin.apply(lambda x: f'**{"" if x == 0 else ("D" if x > 0 else "R")}+{abs(x)}**')
     data['end_date_dttm'] = data.end_date.apply(pd.to_datetime)
-    data = data[data.end_date_dttm >= datetime.today() - timedelta(days=30)].iloc[:5]
+    data = data[data.end_date_dttm >= datetime.today() - timedelta(days=60)].iloc[:5]
     if not len(data):
         return ''
     data.end_date = data.end_date.apply(lambda x: x[:-3])

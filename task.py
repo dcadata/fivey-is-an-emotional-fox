@@ -241,7 +241,7 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     return '\n\n'.join(filter(None, lines))
 
 
-def _get_twitter(username: str) -> str:
+def _get_one_twitter_feed(username: str) -> str:
     try:
         rss_url = '{rss_base_url}/{username}/rss'.format(**_CONFIG['twitter'], username=username)
     except KeyError:
@@ -264,7 +264,18 @@ def _get_twitter(username: str) -> str:
     previous = _read_latest().get('twitter', {})
     previous.update({username: tweets[0].find('link').text})
     _update_latest(dict(twitter=previous))
-    return '\n\n--\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
+    return '\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
+
+
+def _get_twitter_feeds() -> str:
+    if not _CONFIG['twitter'].getboolean('notify'):
+        return ''
+    messages = []
+    for username in _CONFIG['twitter']['usernames'].split():
+        if message := _get_one_twitter_feed(username):
+            messages.append(message)
+        sleep(1)
+    return '\n\n'.join(messages)
 
 
 def _get_alaska_special_election_results() -> str:
@@ -342,9 +353,8 @@ def main():
 
     session.close()
 
-    if twitter_messages := list(filter(None, [
-        _get_twitter(username) for username in _CONFIG['twitter']['usernames'].split()])):
-        _send_email('Twitter Alert', '\n\n'.join(twitter_messages))
+    if twitter_message := _get_twitter_feeds():
+        _send_email('Twitter Alert', twitter_message)
 
     if election_results_message := _get_alaska_special_election_results():
         _send_text(election_results_message)

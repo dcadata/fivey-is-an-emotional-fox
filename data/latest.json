@@ -1,9 +1,5 @@
 {
-  "twitter": {
-    "PollTrackerUSA": "https://nitter.net/PollTrackerUSA/status/1562456810724143105#m",
-    "MediumBuying": "https://nitter.net/MediumBuying/status/1563176502111264768#m",
-    "Politics_Polls": "https://nitter.net/Politics_Polls/status/1560707823041921034#m"
-  },
+  "twitter": {},
   "gcb_average": 0.5059570000000022,
   "senate": {
     "probD": 75,

@@ -8,10 +8,9 @@ from task import _FTE_FORECAST_BASE_URL, _DISTRICT_TOPLINE_FILENAMES
 def compare_forecast_expressions(chamber: str) -> None:
     chamber = chamber.lower()
 
-    url = f'{_FTE_FORECAST_BASE_URL}{_DISTRICT_TOPLINE_FILENAMES[chamber]}'
-    df = pd.read_csv(url, usecols=['district', 'expression', 'winner_Dparty'])
-    df = df.drop_duplicates(subset=['district', 'expression'], keep='first')
-    df = df.rename(columns=dict(winner_Dparty='probD'))
+    df = pd.read_csv(f'{_FTE_FORECAST_BASE_URL}{_DISTRICT_TOPLINE_FILENAMES[chamber]}', usecols=[
+        'district', 'expression', 'winner_Dparty']).drop_duplicates(subset=[
+        'district', 'expression'], keep='first').rename(columns=dict(winner_Dparty='probD'))
     df.probD = df.probD.round(2)
 
     func = lambda x: df[df.expression == x].drop(columns='expression')

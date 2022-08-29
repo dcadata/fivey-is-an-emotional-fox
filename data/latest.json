@@ -2,10 +2,10 @@
   "twitter": {},
   "gcb_average": 0.524836999999998,
   "senate": {
-    "probD": 75,
-    "probR": 25,
-    "seatsD": 51,
-    "seatsR": 49,
+    "probD": 77,
+    "probR": 23,
+    "seatsD": 52,
+    "seatsR": 48,
     "expression": "classic"
   },
   "house": {
@@ -26,9 +26,9 @@
   "house_MI-10": {
     "nameD": "Marlinga",
     "nameR": "James",
-    "probD": 16,
-    "probR": 84,
-    "margin": 7.1,
+    "probD": 19,
+    "probR": 81,
+    "margin": 6.3,
     "margin_leader": "R"
   },
   "house_MI-11": {

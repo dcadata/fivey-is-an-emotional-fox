@@ -29,17 +29,18 @@ def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022, 1, 1)) -> pd.DataFrame:
+    data = df.copy()
     merge_cols = ['pollsterName', 'pollsterRating', 'sponsors', 'population', 'partisan']
 
     def _filter_on_date_condition(series_condition: pd.Series) -> pd.DataFrame:
-        filtered = df[series_condition].groupby(merge_cols, as_index=False).agg(dict(
+        filtered = data[series_condition].groupby(merge_cols, as_index=False).agg(dict(
             dem='mean', rep='mean', polls='count')).round(1)
         filtered['margin'] = (filtered.dem - filtered.rep).round(1)
         return filtered
 
-    df = df[df.start_date.apply(lambda x: x >= date(*first_date))].copy()
-    pre = _filter_on_date_condition(df.end_date.apply(lambda x: x < date(*split_date)))
-    post = _filter_on_date_condition(df.start_date.apply(lambda x: x > date(*split_date)))
+    data = data[data.start_date.apply(lambda x: x >= date(*first_date))].copy()
+    pre = _filter_on_date_condition(data.end_date.apply(lambda x: x < date(*split_date)))
+    post = _filter_on_date_condition(data.start_date.apply(lambda x: x > date(*split_date)))
     result = pre.merge(post, on=merge_cols, suffixes=('Pre', 'Post'))
 
     result['demChange'] = (result.demPost - result.demPre).round(1)

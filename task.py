@@ -278,48 +278,19 @@ def _get_twitter_feeds() -> str:
     return '\n\n'.join(messages)
 
 
-def _get_alaska_special_election_results() -> str:
+def _get_special_election_update() -> str:
     if not _CONFIG['special'].getboolean('notify'):
         return ''
 
-    alaska_response = requests.get('https://www.elections.alaska.gov/results/22SSPG/ElectionSummaryReportRPTS.xml')
-    page = BeautifulSoup(alaska_response.text, 'xml')
-    candidate_results = page.find('CandidateResults').find('Report', attrs={'Name': 'CandidateResultsRPT'})
-    candidates = candidate_results.find_all('chGroup')
+    response = requests.get('https://www.elections.alaska.gov/election-results/')
+    page = BeautifulSoup(response.text, 'lxml')
+    last_update = page.find(text=lambda x: str(x).strip().startswith('Page last updated ')).text.replace(
+        'Page last updated ', '').replace(' at ', ' ')
 
-    politico_response = requests.get(
-        'https://www.politico.com/election-results/2022-house-results/2022-08-16/02/cd00Special/general.json')
-    progressPct = politico_response.json()['progressPct']
-
-    data = []
-    for candidate in candidates:
-        candidate_name = candidate.find('candidateNameTextBox4')['candidateNameTextBox4'].strip()
-        candidate_totals = candidate.find('Textbox13')
-        candidate_data = dict(
-            name=candidate_name,
-            lastName=candidate_name.split(',', 1)[0],
-            party=candidate.find('Textbox2')['Textbox14'].strip(),
-            votes=int(candidate_totals['vot8']),
-            voteShare=int(round(float(candidate_totals['Textbox17']) * 1000)) / 10,
-        )
-        candidate_data['text'] = '{lastName} ({party}): {votes:,} ({voteShare}%)'.format(**candidate_data)
-        data.append(candidate_data)
-
-    votesCounted = int(page.find('Textbox5').find('Textbox13')['votes3'])
-
-    data_filepath = 'data/alaska_special.json'
-    previous_data = json.load(open(data_filepath))
-
-    data = dict(
-        candidateVotes=pd.DataFrame(data).sort_values('voteShare', ascending=False).to_dict('records'),
-        votesCounted=votesCounted,
-        progressPct=progressPct,
-    )
-    if data == previous_data:
+    if last_update == _read_latest().get('special'):
         return ''
-    message = '{0}\nTotal: {1:,}'.format('\n'.join(i['text'] for i in data['candidateVotes']), votesCounted)
-    json.dump(data, open(data_filepath, 'w'), indent=2)
-    return message
+    _update_latest(dict(special=last_update))
+    return f'Special updated {last_update} local time'
 
 
 def _get_fte_messages(session: requests.Session) -> list:
@@ -356,8 +327,8 @@ def main():
     if twitter_message := _get_twitter_feeds():
         _send_email('Twitter Alert', twitter_message)
 
-    if election_results_message := _get_alaska_special_election_results():
-        _send_text(election_results_message)
+    if special_message := _get_special_election_update():
+        _send_text(special_message)
 
 
 if __name__ == '__main__':

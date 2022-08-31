@@ -59,6 +59,7 @@ def remerge_and_save(df: pd.DataFrame, label: str, *args) -> None:
 
 def main() -> None:
     df = get_data()
+    remerge_and_save(df, 'Dobbs Leak (YTD split at 5.10)', (2022, 5, 10))
     remerge_and_save(df, 'Dobbs (YTD split at 6.24)', (2022, 6, 24))
     remerge_and_save(df, 'MAL Raid (YTD split at 8.9)', (2022, 8, 9))
     remerge_and_save(df, 'MAL Raid (Split 6.24-8.9 vs 8.9-Today)', (2022, 8, 9), (2022, 6, 24))

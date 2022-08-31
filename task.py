@@ -278,21 +278,6 @@ def _get_twitter_feeds() -> str:
     return '\n\n'.join(messages)
 
 
-def _get_special_election_update() -> str:
-    if not _CONFIG['special'].getboolean('notify'):
-        return ''
-
-    response = requests.get('https://www.elections.alaska.gov/election-results/')
-    page = BeautifulSoup(response.text, 'lxml')
-    last_update = page.find(text=lambda x: str(x).strip().startswith('Page last updated ')).text.replace(
-        'Page last updated ', '').replace(' at ', ' ')
-
-    if last_update == _read_latest().get('special'):
-        return ''
-    _update_latest(dict(special=last_update))
-    return f'Special updated {last_update} local time'
-
-
 def _get_fte_messages(session: requests.Session) -> list:
     funcs = (
         _get_gcb,
@@ -326,9 +311,6 @@ def main():
 
     if twitter_message := _get_twitter_feeds():
         _send_email('Twitter Alert', twitter_message)
-
-    if special_message := _get_special_election_update():
-        _send_text(special_message)
 
 
 if __name__ == '__main__':

@@ -49,7 +49,7 @@ def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022
     return result
 
 
-def _get_data() -> pd.DataFrame:
+def get_data() -> pd.DataFrame:
     return _normalize_columns(_filter_polls(_read_polls()))
 
 
@@ -58,7 +58,7 @@ def remerge_and_save(df: pd.DataFrame, label: str, *args) -> None:
 
 
 def main() -> None:
-    df = _get_data()
+    df = get_data()
     remerge_and_save(df, 'Dobbs (YTD split at 6.24)', (2022, 6, 24))
     remerge_and_save(df, 'MAL Raid (YTD split at 8.9)', (2022, 8, 9))
     remerge_and_save(df, 'MAL Raid (Split 6.24-8.9 vs 8.9-Today)', (2022, 8, 9), (2022, 6, 24))

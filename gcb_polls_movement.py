@@ -3,13 +3,6 @@ from datetime import date
 
 import pandas as pd
 
-from task import _FTE_POLLS_BASE_URL, _GCB_FILENAMES
-
-
-def _read_polls() -> pd.DataFrame:
-    df = pd.read_csv(_FTE_POLLS_BASE_URL + _GCB_FILENAMES['polls'])
-    return df
-
 
 def _filter_polls(df: pd.DataFrame) -> pd.DataFrame:
     df = df[(df.election_date == '11/8/22') & df.start_date.str.endswith('/22')].copy()
@@ -49,21 +42,13 @@ def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022
     return result
 
 
-def get_data() -> pd.DataFrame:
-    return _normalize_columns(_filter_polls(_read_polls()))
-
-
-def remerge_and_save(df: pd.DataFrame, label: str, *args) -> None:
+def _remerge_and_save(df: pd.DataFrame, label: str, *args) -> None:
     _remerge_data(df, *args).to_csv(f'gcb_polls_movement/{label}.csv', index=False)
 
 
-def main() -> None:
-    df = get_data()
-    remerge_and_save(df, 'Dobbs Leak (YTD split at 5.10)', (2022, 5, 10))
-    remerge_and_save(df, 'Dobbs (YTD split at 6.24)', (2022, 6, 24))
-    remerge_and_save(df, 'MAL Raid (YTD split at 8.9)', (2022, 8, 9))
-    remerge_and_save(df, 'MAL Raid (Split 6.24-8.9 vs 8.9-Today)', (2022, 8, 9), (2022, 6, 24))
-
-
-if __name__ == '__main__':
-    main()
+def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
+    df = _normalize_columns(_filter_polls(df))
+    _remerge_and_save(df, 'Dobbs Leak (YTD split at 5.10)', (2022, 5, 10))
+    _remerge_and_save(df, 'Dobbs (YTD split at 6.24)', (2022, 6, 24))
+    _remerge_and_save(df, 'MAL Raid (YTD split at 8.9)', (2022, 8, 9))
+    _remerge_and_save(df, 'MAL Raid (Split 6.24-8.9 vs 8.9-Today)', (2022, 8, 9), (2022, 6, 24))

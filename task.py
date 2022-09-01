@@ -12,6 +12,8 @@ import requests
 from bs4 import BeautifulSoup
 from twilio.rest import Client
 
+from gcb_polls_movement import create_gcb_polls_movement_trackers
+
 _CONFIG = configparser.ConfigParser()
 _CONFIG.read('config.ini')
 _FTE_FORECAST_BASE_URL = 'https://projects.fivethirtyeight.com/2022-general-election-forecast-data/'
@@ -241,6 +243,19 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     return '\n\n'.join(filter(None, lines))
 
 
+def _create_gcb_polls_movement_trackers(session: requests.Session) -> None:
+    data_filename = _GCB_FILENAMES['polls']
+    data_filepath = f'data/{data_filename}'
+
+    existing_content = open(data_filepath, 'rb').read()
+    new_content = session.get(_FTE_POLLS_BASE_URL + data_filename).content
+    if existing_content == new_content:
+        return
+    open(data_filepath, 'wb').write(new_content)
+    df = pd.read_csv(data_filepath)
+    create_gcb_polls_movement_trackers(df)
+
+
 def _get_one_twitter_feed(username: str) -> str:
     try:
         rss_url = '{rss_base_url}/{username}/rss'.format(**_CONFIG['twitter'], username=username)
@@ -306,6 +321,8 @@ def main():
 
     if matching_gcb_polls_message := _get_matching_gcb_polls(session):
         _send_email('FTE GCB Polls Alert', matching_gcb_polls_message)
+
+    _create_gcb_polls_movement_trackers(session)
 
     session.close()
 

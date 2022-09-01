@@ -18,9 +18,9 @@
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Gibbs",
-    "probD": 75,
-    "probR": 25,
-    "margin": 4.7,
+    "probD": 77,
+    "probR": 23,
+    "margin": 5.2,
     "margin_leader": "D"
   },
   "house_MI-10": {

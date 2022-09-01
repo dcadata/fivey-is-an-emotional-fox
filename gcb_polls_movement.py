@@ -23,13 +23,13 @@ def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
         df[col] = df[col].fillna('')
     for col in ('start_date', 'end_date'):
         df[col] = df[col].apply(_normalize_date)
-    df = df.rename(columns=dict(display_name='pollsterName', fte_grade='pollsterRating', poll_id='polls'))
+    df = df.rename(columns=dict(display_name='pollsterName', fte_grade='fteRating', poll_id='polls'))
     return df
 
 
 def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022, 1, 1)) -> pd.DataFrame:
     data = df.copy()
-    merge_cols = ['pollsterName', 'pollsterRating', 'sponsors', 'population', 'partisan']
+    merge_cols = ['pollsterName', 'fteRating', 'sponsors', 'population', 'partisan']
 
     def _filter_on_date_condition(series_condition: pd.Series) -> pd.DataFrame:
         filtered = data[series_condition].groupby(merge_cols, as_index=False).agg(dict(

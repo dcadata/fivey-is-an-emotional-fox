@@ -1,4 +1,4 @@
-pollsterName,pollsterRating,sponsors,population,partisan,demPre,repPre,pollsPre,marginPre,demPost,repPost,pollsPost,marginPost,demChange,repChange,marginChange
+pollsterName,fteRating,sponsors,population,partisan,demPre,repPre,pollsPre,marginPre,demPost,repPost,pollsPost,marginPost,demChange,repChange,marginChange
 Big Village,B,,A,,38.8,37.0,15,1.8,42.2,36.4,2,5.8,3.4,-0.6,4.0
 Big Village,B,,RV,,44.2,42.4,15,1.8,47.2,41.3,2,5.9,3.0,-1.1,4.1
 Cygnal,B+,,LV,,45.4,47.5,6,-2.1,47.2,46.5,1,0.7,1.8,-1.0,2.8

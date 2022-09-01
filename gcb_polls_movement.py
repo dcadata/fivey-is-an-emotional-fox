@@ -10,7 +10,7 @@ def _filter_polls(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
-    df.population = df.population.fillna('Not Specified')
+    df.population = df.population.fillna('Not Specified').str.upper()
     df.fte_grade = df.fte_grade.fillna('Unrated')
     df.partisan = df.partisan.fillna('')
     for col in ('sponsor_ids', 'sponsors'):

@@ -5,8 +5,14 @@ import pandas as pd
 
 
 def _filter_polls(df: pd.DataFrame) -> pd.DataFrame:
-    df = df[(df.election_date == '11/8/22') & df.start_date.str.endswith('/22')].copy()
+    df = df[(df.election_date == '11/8/22') & df.start_date.str.endswith(('/21', '/22'))].copy()
     return df
+
+
+def _normalize_date(x) -> date:
+    x = re.sub('/21$', '/2021', x, count=1)
+    x = re.sub('/22$', '/2022', x, count=1)
+    return pd.to_datetime(x).date()
 
 
 def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -16,7 +22,7 @@ def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     for col in ('sponsor_ids', 'sponsors'):
         df[col] = df[col].fillna('')
     for col in ('start_date', 'end_date'):
-        df[col] = df[col].apply(lambda x: re.sub('/22$', '/2022', x, count=1)).apply(lambda x: pd.to_datetime(x).date())
+        df[col] = df[col].apply(_normalize_date)
     df = df.rename(columns=dict(display_name='pollsterName', fte_grade='pollsterRating', poll_id='polls'))
     return df
 

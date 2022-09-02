@@ -1,3 +1,4 @@
+import os
 import re
 from datetime import date
 
@@ -60,3 +61,14 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
     _remerge_and_save(df, 'MAL Raid (Split 6.24-8.9 vs 8.9-Today)', first_date=(2022, 6, 24), split_date=(2022, 8, 9))
     _remerge_and_save(df, 'Student Loan Forgiveness (Split 6.24-8.24 vs 8.24-Today)', first_date=(
         2022, 6, 24), split_date=(2022, 8, 24))
+
+
+def create_filenames_list():
+    filenames = [fn for fn in os.listdir('gcb_polls_movement') if fn.endswith('.csv')]
+    filenames.insert(0, 'SELECT')
+    with open('gcb_polls_movement/filenames.txt', 'w') as f:
+        f.write('\n'.join(filenames))
+
+
+if __name__ == '__main__':
+    create_filenames_list()

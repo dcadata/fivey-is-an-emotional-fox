@@ -1,0 +1,6 @@
+SELECT
+Dobbs (YTD split at 6.24).csv
+Dobbs Leak (YTD split at 5.10).csv
+MAL Raid (Split 6.24-8.9 vs 8.9-Today).csv
+MAL Raid (YTD split at 8.9).csv
+Student Loan Forgiveness (Split 6.24-8.24 vs 8.24-Today).csv

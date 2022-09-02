@@ -48,8 +48,8 @@ def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022
     return result
 
 
-def _remerge_and_save(df: pd.DataFrame, label: str, *args) -> None:
-    _remerge_data(df, *args).to_csv(f'gcb_polls_movement/{label}.csv', index=False)
+def _remerge_and_save(df: pd.DataFrame, label: str, *args, **kwargs) -> None:
+    _remerge_data(df, *args, **kwargs).to_csv(f'gcb_polls_movement/{label}.csv', index=False)
 
 
 def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
@@ -57,4 +57,6 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
     _remerge_and_save(df, 'Dobbs Leak (YTD split at 5.10)', (2022, 5, 10))
     _remerge_and_save(df, 'Dobbs (YTD split at 6.24)', (2022, 6, 24))
     _remerge_and_save(df, 'MAL Raid (YTD split at 8.9)', (2022, 8, 9))
-    _remerge_and_save(df, 'MAL Raid (Split 6.24-8.9 vs 8.9-Today)', (2022, 8, 9), (2022, 6, 24))
+    _remerge_and_save(df, 'MAL Raid (Split 6.24-8.9 vs 8.9-Today)', first_date=(2022, 6, 24), split_date=(2022, 8, 9))
+    _remerge_and_save(df, 'Student Loan Forgiveness (Split 6.24-8.24 vs 8.24-Today)', first_date=(
+        2022, 6, 24), split_date=(2022, 8, 24))

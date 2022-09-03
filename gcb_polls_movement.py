@@ -1,4 +1,3 @@
-import os
 import re
 from datetime import date
 
@@ -92,18 +91,10 @@ def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def create_filenames_list() -> None:
-    filenames = [fn for fn in os.listdir(_FOLDER) if fn.endswith('.csv')]
-    filenames.insert(0, 'SELECT')
-    with open(f'{_FOLDER}filenames.txt', 'w') as f:
-        f.write('\n'.join(filenames))
-
-
 def main() -> None:
     df = _read_data()
     create_gcb_polls_movement_trackers(df)
     create_gcb_polls_population_diff_trackers(df)
-    create_filenames_list()
 
 
 if __name__ == '__main__':

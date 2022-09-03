@@ -55,9 +55,9 @@ def _remerge_and_save(df: pd.DataFrame, label: str, *args, **kwargs) -> None:
 
 def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
     df = _normalize_columns(_filter_polls(df))
-    _remerge_and_save(df, 'Dobbs (YTD split at 6.24)', (2022, 6, 24))
-    _remerge_and_save(df, 'MAL Raid (Split 6.24-8.9 vs 8.9-Today)', first_date=(2022, 6, 24), split_date=(2022, 8, 9))
-    _remerge_and_save(df, 'Student Loan Forgiveness (Split 6.24-8.24 vs 8.24-Today)', first_date=(
+    _remerge_and_save(df, '1-Dobbs (YTD split at 6.24)', (2022, 6, 24))
+    _remerge_and_save(df, '2-MAL Raid (6.24-8.9 vs 8.9-Today)', first_date=(2022, 6, 24), split_date=(2022, 8, 9))
+    _remerge_and_save(df, '3-Student Loan Forgiveness (6.24-8.24 vs 8.24-Today)', first_date=(
         2022, 6, 24), split_date=(2022, 8, 24))
 
 

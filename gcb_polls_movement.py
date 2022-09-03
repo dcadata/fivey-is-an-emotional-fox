@@ -72,7 +72,7 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
         2022, 6, 24), split_date=(2022, 8, 24))
 
 
-def create_gcb_polls_pop_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
+def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
     df = _normalize_columns(_filter_polls(df))
     rv = df[df.population == 'RV'].drop(columns='population')
     lv = df.loc[df.population == 'LV', ['polls', 'dem', 'rep']].copy()
@@ -101,7 +101,7 @@ def create_filenames_list() -> None:
 def main() -> None:
     df = _read_data()
     create_gcb_polls_movement_trackers(df)
-    create_gcb_polls_pop_diff_trackers(df)
+    create_gcb_polls_population_diff_trackers(df)
     create_filenames_list()
 
 

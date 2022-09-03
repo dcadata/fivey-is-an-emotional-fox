@@ -87,7 +87,8 @@ def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
     df['marginLV'] = (df.demLV - df.repLV).round(1)
     df['marginDiff'] = (df.marginLV - df.marginRV).round(1)
 
-    df.to_csv(f'{_FOLDER}Z-Population Diff.csv', index=False)
+    df = df.rename(columns=dict(start_date='startDate', end_date='endDate'))
+    df.to_csv(f'{_FOLDER}Z-Population (RV/LV) Difference.csv', index=False)
     return df
 
 

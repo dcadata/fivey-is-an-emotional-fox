@@ -5,6 +5,15 @@ from datetime import date
 import pandas as pd
 
 
+def _read_data() -> pd.DataFrame:
+    df = pd.read_csv('data/generic_ballot_polls.csv', usecols=[
+        'poll_id', 'sponsors', 'display_name', 'fte_grade', 'methodology', 'partisan', 'population',
+        'election_date', 'start_date', 'end_date',
+        'dem', 'rep',
+    ])
+    return df
+
+
 def _filter_polls(df: pd.DataFrame) -> pd.DataFrame:
     df = df[(df.election_date == '11/8/22') & df.start_date.str.endswith(('/21', '/22'))].copy()
     return df

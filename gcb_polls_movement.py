@@ -91,17 +91,17 @@ def create_gcb_polls_pop_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def create_filenames_list():
+def create_filenames_list() -> None:
     filenames = [fn for fn in os.listdir(_FOLDER) if fn.endswith('.csv')]
     filenames.insert(0, 'SELECT')
     with open(f'{_FOLDER}filenames.txt', 'w') as f:
         f.write('\n'.join(filenames))
 
 
-def main():
-    data = pd.read_csv('data/generic_ballot_polls.csv')
-    create_gcb_polls_movement_trackers(data)
-    create_gcb_polls_pop_diff_trackers(data)
+def main() -> None:
+    df = pd.read_csv('data/generic_ballot_polls.csv')
+    create_gcb_polls_movement_trackers(df)
+    create_gcb_polls_pop_diff_trackers(df)
     create_filenames_list()
 
 

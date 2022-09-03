@@ -99,7 +99,7 @@ def create_filenames_list() -> None:
 
 
 def main() -> None:
-    df = pd.read_csv('data/generic_ballot_polls.csv')
+    df = _read_data()
     create_gcb_polls_movement_trackers(df)
     create_gcb_polls_pop_diff_trackers(df)
     create_filenames_list()

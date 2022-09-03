@@ -1,4 +1,4 @@
-pollsterName,fteRating,sponsors,population,partisan,demPre,repPre,pollsPre,marginPre,demPost,repPost,pollsPost,marginPost,demChange,repChange,marginChange
+pollsterName,fteGrade,sponsors,population,partisan,demPre,repPre,pollsPre,marginPre,demPost,repPost,pollsPost,marginPost,demChange,repChange,marginChange
 Morning Consult,B,Politico,RV,,45.4,42.0,8,3.4,47.0,42.0,1,5.0,1.6,0.0,1.6
 Quinnipiac University,A-,,A,,43.0,44.0,1,-1.0,46.0,42.0,1,4.0,3.0,-2.0,5.0
 Quinnipiac University,A-,,RV,,45.0,44.0,1,1.0,47.0,43.0,1,4.0,2.0,-1.0,3.0

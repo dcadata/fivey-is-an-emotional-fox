@@ -4,6 +4,8 @@ from datetime import date
 
 import pandas as pd
 
+_FOLDER = 'gcb_polls_movement/'
+
 
 def _read_data() -> pd.DataFrame:
     df = pd.read_csv('data/generic_ballot_polls.csv', usecols=[
@@ -59,7 +61,7 @@ def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022
 
 
 def _remerge_and_save(df: pd.DataFrame, label: str, *args, **kwargs) -> None:
-    _remerge_data(df, *args, **kwargs).to_csv(f'gcb_polls_movement/{label}.csv', index=False)
+    _remerge_data(df, *args, **kwargs).to_csv(f'{_FOLDER}{label}.csv', index=False)
 
 
 def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
@@ -70,13 +72,38 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
         2022, 6, 24), split_date=(2022, 8, 24))
 
 
+def create_gcb_polls_pop_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
+    df = _normalize_columns(_filter_polls(df))
+    rv = df[df.population == 'RV'].drop(columns='population')
+    lv = df.loc[df.population == 'LV', ['polls', 'dem', 'rep']].copy()
+    df = rv.merge(lv, on='polls', suffixes=('RV', 'LV')).drop(columns='polls')
+    df = df[[
+        'pollsterName', 'fteGrade', 'sponsors', 'partisan', 'start_date', 'end_date',
+        'demRV', 'repRV', 'demLV', 'repLV',
+    ]]
+    for col in ('start_date', 'end_date'):
+        df[col] = df[col].apply(lambda x: x.strftime('%m/%d/%Y'))
+    df['marginRV'] = (df.demRV - df.repRV).round(1)
+    df['marginLV'] = (df.demLV - df.repLV).round(1)
+    df['marginDiff'] = (df.marginLV - df.marginRV).round(1)
+
+    df.to_csv(f'{_FOLDER}Z-Population Diff.csv', index=False)
+    return df
+
+
 def create_filenames_list():
-    filenames = [fn for fn in os.listdir('gcb_polls_movement') if fn.endswith('.csv')]
+    filenames = [fn for fn in os.listdir(_FOLDER) if fn.endswith('.csv')]
     filenames.insert(0, 'SELECT')
-    with open('gcb_polls_movement/filenames.txt', 'w') as f:
+    with open(f'{_FOLDER}filenames.txt', 'w') as f:
         f.write('\n'.join(filenames))
 
 
-if __name__ == '__main__':
-    create_gcb_polls_movement_trackers(pd.read_csv('data/generic_ballot_polls.csv'))
+def main():
+    data = pd.read_csv('data/generic_ballot_polls.csv')
+    create_gcb_polls_movement_trackers(data)
+    create_gcb_polls_pop_diff_trackers(data)
     create_filenames_list()
+
+
+if __name__ == '__main__':
+    main()

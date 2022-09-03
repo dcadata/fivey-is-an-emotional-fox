@@ -15,7 +15,8 @@ def _read_data() -> pd.DataFrame:
 
 
 def _filter_polls(df: pd.DataFrame) -> pd.DataFrame:
-    df = df[(df.election_date == '11/8/22') & df.start_date.str.endswith(('/21', '/22'))].copy()
+    df = df[(df.election_date == '11/8/22') & df.start_date.str.endswith(('/21', '/22'))].drop(
+        columns='election_date')
     return df
 
 
@@ -29,8 +30,7 @@ def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     df.population = df.population.fillna('Not Specified').str.upper()
     df.fte_grade = df.fte_grade.fillna('Unrated')
     df.partisan = df.partisan.fillna('')
-    for col in ('sponsor_ids', 'sponsors'):
-        df[col] = df[col].fillna('')
+    df.sponsors = df.sponsors.fillna('')
     for col in ('start_date', 'end_date'):
         df[col] = df[col].apply(_normalize_date)
     df = df.rename(columns=dict(display_name='pollsterName', fte_grade='fteGrade', poll_id='polls'))

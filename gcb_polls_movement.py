@@ -73,6 +73,7 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
 
 def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
     df = _normalize_columns(_filter_polls(df))
+    df = df[df.start_date >= date(2022, 1, 1)].copy()
 
     def _separate_pop(pop) -> pd.DataFrame:
         temp = df[df.population == pop].drop(columns='population')

@@ -12,7 +12,7 @@ import requests
 from bs4 import BeautifulSoup
 from twilio.rest import Client
 
-from gcb_polls_movement import create_gcb_polls_movement_trackers
+import gcb_polls_movement as GCB
 
 _CONFIG = configparser.ConfigParser()
 _CONFIG.read('config.ini')
@@ -243,7 +243,7 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     return '\n\n'.join(filter(None, lines))
 
 
-def _create_gcb_polls_movement_trackers(session: requests.Session) -> None:
+def _update_gcb_polls_trackers(session: requests.Session) -> None:
     data_filename = _GCB_FILENAMES['polls']
     data_filepath = f'data/{data_filename}'
 
@@ -253,7 +253,8 @@ def _create_gcb_polls_movement_trackers(session: requests.Session) -> None:
         return
     open(data_filepath, 'wb').write(new_content)
     df = pd.read_csv(data_filepath)
-    create_gcb_polls_movement_trackers(df)
+    GCB.create_gcb_polls_movement_trackers(df)
+    GCB.create_gcb_polls_population_diff_trackers(df)
 
 
 def _get_one_twitter_feed(username: str) -> str:
@@ -322,7 +323,7 @@ def main():
     if matching_gcb_polls_message := _get_matching_gcb_polls(session):
         _send_email('FTE GCB Polls Alert', matching_gcb_polls_message)
 
-    _create_gcb_polls_movement_trackers(session)
+    _update_gcb_polls_trackers(session)
 
     session.close()
 

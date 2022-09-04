@@ -65,7 +65,7 @@ def _update_latest(new_data: dict) -> None:
     json.dump(data_from_file, open('data/latest.json', 'w'), indent=2)
 
 
-def _get_gcb(session: requests.Session) -> str:
+def _get_gcb_average(session: requests.Session) -> str:
     if not _CONFIG['gcb_average'].getboolean('notify'):
         return ''
 
@@ -296,7 +296,7 @@ def _get_twitter_feeds() -> str:
 
 def _get_fte_messages(session: requests.Session) -> list:
     funcs = (
-        _get_gcb,
+        _get_gcb_average,
         lambda x: _get_chamber_forecast(x, 'senate'),
         lambda x: _get_chamber_forecast(x, 'house'),
         lambda x: _get_seat_forecasts(x, 'senate'),

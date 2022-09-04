@@ -85,6 +85,8 @@ def _get_gcb_average(session: requests.Session) -> str:
         return ''
     _update_latest(dict(gcb_average=unrounded_lead))
 
+    _update_gcb_polls_trackers(session)
+
     data.pct_estimate = data.pct_estimate.round(2)
     return 'GCB\nD:{D} R:{R}\n{leader}+{lead} (chg: {change_gainer}+{change})'.format(
         lead=abs(round(unrounded_lead, 2)),
@@ -322,8 +324,6 @@ def main():
 
     if matching_gcb_polls_message := _get_matching_gcb_polls(session):
         _send_email('FTE GCB Polls Alert', matching_gcb_polls_message)
-
-    _update_gcb_polls_trackers(session)
 
     session.close()
 

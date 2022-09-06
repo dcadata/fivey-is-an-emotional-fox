@@ -51,7 +51,11 @@ def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022
     data = data[data.start_date.apply(lambda x: x >= date(*first_date))].copy()
     pre = _filter_on_date_condition(data.end_date.apply(lambda x: x < date(*split_date)))
     post = _filter_on_date_condition(data.start_date.apply(lambda x: x > date(*split_date)))
-    result = pre.merge(post, on=merge_cols, suffixes=('Pre', 'Post'))
+    result = pre.merge(post, on=merge_cols, suffixes=('Pre', 'Post'), how='left')
+
+    result.pollsPre = result.pollsPre.fillna(0).apply(int)
+    result.pollsPost = result.pollsPost.fillna(0).apply(int)
+    result = result.sort_values('pollsPost', ascending=False)
 
     result['demChange'] = (result.demPost - result.demPre).round(1)
     result['repChange'] = (result.repPost - result.repPre).round(1)

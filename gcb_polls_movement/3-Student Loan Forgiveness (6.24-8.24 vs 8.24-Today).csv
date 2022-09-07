@@ -1,6 +1,6 @@
 pollsterName,fteGrade,sponsors,population,partisan,demPre,repPre,pollsPre,marginPre,demPost,repPost,pollsPost,marginPost,demChange,repChange,marginChange
 Morning Consult,B,,LV,,47.5,44.8,13,2.7,47.7,44.8,9,2.9,0.2,0.0,0.2
-YouGov,B+,Economist,RV,,43.2,39.7,9,3.5,45.2,37.8,2,7.4,2.0,-1.9,3.9
+YouGov,B+,Economist,RV,,43.2,39.7,9,3.5,45.3,37.6,2,7.7,2.1,-2.1,4.2
 YouGov,B+,Yahoo News,RV,,44.5,38.8,4,5.7,45.0,40.0,1,5.0,0.5,1.2,-0.7
 YouGov,B+,Yahoo News,A,,38.2,32.2,4,6.0,39.0,34.0,1,5.0,0.8,1.8,-1.0
 Trafalgar Group,A-,,LV,REP,40.9,47.6,2,-6.7,41.4,47.2,1,-5.8,0.5,-0.4,0.9

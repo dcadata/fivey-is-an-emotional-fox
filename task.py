@@ -1,7 +1,8 @@
 import configparser
 import json
+import os.path
 import re
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from email.mime.text import MIMEText
 from os import environ
 from smtplib import SMTP_SSL
@@ -95,6 +96,31 @@ def _get_gcb_average(session: requests.Session) -> str:
         change_gainer='D' if change_from_previous > 0 else 'R',
         **data.groupby('party').pct_estimate.sum(),
     )
+
+
+def _refresh_gcb_average_diffs() -> None:
+    data_filename = _GCB_FILENAMES['averages']
+    data_filepath = f'data/{data_filename}'
+    if not os.path.exists(data_filepath):
+        data_filepath = _FTE_POLLS_BASE_URL + data_filename
+
+    df = pd.read_csv(data_filepath, usecols=['candidate', 'pct_estimate', 'date', 'election'])
+    df = df[df.election == '2022-11-08'].drop(columns='election')
+
+    df.date = df.date.apply(lambda x: pd.to_datetime(x).date())
+    df = df[df.date >= date(2022, 5, 1)].copy()
+
+    _separate_party = lambda p: df[df.candidate == p].drop(columns='candidate').rename(columns=dict(
+        pct_estimate=p[:3].lower()))
+    df = _separate_party('Democrats').merge(_separate_party('Republicans'), on='date')
+
+    df['margin'] = df.dem - df.rep
+    df['demDiff'] = df.dem.diff()
+    df['repDiff'] = df.rep.diff()
+    df['marginDiff'] = df.margin.diff()
+
+    df = df.dropna()[['date', 'dem', 'rep', 'margin', 'demDiff', 'repDiff', 'marginDiff']]
+    df.to_csv('gcb_polls_movement/GCB Average Movement.csv', index=False)
 
 
 def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:

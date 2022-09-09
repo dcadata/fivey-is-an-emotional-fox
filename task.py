@@ -86,6 +86,7 @@ def _get_gcb_average(session: requests.Session) -> str:
         return ''
     _update_latest(dict(gcb_average=unrounded_lead))
 
+    _refresh_gcb_average_diffs()
     _refresh_gcb_polls_trackers(session)
 
     data.pct_estimate = data.pct_estimate.round(2)

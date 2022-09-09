@@ -109,7 +109,7 @@ def _refresh_gcb_average_diffs() -> None:
     df = df[df.election == '2022-11-08'].drop(columns='election')
 
     df.date = df.date.apply(lambda x: pd.to_datetime(x).date())
-    df = df[df.date >= date(2022, 5, 1)].copy()
+    df = df[df.date >= date(2022, 1, 1)].copy()
 
     _separate_party = lambda p: df[df.candidate == p].drop(columns='candidate').rename(columns=dict(
         pct_estimate=p[:3].lower()))

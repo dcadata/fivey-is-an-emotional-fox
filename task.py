@@ -85,7 +85,7 @@ def _get_gcb_average(session: requests.Session) -> str:
         return ''
     _update_latest(dict(gcb_average=unrounded_lead))
 
-    _update_gcb_polls_trackers(session)
+    _refresh_gcb_polls_trackers(session)
 
     data.pct_estimate = data.pct_estimate.round(2)
     return 'GCB\nD:{D} R:{R}\n{leader}+{lead} (chg: {change_gainer}+{change})'.format(
@@ -245,7 +245,7 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     return '\n\n'.join(filter(None, lines))
 
 
-def _update_gcb_polls_trackers(session: requests.Session) -> None:
+def _refresh_gcb_polls_trackers(session: requests.Session) -> None:
     data_filename = _GCB_FILENAMES['polls']
     data_filepath = f'data/{data_filename}'
 

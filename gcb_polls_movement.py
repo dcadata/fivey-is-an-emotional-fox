@@ -3,7 +3,7 @@ from datetime import date
 
 import pandas as pd
 
-_FOLDER = 'gcb_polls_movement/'
+FOLDER = 'gcb_movement/'
 
 
 def _read_data() -> pd.DataFrame:
@@ -64,7 +64,7 @@ def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022
 
 
 def _remerge_and_save(df: pd.DataFrame, label: str, *args, **kwargs) -> None:
-    _remerge_data(df, *args, **kwargs).to_csv(f'{_FOLDER}{label}.csv', index=False)
+    _remerge_data(df, *args, **kwargs).to_csv(f'{FOLDER}{label}.csv', index=False)
 
 
 def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
@@ -98,15 +98,5 @@ def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
         df[col] = df[col].apply(lambda x: x.strftime('%m/%d/%Y'))
     df['marginDiff'] = df.marginLV - df.marginRV
 
-    df.to_csv(f'{_FOLDER}Z-Population Difference.csv', index=False)
+    df.to_csv(f'{FOLDER}Z-Population Difference.csv', index=False)
     return df
-
-
-def main() -> None:
-    df = _read_data()
-    create_gcb_polls_movement_trackers(df)
-    create_gcb_polls_population_diff_trackers(df)
-
-
-if __name__ == '__main__':
-    main()

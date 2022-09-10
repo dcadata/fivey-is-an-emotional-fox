@@ -112,7 +112,7 @@ def _refresh_gcb_rolling_means() -> None:
 
     _separate_party = lambda p: df[df.candidate == p].drop(columns='candidate').rename(columns=dict(
         pct_estimate=p[:3].lower()))
-    df = _separate_party('Democrats').merge(_separate_party('Republicans'), on='date')
+    df = _separate_party('Democrats').merge(_separate_party('Republicans'), on='date')[['date', 'dem', 'rep']]
 
     df['margin'] = df.dem - df.rep
     for day_period in (7, 14, 21, 28):

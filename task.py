@@ -10,6 +10,7 @@ from time import sleep
 
 import pandas as pd
 import requests
+import seaborn as sns
 from bs4 import BeautifulSoup
 from twilio.rest import Client
 
@@ -86,7 +87,7 @@ def _get_gcb_average(session: requests.Session) -> str:
         return ''
     _update_latest(dict(gcb_average=unrounded_lead))
 
-    _refresh_gcb_average_diffs()
+    _refresh_gcb_rolling_means()
     _refresh_gcb_polls_trackers(session)
 
     data.pct_estimate = data.pct_estimate.round(2)
@@ -99,7 +100,7 @@ def _get_gcb_average(session: requests.Session) -> str:
     )
 
 
-def _refresh_gcb_average_diffs() -> None:
+def _refresh_gcb_rolling_means() -> None:
     data_filename = _GCB_FILENAMES['averages']
     data_filepath = f'data/{data_filename}'
     if not os.path.exists(data_filepath):
@@ -109,19 +110,33 @@ def _refresh_gcb_average_diffs() -> None:
     df = df[df.election == '2022-11-08'].drop(columns='election')
 
     df.date = df.date.apply(lambda x: pd.to_datetime(x).date())
-    df = df[df.date >= date(2022, 6, 1)].copy()
 
     _separate_party = lambda p: df[df.candidate == p].drop(columns='candidate').rename(columns=dict(
         pct_estimate=p[:3].lower()))
     df = _separate_party('Democrats').merge(_separate_party('Republicans'), on='date')
 
     df['margin'] = df.dem - df.rep
-    df['demDiff'] = df.dem.diff()
-    df['repDiff'] = df.rep.diff()
-    df['marginDiff'] = df.margin.diff()
+    # for i in (7,):
+    #     df[f'marginEMA{i}d'] = df.margin.ewm(i).mean()
+    for i in (7, 14, 21, 28):
+        df[f'marginSMA{i}d'] = df.margin.rolling(i).mean()
 
-    df = df.dropna()[['date', 'dem', 'rep', 'margin', 'demDiff', 'repDiff', 'marginDiff']]
-    df.to_csv('gcb_polls_movement/GCB Average Movement.csv', index=False)
+    df = df.dropna()
+    df = df[df.date >= date(2022, 1, 1)].copy()
+
+    df.to_csv(gcb_polls_movement.FOLDER + 'GCB Average Movement.csv', index=False)
+
+    plt = sns.scatterplot(data=df, x='date', y='margin', s=100, color='.8', marker='.')
+    sns.lineplot(data=df, x='date', y='marginSMA7d', color='cyan')
+    sns.lineplot(data=df, x='date', y='marginSMA14d', color='blue')
+    sns.lineplot(data=df, x='date', y='marginSMA21d', color='purple')
+    sns.lineplot(data=df, x='date', y='marginSMA28d', color='red')
+
+    fig = plt.get_figure()
+    fig.autofmt_xdate()
+    fig.set_size_inches(12, 8)
+    fig.suptitle('GCB Margin Moving Averages')
+    fig.savefig(gcb_polls_movement.FOLDER + 'GCB Average Movement.png')
 
 
 def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:

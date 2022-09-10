@@ -118,8 +118,11 @@ def _refresh_gcb_rolling_means() -> None:
     df['margin'] = df.dem - df.rep
     # for i in (7,):
     #     df[f'marginEMA{i}d'] = df.margin.ewm(i).mean()
-    for i in (7, 14, 21, 28):
-        df[f'marginSMA{i}d'] = df.margin.rolling(i).mean()
+    legend_labels = []
+    for day_period in (7, 14, 21, 28):
+        col_name = f'marginSMA_{day_period}d'
+        df[col_name] = df.margin.rolling(day_period).mean()
+        legend_labels.append(col_name)
 
     df = df.dropna()
     df = df[df.date >= date(2022, 1, 1)].copy()
@@ -127,15 +130,15 @@ def _refresh_gcb_rolling_means() -> None:
     df.to_csv(gcb_polls_movement.FOLDER + 'GCB Average Movement.csv', index=False)
 
     plt = sns.scatterplot(data=df, x='date', y='margin', s=100, color='.8', marker='.')
-    sns.lineplot(data=df, x='date', y='marginSMA7d', color='cyan')
-    sns.lineplot(data=df, x='date', y='marginSMA14d', color='blue')
-    sns.lineplot(data=df, x='date', y='marginSMA21d', color='purple')
-    sns.lineplot(data=df, x='date', y='marginSMA28d', color='red')
+    for y_col, color in zip(legend_labels, ['cyan', 'blue', 'purple', 'red']):
+        sns.lineplot(data=df, x='date', y=y_col, color=color)
+
+    plt.legend(labels=legend_labels)
+    plt.set_title('538 GCB Margin Moving Averages')
 
     fig = plt.get_figure()
     fig.autofmt_xdate()
     fig.set_size_inches(12, 8)
-    fig.suptitle('538 GCB Margin Moving Averages')
     fig.savefig(gcb_polls_movement.FOLDER + 'GCB Average Movement.png')
 
 

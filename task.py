@@ -10,7 +10,6 @@ from time import sleep
 
 import pandas as pd
 import requests
-import seaborn as sns
 from bs4 import BeautifulSoup
 from twilio.rest import Client
 
@@ -116,31 +115,14 @@ def _refresh_gcb_rolling_means() -> None:
     df = _separate_party('Democrats').merge(_separate_party('Republicans'), on='date')
 
     df['margin'] = df.dem - df.rep
-    # for i in (7,):
-    #     df[f'marginEMA{i}d'] = df.margin.ewm(i).mean()
-    legend_labels = []
     for day_period in (7, 14, 21, 28):
-        col_name = f'marginSMA_{day_period}d'
-        df[col_name] = df.margin.rolling(day_period).mean()
-        legend_labels.append(col_name)
+        df[f'marginSMA_{day_period}d'] = df.margin.rolling(day_period).mean()
+    # for day_period in (7,):
+    #     df[f'marginEMA_{day_period}d'] = df.margin.ewm(day_period).mean()
 
     df = df.dropna()
     df = df[df.date >= date(2022, 1, 1)].copy()
-
     df.to_csv(gcb_polls_movement.FOLDER + 'GCB Average Movement.csv', index=False)
-
-    plt = sns.scatterplot(data=df, x='date', y='margin', s=100, color='.8', marker='.')
-    for y_col, color in zip(legend_labels, ['cyan', 'blue', 'purple', 'red']):
-        sns.lineplot(data=df, x='date', y=y_col, color=color)
-
-    legend_labels.insert(0, 'margin')
-    plt.legend(labels=legend_labels)
-    plt.set_title('538 GCB Margin Moving Averages')
-
-    fig = plt.get_figure()
-    fig.autofmt_xdate()
-    fig.set_size_inches(12, 8)
-    fig.savefig(gcb_polls_movement.FOLDER + 'GCB Average Movement.png')
 
 
 def _get_chamber_forecast(session: requests.Session, chamber: str) -> str:

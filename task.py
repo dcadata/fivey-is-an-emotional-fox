@@ -13,7 +13,7 @@ import requests
 from bs4 import BeautifulSoup
 from twilio.rest import Client
 
-import gcb_polls_movement as GCB
+import gcb_polls_movement
 
 _CONFIG = configparser.ConfigParser()
 _CONFIG.read('config.ini')
@@ -282,8 +282,8 @@ def _refresh_gcb_polls_trackers(session: requests.Session) -> None:
         return
     open(data_filepath, 'wb').write(new_content)
     df = pd.read_csv(data_filepath)
-    GCB.create_gcb_polls_movement_trackers(df)
-    GCB.create_gcb_polls_population_diff_trackers(df)
+    gcb_polls_movement.create_gcb_polls_movement_trackers(df)
+    gcb_polls_movement.create_gcb_polls_population_diff_trackers(df)
 
 
 def _get_one_twitter_feed(username: str) -> str:

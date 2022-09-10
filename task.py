@@ -135,7 +135,7 @@ def _refresh_gcb_rolling_means() -> None:
     fig = plt.get_figure()
     fig.autofmt_xdate()
     fig.set_size_inches(12, 8)
-    fig.suptitle('GCB Margin Moving Averages')
+    fig.suptitle('538 GCB Margin Moving Averages')
     fig.savefig(gcb_polls_movement.FOLDER + 'GCB Average Movement.png')
 
 

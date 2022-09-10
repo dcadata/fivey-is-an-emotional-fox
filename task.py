@@ -133,6 +133,7 @@ def _refresh_gcb_rolling_means() -> None:
     for y_col, color in zip(legend_labels, ['cyan', 'blue', 'purple', 'red']):
         sns.lineplot(data=df, x='date', y=y_col, color=color)
 
+    legend_labels.insert(0, 'margin')
     plt.legend(labels=legend_labels)
     plt.set_title('538 GCB Margin Moving Averages')
 

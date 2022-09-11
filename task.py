@@ -116,9 +116,7 @@ def _refresh_gcb_rolling_means() -> None:
 
     df['margin'] = df.dem - df.rep
     for day_period in (7, 14, 21, 28):
-        df[f'sma{day_period}d'] = df.margin.rolling(day_period).mean()
-    # for day_period in (7,):
-    #     df[f'ema{day_period}d'] = df.margin.ewm(day_period).mean()
+        df[f'sma{day_period}d'] = df.margin.rolling(day_period).mean()  # EMA: df.margin.ewm(day_period).mean()
 
     df = df[df.date >= date(2022, 1, 1)].sort_values('date', ascending=False)
     df.to_csv(gcb_polls_movement.FOLDER + 'GCB Average Movement.csv', index=False)

@@ -32,9 +32,6 @@ _DISTRICT_TOPLINE_FILENAMES = dict(
     house='house_district_toplines_2022.csv',
     governor='governor_state_toplines_2022.csv',
 )
-_MATCHED_GCB_POLL_MESSAGE = 'New GCB poll: matched on {0}'.format(', '.join((
-    'Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)', 'Partisan/Internal',
-)))
 
 
 def _send_email(subject: str, body: str) -> None:
@@ -261,6 +258,7 @@ def _get_matching_gcb_polls(session: requests.Session) -> str:
     full_data.partisan = full_data.partisan.fillna(False)
     full_data.fte_grade = full_data.fte_grade.fillna('Unrated')
     full_data.sample_size = full_data.sample_size.fillna(0).apply(int)
+    # MATCHED ON: 'Pollster', 'Sponsor(s)', 'Methodology (Online, IVR, etc.)', 'Population (LV, RV, A)', 'Partisan/Internal'
 
     unseen_data = full_data[~full_data.poll_id.isin(seen_poll_ids)].copy()
     if not len(unseen_data):

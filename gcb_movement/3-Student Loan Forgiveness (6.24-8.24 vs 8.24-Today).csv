@@ -1,4 +1,4 @@
-pollsterName,fteGrade,sponsors,population,partisan,demPre,repPre,pollsPre,marginPre,demPost,repPost,pollsPost,marginPost,demChange,repChange,marginChange
+pollsterName,fteGrade,sponsor,population,partisan,demBefore,repBefore,pollsBefore,marginBefore,demAfter,repAfter,pollsAfter,marginAfter,demChange,repChange,marginChange
 Morning Consult,B,,LV,,47.5,44.8,13,2.7,47.7,44.8,9,2.9,0.2,0.0,0.2
 Rasmussen Reports/Pulse Opinion Research,B,Miranda Devine's LAPTOP FROM HELL,LV,,40.9,46.9,7,-6.0,42.0,46.5,2,-4.5,1.1,-0.4,1.5
 YouGov,B+,Economist,RV,,43.2,39.7,9,3.5,45.3,37.6,2,7.7,2.1,-2.1,4.2

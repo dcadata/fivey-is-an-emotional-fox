@@ -34,13 +34,14 @@ def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     df.sponsors = df.sponsors.fillna('')
     for col in ('start_date', 'end_date'):
         df[col] = df[col].apply(_normalize_date)
-    df = df.rename(columns=dict(display_name='pollsterName', fte_grade='fteGrade', poll_id='polls'))
+    df = df.rename(columns=dict(
+        display_name='pollsterName', fte_grade='fteGrade', poll_id='polls', sponsors='sponsor'))
     return df
 
 
 def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022, 1, 1)) -> pd.DataFrame:
     data = df.copy()
-    merge_cols = ['pollsterName', 'fteGrade', 'sponsors', 'population', 'partisan']
+    merge_cols = ['pollsterName', 'fteGrade', 'sponsor', 'population', 'partisan']
 
     def _filter_on_date_condition(series_condition: pd.Series) -> pd.DataFrame:
         filtered = data[series_condition].groupby(merge_cols, as_index=False).agg(dict(
@@ -49,17 +50,17 @@ def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022
         return filtered
 
     data = data[data.start_date.apply(lambda x: x >= date(*first_date))].copy()
-    pre = _filter_on_date_condition(data.end_date.apply(lambda x: x < date(*split_date)))
-    post = _filter_on_date_condition(data.start_date.apply(lambda x: x > date(*split_date)))
-    result = pre.merge(post, on=merge_cols, suffixes=('Pre', 'Post'), how='left')
+    before = _filter_on_date_condition(data.end_date.apply(lambda x: x < date(*split_date)))
+    after = _filter_on_date_condition(data.start_date.apply(lambda x: x > date(*split_date)))
+    result = before.merge(after, on=merge_cols, suffixes=('Before', 'After'), how='left')
 
-    result.pollsPre = result.pollsPre.fillna(0).apply(int)
-    result.pollsPost = result.pollsPost.fillna(0).apply(int)
-    result = result.sort_values('pollsPost', ascending=False)
+    result.pollsBefore = result.pollsBefore.fillna(0).apply(int)
+    result.pollsAfter = result.pollsAfter.fillna(0).apply(int)
+    result = result.sort_values('pollsAfter', ascending=False)
 
-    result['demChange'] = (result.demPost - result.demPre).round(1)
-    result['repChange'] = (result.repPost - result.repPre).round(1)
-    result['marginChange'] = (result.marginPost - result.marginPre).round(1)
+    result['demChange'] = (result.demAfter - result.demBefore).round(1)
+    result['repChange'] = (result.repAfter - result.repBefore).round(1)
+    result['marginChange'] = (result.marginAfter - result.marginBefore).round(1)
     return result
 
 
@@ -90,7 +91,7 @@ def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
         'polls', 'dem', 'rep', 'margin']], on='polls', suffixes=('RV', 'LV'))
     df = df.rename(columns=dict(start_date='startDate', end_date='endDate'))
     df = df[[
-        'pollsterName', 'fteGrade', 'sponsors', 'partisan', 'startDate', 'endDate',
+        'pollsterName', 'fteGrade', 'sponsor', 'partisan', 'startDate', 'endDate',
         'demRV', 'repRV', 'marginRV',
         'demLV', 'repLV', 'marginLV',
     ]]

@@ -120,7 +120,6 @@ def _refresh_gcb_rolling_means() -> None:
     # for day_period in (7,):
     #     df[f'ema{day_period}d'] = df.margin.ewm(day_period).mean()
 
-    df = df.dropna()
     df = df[df.date >= date(2022, 1, 1)].sort_values('date', ascending=False)
     df.to_csv(gcb_polls_movement.FOLDER + 'GCB Average Movement.csv', index=False)
 

@@ -101,3 +101,13 @@ def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
 
     df.to_csv(f'{FOLDER}Z-Population Difference.csv', index=False)
     return df
+
+
+def main() -> None:
+    df = _read_data()
+    create_gcb_polls_movement_trackers(df)
+    create_gcb_polls_population_diff_trackers(df)
+
+
+if __name__ == '__main__':
+    main()

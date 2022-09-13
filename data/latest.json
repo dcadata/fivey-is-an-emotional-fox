@@ -1,6 +1,6 @@
 {
   "twitter": {},
-  "gcb_average": 1.3250650000000022,
+  "gcb_average": 1.2166759999999996,
   "senate": {
     "probD": 77,
     "probR": 23,
@@ -9,10 +9,10 @@
     "expression": "classic"
   },
   "house": {
-    "probD": 26,
-    "probR": 74,
-    "seatsD": 206,
-    "seatsR": 229,
+    "probD": 28,
+    "probR": 72,
+    "seatsD": 208,
+    "seatsR": 227,
     "expression": "classic"
   },
   "house_MI-3": {

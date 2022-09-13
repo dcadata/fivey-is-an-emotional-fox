@@ -279,7 +279,6 @@ def _refresh_gcb_polls_trackers(session: requests.Session) -> None:
     open(data_filepath, 'wb').write(new_content)
     df = pd.read_csv(data_filepath)
     gcb_polls_movement.create_gcb_polls_movement_trackers(df)
-    gcb_polls_movement.create_gcb_polls_population_diff_trackers(df)
 
 
 def _get_one_twitter_feed(username: str) -> str:

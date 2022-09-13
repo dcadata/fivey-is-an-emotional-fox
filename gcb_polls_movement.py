@@ -106,7 +106,6 @@ def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
 def main() -> None:
     df = _read_data()
     create_gcb_polls_movement_trackers(df)
-    create_gcb_polls_population_diff_trackers(df)
 
 
 if __name__ == '__main__':

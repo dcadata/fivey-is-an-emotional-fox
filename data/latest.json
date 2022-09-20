@@ -9,10 +9,10 @@
     "expression": "classic"
   },
   "house": {
-    "probD": 28,
-    "probR": 72,
-    "seatsD": 208,
-    "seatsR": 227,
+    "probD": 30,
+    "probR": 70,
+    "seatsD": 209,
+    "seatsR": 226,
     "expression": "classic"
   },
   "house_MI-3": {

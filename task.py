@@ -52,6 +52,13 @@ def _send_text(body: str) -> None:
     client.messages.create(to=environ['PHONE_NUMBER'], body=body, messaging_service_sid=environ['SERV_SID'])
 
 
+def _send_message(body: str) -> None:
+    if environ.get('PHONE_NUMBER'):
+        _send_text(body)
+    else:
+        _send_email('Forecast/Poll Alert', body)
+
+
 def _read_latest() -> dict:
     data_from_file = json.load(open('data/latest.json'))
     return data_from_file
@@ -339,18 +346,15 @@ def main():
     session = requests.Session()
 
     if fte_messages := '\n\n'.join(_get_fte_messages(session)):
-        if environ.get('PHONE_NUMBER'):
-            _send_text(fte_messages)
-        else:
-            _send_email('FTE GCB/Forecast Alert', fte_messages)
+        _send_message(fte_messages)
 
     if matching_gcb_polls_message := _get_matching_gcb_polls(session):
-        _send_email('FTE GCB Polls Alert', matching_gcb_polls_message)
+        _send_message(matching_gcb_polls_message)
 
     session.close()
 
     if twitter_message := _get_twitter_feeds():
-        _send_email('Twitter Alert', twitter_message)
+        _send_message(twitter_message)
 
 
 if __name__ == '__main__':

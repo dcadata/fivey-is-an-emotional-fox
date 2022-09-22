@@ -2,10 +2,10 @@
   "twitter": {
     "PollTrackerUSA": "https://nitter.net/PollTrackerUSA/status/1572954717105410050#m"
   },
-  "gcb_average": 1.9622759999999957,
+  "gcb_average": 1.892243999999998,
   "senate": {
-    "probD": 78,
-    "probR": 22,
+    "probD": 80,
+    "probR": 20,
     "seatsD": 52,
     "seatsR": 48,
     "expression": "classic"

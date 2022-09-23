@@ -1,8 +1,8 @@
 import configparser
+import datetime
 import json
 import os.path
 import re
-from datetime import datetime, timedelta, date
 from email.mime.text import MIMEText
 from os import environ
 from smtplib import SMTP_SSL
@@ -122,7 +122,7 @@ def _refresh_gcb_rolling_means() -> None:
     for day_period in (7, 14, 21, 28):
         df[f'{day_period}-day'] = df.margin.rolling(day_period).mean()  # EMA: df.margin.ewm(day_period).mean()
 
-    df = df[df.date >= date(2022, 1, 1)].sort_values('date', ascending=False)
+    df = df[df.date >= datetime.date(2022, 1, 1)].sort_values('date', ascending=False)
     df.to_csv(gcb_polls_movement.FOLDER + 'GCB Average Movement.csv', index=False)
 
 
@@ -215,7 +215,7 @@ def _get_matching_gcb_polls_for_one_row(full_data: pd.DataFrame, unseen_row: pd.
     data['margin'] = (data.dem - data.rep).round(1)
     data['leader_margin'] = data.margin.apply(lambda x: f'{"" if x == 0 else ("D" if x > 0 else "R")}+{abs(x)}')
     data['end_date_dttm'] = data.end_date.apply(pd.to_datetime)
-    data = data[data.end_date_dttm >= datetime.today() - timedelta(days=60)].iloc[:5]
+    data = data[data.end_date_dttm >= datetime.datetime.today() - datetime.timedelta(days=60)].iloc[:5]
     if not len(data):
         return ''
     data.end_date = data.end_date.apply(lambda x: x[:-3])

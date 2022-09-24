@@ -85,8 +85,9 @@ def _get_gcb_average(session: requests.Session) -> str:
     unrounded_estimates = data.groupby('party').pct_estimate.sum()
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
-    _refresh_gcb_rolling_means()
-    _refresh_gcb_polls_trackers(session)
+    if _CONFIG['gcb_tracking'].getboolean('use'):
+        _refresh_gcb_rolling_means()
+        _refresh_gcb_polls_trackers(session)
 
     change_from_previous = unrounded_lead - _read_latest().get('gcb_average', 0)
     if abs(change_from_previous) < _CONFIG['gcb_average'].getfloat('threshold'):

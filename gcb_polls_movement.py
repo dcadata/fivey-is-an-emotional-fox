@@ -76,6 +76,8 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
         2022, 6, 24), split_date=(2022, 8, 24))
     _remerge_and_save(df, '4-\'Soul of the Nation\' Speech (6.24-9.1 vs 9.1-Today)', first_date=(
         2022, 6, 24), split_date=(2022, 9, 1))
+    _remerge_and_save(df, '5-\'Commitment to America\' (6.24-9.23 vs 9.23-Today)', first_date=(
+        2022, 6, 24), split_date=(2022, 9, 23))
 
 
 def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:

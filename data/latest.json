@@ -4,15 +4,15 @@
   },
   "gcb_average": 1.3209190000000035,
   "senate": {
-    "probD": 78,
-    "probR": 22,
+    "probD": 76,
+    "probR": 24,
     "seatsD": 52,
     "seatsR": 48,
     "expression": "classic"
   },
   "house": {
-    "probD": 28,
-    "probR": 71,
+    "probD": 30,
+    "probR": 70,
     "seatsD": 209,
     "seatsR": 226,
     "expression": "classic"

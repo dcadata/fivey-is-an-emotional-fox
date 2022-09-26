@@ -1,27 +1,33 @@
 import pandas as pd
 
-from task import _DISTRICT_TOPLINE_FILENAMES
+from task import _NATIONAL_TOPLINE_FILENAMES, _DISTRICT_TOPLINE_FILENAMES, _FTE_FORECAST_BASE_URL
 
 
-def rejoin_expressions(chamber: str) -> pd.DataFrame:
+def rejoin_expressions(chamber: str, district: bool = True) -> pd.DataFrame:
     chamber = chamber.lower()
+    data_filename = _DISTRICT_TOPLINE_FILENAMES[chamber] if district else _NATIONAL_TOPLINE_FILENAMES[chamber]
+    data_filepath = _FTE_FORECAST_BASE_URL + data_filename
 
-    df = pd.read_csv(f'data/{_DISTRICT_TOPLINE_FILENAMES[chamber]}', usecols=[
-        'district', 'forecastdate', 'expression', 'winner_Dparty']).rename(columns=dict(winner_Dparty='probD'))
+    if district:
+        usecols = ['expression', 'forecastdate', 'district', 'winner_Dparty']
+        rename_mapper = dict(winner_Dparty='probD')
+        merge_cols = ['district', 'forecastdate']
+    else:
+        usecols = ['expression', 'forecastdate', 'chamber_Dparty']
+        rename_mapper = dict(chamber_Dparty='probD')
+        merge_cols = ['forecastdate']
+
+    df = pd.read_csv(data_filepath, usecols=usecols).rename(columns=rename_mapper)
     df.probD = df.probD.round(2)
 
     _separate_expression = lambda x: df[df.expression == x].drop(columns='expression')
     merged = (
         _separate_expression('_deluxe')
-            .merge(_separate_expression('_classic'), on=['district', 'forecastdate'], suffixes=('', '_classic'))
-            .merge(_separate_expression('_lite'), on=['district', 'forecastdate'], suffixes=('', '_lite'))
+            .merge(_separate_expression('_classic'), on=merge_cols, suffixes=('', '_classic'))
+            .merge(_separate_expression('_lite'), on=merge_cols, suffixes=('_deluxe', '_lite'))
     )
-    merged = merged.rename(columns=dict(district='seat', probD='probD_deluxe'))
 
     merged.forecastdate = merged.forecastdate.apply(lambda x: pd.to_datetime(x).date())
     merged = merged.sort_values('forecastdate')
-
-    if chamber in ('senate', 'governor'):
-        merged.seat = merged.seat.apply(lambda x: x[:2])
 
     return merged

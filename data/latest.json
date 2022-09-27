@@ -11,8 +11,8 @@
     "expression": "classic"
   },
   "house": {
-    "probD": 30,
-    "probR": 70,
+    "probD": 28,
+    "probR": 71,
     "seatsD": 209,
     "seatsR": 226,
     "expression": "classic"

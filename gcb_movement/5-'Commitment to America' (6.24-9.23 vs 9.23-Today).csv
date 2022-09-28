@@ -1,6 +1,6 @@
 pollsterName,fteGrade,sponsor,population,partisan,demBefore,repBefore,pollsBefore,marginBefore,demAfter,repAfter,pollsAfter,marginAfter,demChange,repChange,marginChange
 Trafalgar Group,A-,,LV,REP,41.4,47.6,4,-6.2,45.6,51.3,1,-5.7,4.2,3.7,0.5
-YouGov,B+,Economist,RV,,43.7,39.4,13,4.3,44.0,44.0,1,0.0,0.3,4.6,-4.3
+YouGov,B+,Economist,RV,,43.7,39.4,13,4.3,43.7,44.1,1,-0.4,0.0,4.7,-4.7
 Ipsos,B-,Reuters,A,,35.2,33.6,5,1.6,37.0,32.0,1,5.0,1.8,-1.6,3.4
 OnMessage,B/C,Senate Opportunity Fund,LV,REP,43.2,46.2,5,-3.0,,,0,,,,
 Quinnipiac University,A-,,RV,,46.0,43.5,2,2.5,,,0,,,,

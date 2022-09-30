@@ -88,6 +88,7 @@ def _get_gcb_average(session: requests.Session) -> str:
     if _CONFIG['gcb_tracking'].getboolean('use'):
         _refresh_gcb_rolling_means()
         _refresh_gcb_polls_trackers(session)
+        gcb_polls_movement.create_gcb_polls_trimmed()
 
     change_from_previous = unrounded_lead - _read_latest().get('gcb_average', 0)
     if abs(change_from_previous) < _CONFIG['gcb_average'].getfloat('threshold'):

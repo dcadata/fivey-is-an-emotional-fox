@@ -11,11 +11,11 @@
     "expression": "deluxe"
   },
   "house": {
-    "probD": 31,
-    "probR": 69,
-    "seatsD": 210,
-    "seatsR": 225,
-    "expression": "classic"
+    "probD": 28,
+    "probR": 71,
+    "seatsD": 211,
+    "seatsR": 224,
+    "expression": "deluxe"
   },
   "house_MI-3": {
     "nameD": "Scholten",

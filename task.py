@@ -335,6 +335,7 @@ def _get_fte_messages(session: requests.Session) -> list:
         lambda x: _get_seat_forecasts(x, 'senate'),
         lambda x: _get_seat_forecasts(x, 'house'),
         lambda x: _get_seat_forecasts(x, 'governor'),
+        _get_matching_gcb_polls,
     )
     messages = []
     for func in funcs:
@@ -346,13 +347,8 @@ def _get_fte_messages(session: requests.Session) -> list:
 
 def main():
     session = requests.Session()
-
     if fte_messages := '\n\n'.join(_get_fte_messages(session)):
         _send_message(fte_messages)
-
-    if matching_gcb_polls_message := _get_matching_gcb_polls(session):
-        _send_message(matching_gcb_polls_message)
-
     session.close()
 
     if twitter_message := _get_twitter_feeds():

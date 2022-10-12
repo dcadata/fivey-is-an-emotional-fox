@@ -1,5 +1,8 @@
 pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,dem,rep
+YouGov,Economist,B+,Online,10/08/2022,10/11/2022,RV,,46.0,44.0
+YouGov,Economist,B+,Online,10/08/2022,10/11/2022,LV,,48.0,46.0
 Morning Consult,,B,Online,10/07/2022,10/09/2022,LV,,48.0,45.0
+Morning Consult,,B,Online,10/07/2022,10/09/2022,RV,,46.0,42.0
 Morning Consult,,B,Online,10/06/2022,10/08/2022,LV,,47.0,45.0
 Big Village,,B,Online,10/05/2022,10/07/2022,A,,42.5,37.8
 Big Village,,B,Online,10/05/2022,10/07/2022,LV,,50.5,45.1

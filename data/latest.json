@@ -20,8 +20,8 @@
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Gibbs",
-    "probD": 71,
-    "probR": 28,
+    "probD": 69,
+    "probR": 31,
     "margin": 3.5,
     "margin_leader": "D"
   },
@@ -44,9 +44,9 @@
   "governor_MI": {
     "nameD": "Whitmer",
     "nameR": "Dixon",
-    "probD": 96,
-    "probR": 4,
-    "margin": 13.0,
+    "probD": 93,
+    "probR": 7,
+    "margin": 9.4,
     "margin_leader": "D"
   }
 }

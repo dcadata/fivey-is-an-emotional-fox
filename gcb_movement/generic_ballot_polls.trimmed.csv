@@ -2,6 +2,7 @@ pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,
 Ipsos,Reuters,B-,Online,10/10/2022,10/11/2022,A,,36.0,32.0
 YouGov,Economist,B+,Online,10/08/2022,10/11/2022,RV,,46.3,43.7
 YouGov,Economist,B+,Online,10/08/2022,10/11/2022,LV,,48.0,46.0
+Public Opinion Strategies,,A-,,10/07/2022,10/11/2022,LV,,45.0,43.0
 Morning Consult,,B,Online,10/07/2022,10/09/2022,LV,,48.0,45.0
 Morning Consult,Politico,B,Online,10/07/2022,10/09/2022,RV,,46.0,42.0
 Morning Consult,,B,Online,10/06/2022,10/08/2022,LV,,47.0,45.0
@@ -12,6 +13,8 @@ Morning Consult,,B,Online,10/04/2022,10/06/2022,LV,,48.0,45.0
 Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,10/02/2022,10/06/2022,LV,,43.0,47.0
 John Zogby Strategies,,B/C,Online,10/05/2022,10/05/2022,LV,,44.8,42.7
 Morning Consult,,B,Online,10/03/2022,10/05/2022,LV,,48.0,45.0
+SSRS,CNN,C,Live Phone/Online,09/03/2022,10/05/2022,RV,,46.0,43.0
+SSRS,CNN,C,Live Phone/Online,09/03/2022,10/05/2022,LV,,50.0,47.0
 Ipsos,Reuters,B-,Online,10/03/2022,10/04/2022,A,,33.0,32.0
 Morning Consult,,B,Online,10/02/2022,10/04/2022,LV,,49.0,44.0
 YouGov,Economist,B+,Online,10/01/2022,10/04/2022,RV,,44.7,44.0

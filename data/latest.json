@@ -11,8 +11,8 @@
     "expression": "deluxe"
   },
   "house": {
-    "probD": 28,
-    "probR": 71,
+    "probD": 31,
+    "probR": 69,
     "seatsD": 211,
     "seatsR": 224,
     "expression": "deluxe"
@@ -20,9 +20,9 @@
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Gibbs",
-    "probD": 69,
-    "probR": 31,
-    "margin": 3.4,
+    "probD": 71,
+    "probR": 28,
+    "margin": 3.5,
     "margin_leader": "D"
   },
   "house_MI-10": {

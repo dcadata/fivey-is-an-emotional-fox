@@ -1,4 +1,6 @@
 pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,dem,rep
+YouGov,Yahoo News,B+,Online,10/13/2022,10/17/2022,A,,38.0,34.0
+YouGov,Yahoo News,B+,Online,10/13/2022,10/17/2022,RV,,46.0,44.0
 Morning Consult,,B,Online,10/14/2022,10/16/2022,LV,,48.0,45.0
 Morning Consult,,B,Online,10/13/2022,10/15/2022,LV,,48.0,45.0
 YouGov,CBS News,B+,Online,10/12/2022,10/14/2022,LV,,45.0,47.0

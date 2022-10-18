@@ -20,17 +20,17 @@
   "house_MI-3": {
     "nameD": "Scholten",
     "nameR": "Gibbs",
-    "probD": 69,
-    "probR": 31,
-    "margin": 3.5,
+    "probD": 62,
+    "probR": 38,
+    "margin": 2.0,
     "margin_leader": "D"
   },
   "house_MI-10": {
     "nameD": "Marlinga",
     "nameR": "James",
-    "probD": 23,
-    "probR": 77,
-    "margin": 4.9,
+    "probD": 26,
+    "probR": 74,
+    "margin": 4.4,
     "margin_leader": "R"
   },
   "house_MI-11": {

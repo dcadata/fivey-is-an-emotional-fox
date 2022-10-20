@@ -1,5 +1,5 @@
+import datetime
 import re
-from datetime import date
 
 import pandas as pd
 
@@ -21,7 +21,7 @@ def _filter_polls(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def _normalize_date(x) -> date:
+def _normalize_date(x) -> datetime.date:
     x = re.sub('/21$', '/2021', x, count=1)
     x = re.sub('/22$', '/2022', x, count=1)
     return pd.to_datetime(x).date()
@@ -49,9 +49,9 @@ def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022
         filtered['margin'] = (filtered.dem - filtered.rep).round(1)
         return filtered
 
-    data = data[data.start_date.apply(lambda x: x >= date(*first_date))].copy()
-    before = _filter_on_date_condition(data.end_date.apply(lambda x: x < date(*split_date)))
-    after = _filter_on_date_condition(data.start_date.apply(lambda x: x > date(*split_date)))
+    data = data[data.start_date.apply(lambda x: x >= datetime.date(*first_date))].copy()
+    before = _filter_on_date_condition(data.end_date.apply(lambda x: x < datetime.date(*split_date)))
+    after = _filter_on_date_condition(data.start_date.apply(lambda x: x > datetime.date(*split_date)))
     result = before.merge(after, on=merge_cols, suffixes=('Before', 'After'), how='left')
 
     result.pollsBefore = result.pollsBefore.fillna(0).apply(int)
@@ -84,7 +84,7 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
 
 def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
     df = _normalize_columns(_filter_polls(df))
-    df = df[df.start_date >= date(2022, 1, 1)].copy()
+    df = df[df.start_date >= datetime.date(2022, 1, 1)].copy()
 
     def _separate_pop(pop) -> pd.DataFrame:
         temp = df[df.population == pop].drop(columns='population')

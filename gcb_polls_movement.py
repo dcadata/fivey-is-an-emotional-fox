@@ -22,8 +22,7 @@ def _filter_polls(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _normalize_date(x) -> datetime.date:
-    x = re.sub('/21$', '/2021', x, count=1)
-    x = re.sub('/22$', '/2022', x, count=1)
+    x = re.sub('/2$', '/202', x, count=1)
     return pd.to_datetime(x).date()
 
 

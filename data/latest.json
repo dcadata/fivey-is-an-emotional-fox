@@ -2,10 +2,10 @@
   "twitter": {
     "PollTrackerUSA": "https://nitter.net/PollTrackerUSA/status/1575322902597177344#m"
   },
-  "gcb_average": 0.31087700000000495,
+  "gcb_average": 0.17165299999999917,
   "senate": {
-    "probD": 65,
-    "probR": 35,
+    "probD": 60,
+    "probR": 40,
     "seatsD": 50,
     "seatsR": 50,
     "expression": "deluxe"
@@ -28,9 +28,9 @@
   "house_MI-10": {
     "nameD": "Marlinga",
     "nameR": "James",
-    "probD": 26,
-    "probR": 74,
-    "margin": 4.4,
+    "probD": 24,
+    "probR": 76,
+    "margin": 4.6,
     "margin_leader": "R"
   },
   "house_MI-11": {

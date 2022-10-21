@@ -113,6 +113,7 @@ def create_gcb_polls_trimmed() -> None:
     ]]
     df = df[df.start_date.apply(lambda x: x.year) == 2022].rename(columns=dict(
         start_date='startDate', end_date='endDate'))
+    df['startMonth'] = df.startDate.apply(lambda x: x.month)
     for col in ('startDate', 'endDate'):
         df[col] = df[col].apply(lambda x: x.strftime('%m/%d/%Y'))
     df.to_csv(f'{FOLDER}generic_ballot_polls.trimmed.csv', index=False)

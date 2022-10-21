@@ -1,6 +1,7 @@
 pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,dem,rep
 Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,10/16/2022,10/20/2022,LV,,43.0,47.0
 Emerson College,,A-,IVR/Online,10/18/2022,10/19/2022,RV,,40.7,45.6
+YouGov,UMass Amherst,B+,Online,10/17/2022,10/19/2022,A,,43.0,40.0
 Ipsos,Reuters,B-,Online,10/17/2022,10/18/2022,A,,36.0,35.0
 YouGov,Economist,B+,Online,10/16/2022,10/18/2022,RV,,45.0,44.0
 YouGov,Economist,B+,Online,10/16/2022,10/18/2022,LV,,46.0,47.0

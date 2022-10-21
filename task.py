@@ -313,7 +313,7 @@ def _get_one_twitter_feed(username: str) -> str:
     previous = _read_latest().get('twitter', {})
     previous.update({username: tweets[0].find('link').text})
     _update_latest(dict(twitter=previous))
-    return '\n\n'.join('{title}\n\nPubDate: {pubdate}'.format(**poll) for poll in polls)
+    return '\n\n'.join('{title}'.format(**poll) for poll in polls)
 
 
 def _get_twitter_feeds() -> str:

@@ -2,7 +2,7 @@
   "twitter": {
     "PollTrackerUSA": "https://nitter.net/PollTrackerUSA/status/1575322902597177344#m"
   },
-  "gcb_average": -0.33042299999999614,
+  "gcb_average": -0.34796199999999544,
   "senate": {
     "probD": 60,
     "probR": 40,
@@ -44,9 +44,9 @@
   "governor_MI": {
     "nameD": "Whitmer",
     "nameR": "Dixon",
-    "probD": 91,
-    "probR": 9,
-    "margin": 8.5,
+    "probD": 90,
+    "probR": 10,
+    "margin": 7.8,
     "margin_leader": "D"
   }
 }

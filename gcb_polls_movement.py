@@ -81,31 +81,6 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
         2022, 6, 24), split_date=(2022, 10, 6))
 
 
-def create_gcb_polls_population_diff_trackers(df: pd.DataFrame) -> pd.DataFrame:
-    df = _normalize_columns(_filter_polls(df))
-    df = df[df.start_date >= datetime.date(2022, 1, 1)].copy()
-
-    def _separate_pop(pop) -> pd.DataFrame:
-        temp = df[df.population == pop].drop(columns='population')
-        temp['margin'] = temp.dem - temp.rep
-        return temp
-
-    df = _separate_pop('RV').merge(_separate_pop('LV')[[
-        'polls', 'dem', 'rep', 'margin']], on='polls', suffixes=('RV', 'LV'))
-    df = df.rename(columns=dict(start_date='startDate', end_date='endDate'))
-    df = df[[
-        'pollsterName', 'fteGrade', 'sponsor', 'partisan', 'startDate', 'endDate',
-        'demRV', 'repRV', 'marginRV',
-        'demLV', 'repLV', 'marginLV',
-    ]]
-    for col in ('startDate', 'endDate'):
-        df[col] = df[col].apply(lambda x: x.strftime('%m/%d/%Y'))
-    df['marginDiff'] = df.marginLV - df.marginRV
-
-    df.to_csv(f'{FOLDER}Z-Population Difference.csv', index=False)
-    return df
-
-
 def create_gcb_polls_trimmed() -> None:
     df = _normalize_columns(_filter_polls(_read_data()))[[
         'pollsterName', 'sponsor', 'fteGrade', 'methodology', 'start_date', 'end_date', 'population', 'partisan',

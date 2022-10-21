@@ -6,11 +6,12 @@ import pandas as pd
 FOLDER = 'gcb_movement/'
 
 
-def _read_data() -> pd.DataFrame:
+def _read_data(additional_cols: list = None) -> pd.DataFrame:
     df = pd.read_csv('data/generic_ballot_polls.csv', usecols=[
         'poll_id', 'sponsors', 'display_name', 'fte_grade', 'methodology', 'partisan', 'population',
         'election_date', 'start_date', 'end_date',
         'dem', 'rep',
+        *(additional_cols if additional_cols else []),
     ])
     return df
 
@@ -82,9 +83,9 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
 
 
 def create_gcb_polls_trimmed() -> None:
-    df = _normalize_columns(_filter_polls(_read_data()))[[
+    df = _normalize_columns(_filter_polls(_read_data(['cycle'])))[[
         'pollsterName', 'sponsor', 'fteGrade', 'methodology', 'start_date', 'end_date', 'population', 'partisan',
-        'dem', 'rep',
+        'dem', 'rep', 'cycle',
     ]]
     df = df[df.start_date.apply(lambda x: x.year) == 2022].rename(columns=dict(
         start_date='startDate', end_date='endDate'))
@@ -95,8 +96,7 @@ def create_gcb_polls_trimmed() -> None:
 
 
 def main() -> None:
-    df = _read_data()
-    create_gcb_polls_movement_trackers(df)
+    create_gcb_polls_trimmed()
 
 
 if __name__ == '__main__':

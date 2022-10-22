@@ -44,9 +44,9 @@
   "governor_MI": {
     "nameD": "Whitmer",
     "nameR": "Dixon",
-    "probD": 90,
-    "probR": 10,
-    "margin": 7.8,
+    "probD": 88,
+    "probR": 12,
+    "margin": 7.3,
     "margin_leader": "D"
   }
 }

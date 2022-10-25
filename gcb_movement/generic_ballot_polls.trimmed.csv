@@ -1,4 +1,4 @@
-pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,dem,rep,cycle,startMonth
+pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,dem,rep,cycle,endMonth
 Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,10/16/2022,10/20/2022,LV,,43.0,47.0,2022,10
 Emerson College,,A-,IVR/Online,10/18/2022,10/19/2022,RV,,40.7,45.6,2022,10
 YouGov,UMass Amherst,B+,Online,10/17/2022,10/19/2022,A,,43.0,40.0,2022,10
@@ -8,7 +8,7 @@ YouGov,Economist,B+,Online,10/16/2022,10/18/2022,LV,,46.0,47.0,2022,10
 Hart Research Associates/Public Opinion Strategies,NBC News,B+,Live Phone,10/14/2022,10/18/2022,RV,,47.0,46.0,2022,10
 Hart Research Associates/Public Opinion Strategies,NBC News,B+,Live Phone,10/14/2022,10/18/2022,LV,,47.0,48.0,2022,10
 Data for Progress,,B,Online,10/06/2022,10/18/2022,LV,,45.0,48.0,2022,10
-SurveyMonkey/Penn Program on Opinion Research and Election Studies,,C,Online,09/15/2022,10/18/2022,LV,,49.0,51.0,2022,9
+SurveyMonkey/Penn Program on Opinion Research and Election Studies,,C,Online,09/15/2022,10/18/2022,LV,,49.0,51.0,2022,10
 YouGov,Yahoo News,B+,Online,10/13/2022,10/17/2022,A,,38.0,34.0,2022,10
 YouGov,Yahoo News,B+,Online,10/13/2022,10/17/2022,RV,,46.0,44.0,2022,10
 Monmouth University,,A,Live Phone,10/13/2022,10/17/2022,A,,45.0,49.0,2022,10
@@ -50,18 +50,18 @@ Morning Consult,,B,Online,10/04/2022,10/06/2022,LV,,48.0,45.0,2022,10
 Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,10/02/2022,10/06/2022,LV,,43.0,47.0,2022,10
 John Zogby Strategies,,B/C,Online,10/05/2022,10/05/2022,LV,,44.8,42.7,2022,10
 Morning Consult,,B,Online,10/03/2022,10/05/2022,LV,,48.0,45.0,2022,10
-SSRS,CNN,C,Live Phone/Online,09/03/2022,10/05/2022,RV,,46.0,43.0,2022,9
-SSRS,CNN,C,Live Phone/Online,09/03/2022,10/05/2022,LV,,50.0,47.0,2022,9
+SSRS,CNN,C,Live Phone/Online,09/03/2022,10/05/2022,RV,,46.0,43.0,2022,10
+SSRS,CNN,C,Live Phone/Online,09/03/2022,10/05/2022,LV,,50.0,47.0,2022,10
 Ipsos,Reuters,B-,Online,10/03/2022,10/04/2022,A,,33.0,32.0,2022,10
 Morning Consult,,B,Online,10/02/2022,10/04/2022,LV,,49.0,44.0,2022,10
 YouGov,Economist,B+,Online,10/01/2022,10/04/2022,RV,,44.7,44.0,2022,10
 YouGov,Economist,B+,Online,10/01/2022,10/04/2022,LV,,47.0,46.0,2022,10
 InsiderAdvantage,Center for American Greatness,B,,10/03/2022,10/03/2022,LV,,44.4,46.5,2022,10
 Morning Consult,,B,Online,10/01/2022,10/03/2022,LV,,49.0,44.0,2022,10
-Data for Progress,,B,Online,09/16/2022,10/03/2022,LV,,45.0,47.0,2022,9
-Morning Consult,,B,Online,09/30/2022,10/02/2022,LV,,49.0,44.0,2022,9
-Morning Consult,Politico,B,Online,09/30/2022,10/02/2022,RV,,46.0,43.0,2022,9
-Morning Consult,,B,Online,09/29/2022,10/01/2022,LV,,48.0,44.0,2022,9
+Data for Progress,,B,Online,09/16/2022,10/03/2022,LV,,45.0,47.0,2022,10
+Morning Consult,,B,Online,09/30/2022,10/02/2022,LV,,49.0,44.0,2022,10
+Morning Consult,Politico,B,Online,09/30/2022,10/02/2022,RV,,46.0,43.0,2022,10
+Morning Consult,,B,Online,09/29/2022,10/01/2022,LV,,48.0,44.0,2022,10
 Morning Consult,,B,Online,09/28/2022,09/30/2022,LV,,49.0,44.0,2022,9
 Morning Consult,,B,Online,09/27/2022,09/29/2022,LV,,49.0,44.0,2022,9
 Marist College,NPR,A,Live Phone/Online/Text,09/27/2022,09/29/2022,RV,,46.0,44.0,2022,9
@@ -116,7 +116,7 @@ Morning Consult,,B,Online,09/13/2022,09/15/2022,LV,,48.0,45.0,2022,9
 OnMessage,Senate Opportunity Fund,B/C,Online,09/12/2022,09/15/2022,LV,REP,43.0,46.0,2022,9
 Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,09/11/2022,09/15/2022,LV,,42.0,43.0,2022,9
 GQR,Democracy Corps,B,Online,09/09/2022,09/15/2022,RV,DEM,50.0,47.0,2022,9
-Data for Progress,,B,Online,08/29/2022,09/15/2022,LV,,45.0,47.0,2022,8
+Data for Progress,,B,Online,08/29/2022,09/15/2022,LV,,45.0,47.0,2022,9
 Morning Consult,,B,Online,09/12/2022,09/14/2022,LV,,48.0,45.0,2022,9
 Marquette University Law School,,A/B,Online,09/07/2022,09/14/2022,A,,45.0,39.0,2022,9
 Marquette University Law School,,A/B,Online,09/07/2022,09/14/2022,RV,,47.0,41.0,2022,9
@@ -144,7 +144,7 @@ Cor Services,Foundation for Government Accountability,Unrated,IVR,09/06/2022,09/
 Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,09/04/2022,09/08/2022,LV,,42.0,46.0,2022,9
 Ipsos,Reuters,B-,Online,09/06/2022,09/07/2022,A,,36.0,34.0,2022,9
 Morning Consult,,B,Online,09/05/2022,09/07/2022,LV,,48.0,45.0,2022,9
-Echelon Insights,NetChoice,B/C,Online,08/31/2022,09/07/2022,LV,,46.0,46.0,2022,8
+Echelon Insights,NetChoice,B/C,Online,08/31/2022,09/07/2022,LV,,46.0,46.0,2022,9
 Morning Consult,,B,Online,09/04/2022,09/06/2022,LV,,47.0,44.0,2022,9
 YouGov,Economist,B+,Online,09/03/2022,09/06/2022,RV,,44.2,37.5,2022,9
 YouGov,Yahoo News,B+,Online,09/02/2022,09/06/2022,RV,,45.0,40.0,2022,9
@@ -153,11 +153,11 @@ Morning Consult,,B,Online,09/03/2022,09/05/2022,LV,,47.0,45.0,2022,9
 Morning Consult,,B,Online,09/02/2022,09/04/2022,LV,,47.0,45.0,2022,9
 OnMessage,Senate Opportunity Fund,B/C,Online,09/01/2022,09/03/2022,LV,REP,44.0,46.0,2022,9
 Morning Consult,,B,Online,09/01/2022,09/03/2022,LV,,48.0,45.0,2022,9
-Morning Consult,,B,Online,08/31/2022,09/02/2022,LV,,47.0,45.0,2022,8
+Morning Consult,,B,Online,08/31/2022,09/02/2022,LV,,47.0,45.0,2022,9
 InsiderAdvantage,Center for American Greatness,B,,09/01/2022,09/01/2022,LV,,44.7,43.5,2022,9
-Morning Consult,,B,Online,08/30/2022,09/01/2022,LV,,48.0,45.0,2022,8
-Marist College,NPR | PBS NewsHour,A,Live Phone,08/29/2022,09/01/2022,RV,,48.0,44.0,2022,8
-Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,08/28/2022,09/01/2022,LV,,42.0,47.0,2022,8
+Morning Consult,,B,Online,08/30/2022,09/01/2022,LV,,48.0,45.0,2022,9
+Marist College,NPR | PBS NewsHour,A,Live Phone,08/29/2022,09/01/2022,RV,,48.0,44.0,2022,9
+Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,08/28/2022,09/01/2022,LV,,42.0,47.0,2022,9
 Morning Consult,,B,Online,08/29/2022,08/31/2022,LV,,47.0,45.0,2022,8
 Navigator Research,,B/C,Online,08/26/2022,08/31/2022,RV,,48.0,43.0,2022,8
 YouGov,Economist,B+,Online,08/28/2022,08/30/2022,RV,,46.4,37.7,2022,8
@@ -203,6 +203,7 @@ Morning Consult,,B,Online,08/16/2022,08/18/2022,LV,,48.0,44.0,2022,8
 J.L. Partners,Atlantic Future Forum,B/C,Online,08/16/2022,08/18/2022,A,,45.0,41.0,2022,8
 Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,08/14/2022,08/18/2022,LV,,41.0,46.0,2022,8
 Morning Consult,,B,Online,08/15/2022,08/17/2022,LV,,47.0,45.0,2022,8
+Impact Research,Progressive Policy Institute,B/C,Live Phone/Online,08/10/2022,08/17/2022,LV,,40.0,44.0,2022,8
 Trafalgar Group,,A-,IVR/Online/Text/Live Phone,08/14/2022,08/16/2022,LV,REP,41.6,46.9,2022,8
 Morning Consult,,B,Online,08/14/2022,08/16/2022,LV,,48.0,44.0,2022,8
 YouGov,Economist,B+,Online,08/13/2022,08/16/2022,RV,,45.1,38.7,2022,8
@@ -233,19 +234,19 @@ Morning Consult,,B,Online,08/04/2022,08/06/2022,RV,,46.0,42.0,2022,8
 Morning Consult,,B,Online,08/03/2022,08/05/2022,RV,,45.0,42.0,2022,8
 TIPP Insights,Issues & Insights,A+,Online,08/02/2022,08/04/2022,RV,,46.0,46.0,2022,8
 Morning Consult,,B,Online,08/02/2022,08/04/2022,RV,,45.0,42.0,2022,8
-Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,07/31/2022,08/04/2022,LV,,43.0,46.0,2022,7
+Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,07/31/2022,08/04/2022,LV,,43.0,46.0,2022,8
 Morning Consult,,B,Online,08/01/2022,08/03/2022,RV,,45.0,43.0,2022,8
 Ipsos,Reuters,B-,Online,08/01/2022,08/02/2022,A,,35.0,33.0,2022,8
 Data for Progress,Climate Power 2020,B,Online,08/01/2022,08/02/2022,LV,DEM,44.0,48.0,2022,8
-Morning Consult,,B,Online,07/31/2022,08/02/2022,RV,,45.0,43.0,2022,7
-YouGov,Economist,B+,Online,07/30/2022,08/02/2022,RV,,44.0,38.7,2022,7
-InsiderAdvantage,Center for American Greatness,B,,07/31/2022,08/01/2022,LV,,44.0,45.0,2022,7
-Morning Consult,,B,Online,07/30/2022,08/01/2022,RV,,45.0,42.0,2022,7
-YouGov,Yahoo News,B+,Online,07/28/2022,08/01/2022,A,,39.0,32.0,2022,7
-YouGov,Yahoo News,B+,Online,07/28/2022,08/01/2022,RV,,45.0,39.0,2022,7
-Monmouth University,,A,Live Phone,07/28/2022,08/01/2022,A,,50.0,43.0,2022,7
-Monmouth University,,A,Live Phone,07/28/2022,08/01/2022,RV,,49.0,46.0,2022,7
-Ipsos,FiveThirtyEight,B-,Online,07/21/2022,08/01/2022,A,,30.0,30.0,2022,7
+Morning Consult,,B,Online,07/31/2022,08/02/2022,RV,,45.0,43.0,2022,8
+YouGov,Economist,B+,Online,07/30/2022,08/02/2022,RV,,44.0,38.7,2022,8
+InsiderAdvantage,Center for American Greatness,B,,07/31/2022,08/01/2022,LV,,44.0,45.0,2022,8
+Morning Consult,,B,Online,07/30/2022,08/01/2022,RV,,45.0,42.0,2022,8
+YouGov,Yahoo News,B+,Online,07/28/2022,08/01/2022,A,,39.0,32.0,2022,8
+YouGov,Yahoo News,B+,Online,07/28/2022,08/01/2022,RV,,45.0,39.0,2022,8
+Monmouth University,,A,Live Phone,07/28/2022,08/01/2022,A,,50.0,43.0,2022,8
+Monmouth University,,A,Live Phone,07/28/2022,08/01/2022,RV,,49.0,46.0,2022,8
+Ipsos,FiveThirtyEight,B-,Online,07/21/2022,08/01/2022,A,,30.0,30.0,2022,8
 Morning Consult,Politico,B,Online,07/29/2022,07/31/2022,RV,,45.0,43.0,2022,7
 Morning Consult,,B,Online,07/29/2022,07/31/2022,RV,,45.0,42.0,2022,7
 Morning Consult,,B,Online,07/28/2022,07/30/2022,RV,,46.0,42.0,2022,7
@@ -295,7 +296,7 @@ Morning Consult,,B,Online,07/12/2022,07/14/2022,RV,,45.0,42.0,2022,7
 Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,07/10/2022,07/14/2022,LV,,39.0,47.0,2022,7
 Morning Consult,,B,Online,07/11/2022,07/13/2022,RV,,45.0,42.0,2022,7
 Beacon Research/Shaw & Company Research,FOX News,A,Live Phone,07/10/2022,07/13/2022,RV,,41.0,44.0,2022,7
-SSRS,CNN,C,Live Phone/Online,06/13/2022,07/13/2022,RV,,46.0,46.0,2022,6
+SSRS,CNN,C,Live Phone/Online,06/13/2022,07/13/2022,RV,,46.0,46.0,2022,7
 Morning Consult,,B,Online,07/10/2022,07/12/2022,RV,,45.0,42.0,2022,7
 YouGov,Economist,B+,Online,07/09/2022,07/11/2022,RV,,43.0,39.6,2022,7
 Morning Consult,,B,Online,07/09/2022,07/11/2022,RV,,45.0,42.0,2022,7
@@ -315,17 +316,17 @@ Morning Consult,,B,Online,07/05/2022,07/07/2022,RV,,45.0,42.0,2022,7
 Ipsos,Reuters,B-,Online,07/05/2022,07/06/2022,A,,34.0,35.0,2022,7
 InsiderAdvantage,Center for American Greatness,B,,07/05/2022,07/06/2022,LV,,42.0,50.0,2022,7
 Morning Consult,,B,Online,07/04/2022,07/06/2022,RV,,45.0,42.0,2022,7
-PureSpectrum,Northeastern University | Rutgers University | Northwestern University Department of Political Science | Harvard Medical School,Unrated,Online,06/08/2022,07/06/2022,A,,52.0,48.0,2022,6
+PureSpectrum,Northeastern University | Rutgers University | Northwestern University Department of Political Science | Harvard Medical School,Unrated,Online,06/08/2022,07/06/2022,A,,52.0,48.0,2022,7
 Morning Consult,,B,Online,07/03/2022,07/05/2022,RV,,45.0,42.0,2022,7
 YouGov,Economist,B+,Online,07/02/2022,07/05/2022,RV,,42.5,40.4,2022,7
 Data for Progress,,B,Online,07/01/2022,07/05/2022,LV,,45.0,46.0,2022,7
-Ipsos,FiveThirtyEight,B-,Online,06/27/2022,07/05/2022,A,,29.0,29.0,2022,6
+Ipsos,FiveThirtyEight,B-,Online,06/27/2022,07/05/2022,A,,29.0,29.0,2022,7
 Morning Consult,,B,Online,07/02/2022,07/04/2022,RV,,45.0,42.0,2022,7
 Big Village,,B,Online,07/01/2022,07/03/2022,A,,40.5,36.3,2022,7
 Big Village,,B,Online,07/01/2022,07/03/2022,RV,,47.4,41.6,2022,7
 Morning Consult,,B,Online,07/01/2022,07/03/2022,RV,,46.0,42.0,2022,7
-Morning Consult,,B,Online,06/30/2022,07/02/2022,RV,,45.0,41.0,2022,6
-Morning Consult,,B,Online,06/29/2022,07/01/2022,RV,,45.0,42.0,2022,6
+Morning Consult,,B,Online,06/30/2022,07/02/2022,RV,,45.0,41.0,2022,7
+Morning Consult,,B,Online,06/29/2022,07/01/2022,RV,,45.0,42.0,2022,7
 Center Street PAC,,Unrated,Online,06/30/2022,06/30/2022,RV,DEM,41.0,45.0,2022,6
 Center Street PAC,,Unrated,Online,06/30/2022,06/30/2022,LV,DEM,41.0,49.0,2022,6
 Harris Poll,Harvard CAPS,B+,Online,06/29/2022,06/30/2022,RV,,50.0,50.0,2022,6
@@ -393,16 +394,16 @@ Global Strategy Group,Third Way,B/C,Online,06/01/2022,06/07/2022,LV,,45.0,47.0,2
 Morning Consult,,B,Online,06/04/2022,06/06/2022,RV,,44.0,43.0,2022,6
 Quinnipiac University,,A-,Live Phone,06/03/2022,06/06/2022,A,,40.0,44.0,2022,6
 Quinnipiac University,,A-,Live Phone,06/03/2022,06/06/2022,RV,,41.0,46.0,2022,6
-Ipsos,FiveThirtyEight,B-,Online,05/26/2022,06/06/2022,A,,27.0,29.0,2022,5
+Ipsos,FiveThirtyEight,B-,Online,05/26/2022,06/06/2022,A,,27.0,29.0,2022,6
 Morning Consult,Politico,B,Online,06/04/2022,06/05/2022,RV,,42.0,42.0,2022,6
 Morning Consult,,B,Online,06/03/2022,06/05/2022,RV,,44.0,43.0,2022,6
 Morning Consult,,B,Online,06/02/2022,06/04/2022,RV,,44.0,42.0,2022,6
 Big Village,,B,Online,06/01/2022,06/03/2022,A,,37.4,38.0,2022,6
 Big Village,,B,Online,06/01/2022,06/03/2022,RV,,43.0,43.8,2022,6
 Morning Consult,,B,Online,06/01/2022,06/03/2022,RV,,44.0,43.0,2022,6
-Morning Consult,,B,Online,05/31/2022,06/02/2022,RV,,44.0,43.0,2022,5
-Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,05/29/2022,06/02/2022,LV,,40.0,48.0,2022,5
-Morning Consult,,B,Online,05/30/2022,06/01/2022,RV,,44.0,42.0,2022,5
+Morning Consult,,B,Online,05/31/2022,06/02/2022,RV,,44.0,43.0,2022,6
+Rasmussen Reports/Pulse Opinion Research,Miranda Devine's LAPTOP FROM HELL,B,IVR/Online,05/29/2022,06/02/2022,LV,,40.0,48.0,2022,6
+Morning Consult,,B,Online,05/30/2022,06/01/2022,RV,,44.0,42.0,2022,6
 Morning Consult,,B,Online,05/29/2022,05/31/2022,RV,,44.0,42.0,2022,5
 YouGov,Economist,B+,Online,05/28/2022,05/31/2022,RV,,43.0,43.0,2022,5
 Morning Consult,,B,Online,05/28/2022,05/30/2022,RV,,43.0,42.0,2022,5
@@ -467,16 +468,16 @@ YouGov,Yahoo News,B+,Online,05/03/2022,05/06/2022,RV,,43.0,39.0,2022,5
 YouGov,Yahoo News,B+,Online,05/03/2022,05/06/2022,A,,37.0,33.0,2022,5
 SSRS,CNN,C,Live Phone/Online,05/03/2022,05/05/2022,RV,,42.0,49.0,2022,5
 Morning Consult,,B,Online,05/03/2022,05/05/2022,RV,,43.0,42.0,2022,5
-Ipsos,FiveThirtyEight,B-,Online,04/27/2022,05/05/2022,A,,27.0,29.0,2022,4
+Ipsos,FiveThirtyEight,B-,Online,04/27/2022,05/05/2022,A,,27.0,29.0,2022,5
 Morning Consult,,B,Online,05/02/2022,05/04/2022,RV,,43.0,42.0,2022,5
 Morning Consult,Politico,B,Online,05/03/2022,05/03/2022,RV,,43.0,43.0,2022,5
 Morning Consult,,B,Online,05/01/2022,05/03/2022,RV,,43.0,42.0,2022,5
-YouGov,Economist,B+,Online,04/30/2022,05/03/2022,RV,,53.0,47.0,2022,4
-Morning Consult,,B,Online,04/30/2022,05/02/2022,RV,,43.0,42.0,2022,4
-Morning Consult,Politico,B,Online,04/29/2022,05/02/2022,RV,,43.0,43.0,2022,4
-Morning Consult,,B,Online,04/29/2022,05/01/2022,RV,,42.0,42.0,2022,4
-Beacon Research/Shaw & Company Research,FOX News,A,Live Phone,04/28/2022,05/01/2022,RV,,39.0,46.0,2022,4
-SSRS,CNN,C,Live Phone/Online,04/28/2022,05/01/2022,RV,,44.0,45.0,2022,4
+YouGov,Economist,B+,Online,04/30/2022,05/03/2022,RV,,53.0,47.0,2022,5
+Morning Consult,,B,Online,04/30/2022,05/02/2022,RV,,43.0,42.0,2022,5
+Morning Consult,Politico,B,Online,04/29/2022,05/02/2022,RV,,43.0,43.0,2022,5
+Morning Consult,,B,Online,04/29/2022,05/01/2022,RV,,42.0,42.0,2022,5
+Beacon Research/Shaw & Company Research,FOX News,A,Live Phone,04/28/2022,05/01/2022,RV,,39.0,46.0,2022,5
+SSRS,CNN,C,Live Phone/Online,04/28/2022,05/01/2022,RV,,44.0,45.0,2022,5
 Morning Consult,,B,Online,04/28/2022,04/30/2022,RV,,42.0,42.0,2022,4
 Morning Consult,,B,Online,04/27/2022,04/29/2022,RV,,42.0,42.0,2022,4
 The Winston Group,Winning the Issues,A/B,Online,04/26/2022,04/28/2022,RV,REP,44.0,45.0,2022,4
@@ -536,13 +537,13 @@ Morning Consult,,B,Online,04/03/2022,04/05/2022,RV,,43.0,43.0,2022,4
 YouGov,Economist,B+,Online,04/02/2022,04/05/2022,RV,,41.9,37.7,2022,4
 Morning Consult,,B,Online,04/02/2022,04/04/2022,RV,,44.0,43.0,2022,4
 Morning Consult,Politico,B,Online,04/01/2022,04/04/2022,RV,,43.0,43.0,2022,4
-YouGov,Yahoo News,B+,Online,03/31/2022,04/04/2022,A,,36.0,34.0,2022,3
-YouGov,Yahoo News,B+,Online,03/31/2022,04/04/2022,RV,,44.0,41.0,2022,3
-Quinnipiac University,,A-,Live Phone,03/31/2022,04/04/2022,A,,43.0,44.0,2022,3
-Quinnipiac University,,A-,Live Phone,03/31/2022,04/04/2022,RV,,43.0,47.0,2022,3
+YouGov,Yahoo News,B+,Online,03/31/2022,04/04/2022,A,,36.0,34.0,2022,4
+YouGov,Yahoo News,B+,Online,03/31/2022,04/04/2022,RV,,44.0,41.0,2022,4
+Quinnipiac University,,A-,Live Phone,03/31/2022,04/04/2022,A,,43.0,44.0,2022,4
+Quinnipiac University,,A-,Live Phone,03/31/2022,04/04/2022,RV,,43.0,47.0,2022,4
 Morning Consult,,B,Online,04/01/2022,04/03/2022,RV,,44.0,43.0,2022,4
-Morning Consult,,B,Online,03/31/2022,04/02/2022,RV,,43.0,42.0,2022,3
-Morning Consult,,B,Online,03/30/2022,04/01/2022,RV,,42.0,42.0,2022,3
+Morning Consult,,B,Online,03/31/2022,04/02/2022,RV,,43.0,42.0,2022,4
+Morning Consult,,B,Online,03/30/2022,04/01/2022,RV,,42.0,42.0,2022,4
 OnMessage,Senate Opportunity Fund,B/C,Online,03/29/2022,03/31/2022,LV,REP,43.0,46.0,2022,3
 Morning Consult,,B,Online,03/29/2022,03/31/2022,RV,,43.0,42.0,2022,3
 Morning Consult,,B,Online,03/28/2022,03/30/2022,RV,,42.0,43.0,2022,3
@@ -609,9 +610,9 @@ Morning Consult,,B,Online,03/03/2022,03/05/2022,RV,,42.0,42.0,2022,3
 Morning Consult,,B,Online,03/02/2022,03/04/2022,RV,,43.0,42.0,2022,3
 Cor Services,Foundation for Government Accountability,Unrated,IVR,03/01/2022,03/03/2022,LV,,42.0,43.0,2022,3
 Morning Consult,,B,Online,03/01/2022,03/03/2022,RV,,43.0,42.0,2022,3
-Morning Consult,,B,Online,02/28/2022,03/02/2022,RV,,43.0,42.0,2022,2
-Morning Consult,,B,Online,02/27/2022,03/01/2022,RV,,42.0,43.0,2022,2
-YouGov,Economist,B+,Online,02/26/2022,03/01/2022,RV,,42.2,38.3,2022,2
+Morning Consult,,B,Online,02/28/2022,03/02/2022,RV,,43.0,42.0,2022,3
+Morning Consult,,B,Online,02/27/2022,03/01/2022,RV,,42.0,43.0,2022,3
+YouGov,Economist,B+,Online,02/26/2022,03/01/2022,RV,,42.2,38.3,2022,3
 Morning Consult,,B,Online,02/26/2022,02/28/2022,RV,,41.0,44.0,2022,2
 Morning Consult,Politico,B,Online,02/25/2022,02/27/2022,RV,,42.0,41.0,2022,2
 Morning Consult,,B,Online,02/25/2022,02/27/2022,RV,,41.0,44.0,2022,2
@@ -664,17 +665,17 @@ Morning Consult,,B,Online,02/06/2022,02/08/2022,RV,,43.0,43.0,2022,2
 YouGov,Economist,B+,Online,02/05/2022,02/08/2022,RV,,42.6,39.3,2022,2
 Public Opinion Strategies,Citizens for Responsible Energy Solutions,A-,Online,02/04/2022,02/08/2022,RV,REP,43.0,41.0,2022,2
 Morning Consult,,B,Online,02/05/2022,02/07/2022,RV,,43.0,43.0,2022,2
-Ipsos,Reuters,B-,Online,01/31/2022,02/07/2022,A,,42.0,34.0,2022,1
+Ipsos,Reuters,B-,Online,01/31/2022,02/07/2022,A,,42.0,34.0,2022,2
 Morning Consult,Politico,B,Online,02/05/2022,02/06/2022,RV,,42.0,43.0,2022,2
 Morning Consult,,B,Online,02/04/2022,02/06/2022,RV,,43.0,42.0,2022,2
 Trafalgar Group,Convention of States Action,A-,IVR/Online/Text/Live Phone,02/02/2022,02/06/2022,LV,REP,41.9,54.4,2022,2
-SSRS,CNN,C,Live Phone/Online,01/10/2022,02/06/2022,RV,,43.0,44.0,2022,1
+SSRS,CNN,C,Live Phone/Online,01/10/2022,02/06/2022,RV,,43.0,44.0,2022,2
 Morning Consult,,B,Online,02/03/2022,02/05/2022,RV,,43.0,42.0,2022,2
 Morning Consult,,B,Online,02/02/2022,02/04/2022,RV,,43.0,42.0,2022,2
 Morning Consult,,B,Online,02/01/2022,02/03/2022,RV,,43.0,43.0,2022,2
-Morning Consult,,B,Online,01/31/2022,02/02/2022,RV,,43.0,42.0,2022,1
-Morning Consult,,B,Online,01/30/2022,02/01/2022,RV,,43.0,42.0,2022,1
-YouGov,Economist,B+,Online,01/29/2022,02/01/2022,RV,,44.0,38.0,2022,1
+Morning Consult,,B,Online,01/31/2022,02/02/2022,RV,,43.0,42.0,2022,2
+Morning Consult,,B,Online,01/30/2022,02/01/2022,RV,,43.0,42.0,2022,2
+YouGov,Economist,B+,Online,01/29/2022,02/01/2022,RV,,44.0,38.0,2022,2
 Morning Consult,,B,Online,01/29/2022,01/31/2022,RV,,44.0,42.0,2022,1
 Morning Consult,Politico,B,Online,01/28/2022,01/30/2022,RV,,44.0,41.0,2022,1
 Morning Consult,,B,Online,01/28/2022,01/30/2022,RV,,44.0,42.0,2022,1

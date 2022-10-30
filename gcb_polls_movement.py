@@ -16,24 +16,23 @@ def _read_data(additional_cols: list = None) -> pd.DataFrame:
     return df
 
 
-def _filter_polls(df: pd.DataFrame) -> pd.DataFrame:
+def _filter_data(df: pd.DataFrame) -> pd.DataFrame:
     df = df[(df.election_date == '11/8/22') & df.start_date.str.endswith(('/21', '/22'))].drop(
         columns='election_date')
     return df
 
 
-def _normalize_date(x) -> datetime.date:
-    x = re.sub('/2$', '/202', x, count=1)
-    return pd.to_datetime(x).date()
+def _normalize_data(df: pd.DataFrame) -> pd.DataFrame:
+    def _convert_date_str_to_dttm(x) -> datetime.date:
+        x = re.sub('/2$', '/202', x, count=1)
+        return pd.to_datetime(x).date()
 
-
-def _normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     df.population = df.population.fillna('Not Specified').str.upper()
     df.fte_grade = df.fte_grade.fillna('Unrated')
     df.partisan = df.partisan.fillna('')
     df.sponsors = df.sponsors.fillna('')
     for col in ('start_date', 'end_date'):
-        df[col] = df[col].apply(_normalize_date)
+        df[col] = df[col].apply(_convert_date_str_to_dttm)
     df = df.rename(columns=dict(
         display_name='pollsterName', fte_grade='fteGrade', poll_id='polls', sponsors='sponsor'))
     return df
@@ -69,7 +68,7 @@ def _remerge_and_save(df: pd.DataFrame, label: str, *args, **kwargs) -> None:
 
 
 def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
-    df = _normalize_columns(_filter_polls(df))
+    df = _normalize_data(_filter_data(df))
     _remerge_and_save(df, '1-Dobbs (YTD split at 6.24)', (2022, 6, 24))
     _remerge_and_save(df, '2-MAL Raid (6.24-8.9 vs 8.9-Today)', first_date=(2022, 6, 24), split_date=(2022, 8, 9))
     _remerge_and_save(df, '3-Student Loan Forgiveness (6.24-8.24 vs 8.24-Today)', first_date=(
@@ -83,7 +82,7 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
 
 
 def create_gcb_polls_trimmed() -> None:
-    df = _normalize_columns(_filter_polls(_read_data(['cycle'])))[[
+    df = _normalize_data(_filter_data(_read_data(['cycle'])))[[
         'pollsterName', 'sponsor', 'fteGrade', 'methodology', 'start_date', 'end_date', 'population', 'partisan',
         'dem', 'rep', 'cycle',
     ]]

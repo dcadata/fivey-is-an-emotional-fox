@@ -1,10 +1,9 @@
 import configparser
 import datetime
 import json
-import os.path
+import os
 import re
 from email.mime.text import MIMEText
-from os import environ
 from smtplib import SMTP_SSL
 from time import sleep
 
@@ -35,25 +34,25 @@ _DISTRICT_TOPLINE_FILENAMES = dict(
 
 
 def _send_email(subject: str, body: str) -> None:
-    sender = environ['EMAIL_SENDER']
+    sender = os.environ['EMAIL_SENDER']
     msg = MIMEText(body)
     msg['Subject'] = subject
     msg['From'] = sender
-    msg['To'] = environ['EMAIL_RECIPIENT']
+    msg['To'] = os.environ['EMAIL_RECIPIENT']
 
     server = SMTP_SSL(host='smtp.gmail.com', port=465)
-    server.login(sender, environ['EMAIL_PASSWORD'])
+    server.login(sender, os.environ['EMAIL_PASSWORD'])
     server.send_message(msg)
     server.quit()
 
 
 def _send_text(body: str) -> None:
-    client = Client(environ['ACCT_SID'], environ['TOKEN'])
-    client.messages.create(to=environ['PHONE_NUMBER'], body=body, messaging_service_sid=environ['SERV_SID'])
+    client = Client(os.environ['ACCT_SID'], os.environ['TOKEN'])
+    client.messages.create(to=os.environ['PHONE_NUMBER'], body=body, messaging_service_sid=os.environ['SERV_SID'])
 
 
 def _send_message(body: str) -> None:
-    if environ.get('PHONE_NUMBER'):
+    if os.environ.get('PHONE_NUMBER'):
         _send_text(body)
     else:
         _send_email('Forecast/Poll Alert', body)

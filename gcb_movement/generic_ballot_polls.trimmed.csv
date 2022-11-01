@@ -1,5 +1,6 @@
 pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,dem,rep,cycle,endMonth
 Morning Consult,,B,Online,10/28/2022,10/30/2022,LV,,46.0,46.0,2022,10
+Cygnal,,B+,,10/28/2022,10/30/2022,LV,,46.9,50.0,2022,10
 Morning Consult,,B,Online,10/27/2022,10/29/2022,LV,,46.0,47.0,2022,10
 YouGov,CBS News,B+,Online,10/26/2022,10/28/2022,LV,,45.0,47.0,2022,10
 Morning Consult,,B,Online,10/26/2022,10/28/2022,LV,,46.0,46.0,2022,10

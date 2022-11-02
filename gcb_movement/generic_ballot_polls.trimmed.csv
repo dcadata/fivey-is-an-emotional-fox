@@ -1,5 +1,6 @@
 pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,dem,rep,cycle,endMonth
 Morning Consult,Politico,B,Online,10/28/2022,10/31/2022,RV,,47.0,42.0,2022,10
+NewsNation,,Unrated,Online,10/28/2022,10/31/2022,RV,,43.44,44.67,2022,10
 SSRS,CNN,C,Live Phone/Online,10/26/2022,10/31/2022,RV,,46.0,47.0,2022,10
 SSRS,CNN,C,Live Phone/Online,10/26/2022,10/31/2022,LV,,47.0,51.0,2022,10
 Morning Consult,,B,Online,10/28/2022,10/30/2022,LV,,46.0,46.0,2022,10

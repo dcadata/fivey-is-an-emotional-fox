@@ -1,4 +1,4 @@
-pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,dem,rep,cycle,endMonth
+pollsterName,sponsor,fteGrade,methodology,startDate,endDate,population,partisan,dem,rep,endYear,endMonth
 Hart Research Associates/Public Opinion Strategies,NBC News,B+,Live Phone,11/03/2022,11/05/2022,RV,,47.0,47.0,2022,11
 Hart Research Associates/Public Opinion Strategies,NBC News,B+,Live Phone,11/03/2022,11/05/2022,LV,,48.0,47.0,2022,11
 Big Village,,B,Online,11/02/2022,11/04/2022,A,,39.9,37.9,2022,11
@@ -806,3 +806,519 @@ YouGov,Economist,B+,Online,01/02/2022,01/04/2022,RV,,42.3,37.8,2022,1
 The Winston Group,Winning the Issues,A/B,Online,01/02/2022,01/04/2022,RV,REP,44.0,46.0,2022,1
 Morning Consult,,B,Online,01/02/2022,01/04/2022,RV,,43.0,42.0,2022,1
 Morning Consult,,B,Online,01/01/2022,01/03/2022,RV,,43.0,42.0,2022,1
+Morning Consult,,B,Online,12/31/2021,01/02/2022,RV,,43.0,42.0,2022,1
+Morning Consult,,B,Online,12/30/2021,01/01/2022,RV,,43.0,42.0,2022,1
+Morning Consult,,B,Online,12/29/2021,12/31/2021,RV,,43.0,42.0,2021,12
+Morning Consult,,B,Online,12/28/2021,12/30/2021,RV,,43.0,42.0,2021,12
+Suffolk University,USA Today,B+,Live Phone,12/27/2021,12/30/2021,RV,,38.5,37.3,2021,12
+Morning Consult,,B,Online,12/27/2021,12/29/2021,RV,,43.0,43.0,2021,12
+Morning Consult,,B,Online,12/26/2021,12/28/2021,RV,,43.0,43.0,2021,12
+Morning Consult,,B,Online,12/25/2021,12/27/2021,RV,,44.0,42.0,2021,12
+Morning Consult,,B,Online,12/24/2021,12/26/2021,RV,,43.0,42.0,2021,12
+Morning Consult,,B,Online,12/23/2021,12/25/2021,RV,,44.0,42.0,2021,12
+Morning Consult,,B,Online,12/22/2021,12/24/2021,RV,,44.0,42.0,2021,12
+Morning Consult,,B,Online,12/21/2021,12/23/2021,RV,,44.0,42.0,2021,12
+Zogby Analytics,,B-,Online,12/21/2021,12/22/2021,LV,,42.5,42.8,2021,12
+Morning Consult,,B,Online,12/20/2021,12/22/2021,RV,,44.0,42.0,2021,12
+YouGov,Economist,B+,Online,12/19/2021,12/21/2021,RV,,43.0,36.0,2021,12
+Morning Consult,,B,Online,12/19/2021,12/21/2021,RV,,44.0,42.0,2021,12
+Morning Consult,Politico,B,Online,12/18/2021,12/20/2021,RV,,41.0,41.0,2021,12
+Morning Consult,,B,Online,12/18/2021,12/20/2021,RV,,44.0,42.0,2021,12
+Change Research,CNBC,B-,Online,12/17/2021,12/20/2021,RV,,45.0,44.0,2021,12
+YouGov,UMass Amherst,B+,Online,12/14/2021,12/20/2021,A,,42.0,37.0,2021,12
+YouGov,UMass Amherst,B+,Online,12/14/2021,12/20/2021,RV,,42.0,40.0,2021,12
+InsiderAdvantage,Center for American Greatness,B,,12/17/2021,12/19/2021,RV,,43.0,48.0,2021,12
+Morning Consult,,B,Online,12/17/2021,12/19/2021,RV,,44.0,42.0,2021,12
+Morning Consult,,B,Online,12/16/2021,12/18/2021,RV,,44.0,41.0,2021,12
+John Zogby Strategies,,B/C,Online,12/17/2021,12/17/2021,LV,,43.5,39.6,2021,12
+Morning Consult,,B,Online,12/15/2021,12/17/2021,RV,,44.0,42.0,2021,12
+Ipsos,Reuters,B-,Online,12/13/2021,12/17/2021,A,,40.0,33.0,2021,12
+Morning Consult,,B,Online,12/14/2021,12/16/2021,RV,,44.0,42.0,2021,12
+Morning Consult,,B,Online,12/13/2021,12/15/2021,RV,,44.0,42.0,2021,12
+YouGov,Economist,B+,Online,12/12/2021,12/14/2021,RV,,42.0,38.0,2021,12
+Morning Consult,,B,Online,12/12/2021,12/14/2021,RV,,44.0,42.0,2021,12
+Beacon Research/Shaw & Company Research,Fox Business,A,Live Phone,12/11/2021,12/14/2021,RV,,39.0,43.0,2021,12
+Rasmussen Reports/Pulse Opinion Research,,B,IVR/Online,12/08/2021,12/14/2021,LV,,39.0,48.0,2021,12
+Morning Consult,Politico,B,Online,12/11/2021,12/13/2021,RV,,43.0,42.0,2021,12
+Morning Consult,,B,Online,12/11/2021,12/13/2021,RV,,44.0,42.0,2021,12
+Echelon Insights,,B/C,Online,12/09/2021,12/13/2021,RV,,47.0,45.0,2021,12
+YouGov,Yahoo News,B+,Online,12/09/2021,12/13/2021,A,,39.0,31.0,2021,12
+YouGov,Yahoo News,B+,Online,12/09/2021,12/13/2021,RV,,44.0,35.0,2021,12
+Morning Consult,,B,Online,12/10/2021,12/12/2021,RV,,44.0,42.0,2021,12
+Morning Consult,,B,Online,12/09/2021,12/11/2021,RV,,44.0,42.0,2021,12
+RMG Research,,B-,IVR/Online/Text,12/08/2021,12/11/2021,RV,,38.0,44.0,2021,12
+Morning Consult,,B,Online,12/08/2021,12/10/2021,RV,,44.0,43.0,2021,12
+Morning Consult,,B,Online,12/07/2021,12/09/2021,RV,,44.0,42.0,2021,12
+Schoen Cooperman Research,,B/C,Online/Text,12/02/2021,12/09/2021,LV,,45.0,48.0,2021,12
+Morning Consult,,B,Online,12/06/2021,12/08/2021,RV,,44.0,42.0,2021,12
+Morning Consult,,B,Online,12/05/2021,12/07/2021,RV,,44.0,42.0,2021,12
+YouGov,Economist,B+,Online,12/04/2021,12/07/2021,RV,,42.0,39.0,2021,12
+Morning Consult,Politico,B,Online,12/04/2021,12/06/2021,RV,,44.0,41.0,2021,12
+Morning Consult,,B,Online,12/04/2021,12/06/2021,RV,,44.0,42.0,2021,12
+Morning Consult,,B,Online,12/03/2021,12/05/2021,RV,,44.0,42.0,2021,12
+Morning Consult,,B,Online,12/02/2021,12/04/2021,RV,,44.0,41.0,2021,12
+Hart Research Associates/Public Opinion Strategies,CNBC,B+,Live Phone,12/01/2021,12/04/2021,A,,34.0,44.0,2021,12
+Morning Consult,,B,Online,12/01/2021,12/03/2021,RV,,44.0,41.0,2021,12
+Harris Poll,Harvard CAPS,B+,Online,11/30/2021,12/02/2021,RV,,50.0,50.0,2021,12
+Morning Consult,,B,Online,11/30/2021,12/02/2021,RV,,44.0,42.0,2021,12
+Cor Services,Foundation for Government Accountability,Unrated,IVR,11/29/2021,12/01/2021,LV,,37.0,45.0,2021,12
+Morning Consult,,B,Online,11/29/2021,12/01/2021,RV,,43.0,42.0,2021,12
+RMG Research,,B-,IVR/Online/Text,11/29/2021,11/30/2021,RV,,35.0,38.0,2021,11
+Morning Consult,,B,Online,11/28/2021,11/30/2021,RV,,43.0,42.0,2021,11
+YouGov,Economist,B+,Online,11/27/2021,11/30/2021,RV,,42.0,37.0,2021,11
+Morning Consult,,B,Online,11/27/2021,11/29/2021,RV,,44.0,42.0,2021,11
+Morning Consult,,B,Online,11/26/2021,11/28/2021,RV,,44.0,42.0,2021,11
+Morning Consult,,B,Online,11/25/2021,11/27/2021,RV,,44.0,42.0,2021,11
+Morning Consult,,B,Online,11/24/2021,11/26/2021,RV,,44.0,42.0,2021,11
+Morning Consult,,B,Online,11/23/2021,11/25/2021,RV,,44.0,42.0,2021,11
+Morning Consult,,B,Online,11/22/2021,11/24/2021,RV,,43.0,42.0,2021,11
+Morning Consult,,B,Online,11/21/2021,11/23/2021,RV,,44.0,42.0,2021,11
+YouGov,Economist,B+,Online,11/20/2021,11/23/2021,RV,,40.0,40.0,2021,11
+Morning Consult,,B,Online,11/20/2021,11/22/2021,RV,,44.0,42.0,2021,11
+"Fabrizio, Lee & Associates/Impact Research",Wall Street Journal,Unrated,Live Phone/Online,11/16/2021,11/22/2021,RV,,41.0,44.0,2021,11
+Morning Consult,,B,Online,11/19/2021,11/21/2021,RV,,44.0,42.0,2021,11
+Public Opinion Strategies,Conservative Energy Network,A-,Online,11/18/2021,11/21/2021,RV,REP,42.0,40.0,2021,11
+Morning Consult,,B,Online,11/18/2021,11/20/2021,RV,,43.0,42.0,2021,11
+YouGov,Yahoo News,B+,Online,11/17/2021,11/19/2021,A,,38.0,32.0,2021,11
+YouGov,Yahoo News,B+,Online,11/17/2021,11/19/2021,RV,,43.0,39.0,2021,11
+Morning Consult,,B,Online,11/17/2021,11/19/2021,RV,,42.0,43.0,2021,11
+Marist College,NPR,A,Live Phone,11/16/2021,11/19/2021,RV,,46.0,41.0,2021,11
+Morning Consult,,B,Online,11/16/2021,11/18/2021,RV,,42.0,43.0,2021,11
+Echelon Insights,,B/C,Online,11/12/2021,11/18/2021,RV,,46.0,44.0,2021,11
+Echelon Insights,,B/C,Online,11/12/2021,11/18/2021,LV,,49.0,44.0,2021,11
+Morning Consult,,B,Online,11/15/2021,11/17/2021,RV,,44.0,42.0,2021,11
+YouGov,Economist,B+,Online,11/14/2021,11/16/2021,RV,,42.0,38.0,2021,11
+Morning Consult,,B,Online,11/14/2021,11/16/2021,RV,,44.0,42.0,2021,11
+McLaughlin & Associates,,C/D,Online,11/11/2021,11/16/2021,LV,,44.0,48.0,2021,11
+Morning Consult,Politico,B,Online,11/13/2021,11/15/2021,RV,,43.0,43.0,2021,11
+Morning Consult,,B,Online,11/13/2021,11/15/2021,RV,,44.0,42.0,2021,11
+Quinnipiac University,,A-,Live Phone,11/11/2021,11/15/2021,A,,38.0,46.0,2021,11
+Quinnipiac University,,A-,Live Phone,11/11/2021,11/15/2021,RV,,41.0,46.0,2021,11
+Morning Consult,,B,Online,11/12/2021,11/14/2021,RV,,44.0,42.0,2021,11
+Morning Consult,,B,Online,11/11/2021,11/13/2021,RV,,43.0,42.0,2021,11
+Morning Consult,,B,Online,11/10/2021,11/12/2021,RV,,43.0,42.0,2021,11
+Morning Consult,,B,Online,11/09/2021,11/11/2021,RV,,44.0,42.0,2021,11
+Rasmussen Reports/Pulse Opinion Research,,B,IVR/Online,11/08/2021,11/11/2021,LV,,38.0,51.0,2021,11
+Morning Consult,,B,Online,11/08/2021,11/10/2021,RV,,44.0,43.0,2021,11
+ABC News/The Washington Post,,A+,Live Phone,11/07/2021,11/10/2021,A,,43.0,46.0,2021,11
+ABC News/The Washington Post,,A+,Live Phone,11/07/2021,11/10/2021,RV,,41.0,51.0,2021,11
+Morning Consult,,B,Online,11/07/2021,11/09/2021,RV,,44.0,43.0,2021,11
+YouGov,Economist,B+,Online,11/06/2021,11/09/2021,RV,,44.0,37.0,2021,11
+Susquehanna Polling & Research,The Federalist,B+,Live Phone,11/01/2021,11/09/2021,LV,,32.0,29.0,2021,11
+Morning Consult,,B,Online,11/06/2021,11/08/2021,RV,,44.0,43.0,2021,11
+YouGov,Yahoo News,B+,Online,11/04/2021,11/08/2021,A,,36.0,33.0,2021,11
+Morning Consult,Politico,B,Online,11/05/2021,11/07/2021,RV,,44.0,42.0,2021,11
+Morning Consult,,B,Online,11/05/2021,11/07/2021,RV,,44.0,42.0,2021,11
+Morning Consult,,B,Online,11/04/2021,11/06/2021,RV,,44.0,43.0,2021,11
+Suffolk University,USA Today,B+,Live Phone,11/03/2021,11/05/2021,RV,,37.7,45.9,2021,11
+Morning Consult,,B,Online,11/03/2021,11/05/2021,RV,,44.0,43.0,2021,11
+Emerson College,,A-,IVR/Online/Text,11/03/2021,11/04/2021,RV,,42.0,48.7,2021,11
+Morning Consult,,B,Online,11/02/2021,11/04/2021,RV,,43.0,43.0,2021,11
+SSRS,CNN,C,Live Phone/Online,11/01/2021,11/04/2021,A,,50.0,40.0,2021,11
+SSRS,CNN,C,Live Phone/Online,11/01/2021,11/04/2021,RV,,49.0,44.0,2021,11
+Morning Consult,,B,Online,11/01/2021,11/03/2021,RV,,43.0,43.0,2021,11
+Morning Consult,,B,Online,10/31/2021,11/02/2021,RV,,43.0,43.0,2021,11
+YouGov,Economist,B+,Online,10/30/2021,11/02/2021,RV,,44.0,37.0,2021,11
+Morning Consult,,B,Online,10/30/2021,11/01/2021,RV,,43.0,43.0,2021,11
+Morning Consult,Politico,B,Online,10/29/2021,11/01/2021,RV,,42.0,42.0,2021,11
+Morning Consult,,B,Online,10/29/2021,10/31/2021,RV,,43.0,42.0,2021,10
+RMG Research,,B-,IVR/Online/Text,10/28/2021,10/30/2021,RV,,40.0,41.0,2021,10
+Morning Consult,,B,Online,10/28/2021,10/30/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,10/27/2021,10/29/2021,RV,,44.0,42.0,2021,10
+Harris Poll,Harvard CAPS,B+,Online,10/27/2021,10/28/2021,RV,,42.0,45.0,2021,10
+Morning Consult,,B,Online,10/26/2021,10/28/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,10/25/2021,10/27/2021,RV,,44.0,41.0,2021,10
+YouGov,Economist,B+,Online,10/24/2021,10/26/2021,RV,,44.0,38.0,2021,10
+Morning Consult,,B,Online,10/24/2021,10/26/2021,RV,,43.0,42.0,2021,10
+Hart Research Associates/Public Opinion Strategies,NBC News,B+,Live Phone,10/23/2021,10/26/2021,RV,,47.0,45.0,2021,10
+Echelon Insights,Center for Election Innovation & Research,B/C,Online,10/20/2021,10/26/2021,RV,,43.0,43.0,2021,10
+Morning Consult,,B,Online,10/23/2021,10/25/2021,RV,,43.0,42.0,2021,10
+Morning Consult,Politico,B,Online,10/22/2021,10/24/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,10/22/2021,10/24/2021,RV,,43.0,42.0,2021,10
+Morning Consult,,B,Online,10/21/2021,10/23/2021,RV,,43.0,42.0,2021,10
+Morning Consult,,B,Online,10/20/2021,10/22/2021,RV,,44.0,42.0,2021,10
+Marist College,NPR | PBS NewsHour,A,Live Phone,10/18/2021,10/22/2021,RV,,44.0,41.0,2021,10
+YouGov,Yahoo News,B+,Online,10/19/2021,10/21/2021,A,,37.0,32.0,2021,10
+Morning Consult,,B,Online,10/19/2021,10/21/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,10/18/2021,10/20/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,10/17/2021,10/19/2021,RV,,44.0,42.0,2021,10
+YouGov,Economist,B+,Online,10/16/2021,10/19/2021,RV,,42.0,37.0,2021,10
+Echelon Insights,,B/C,Online,10/15/2021,10/19/2021,RV,,46.0,42.0,2021,10
+Echelon Insights,,B/C,Online,10/15/2021,10/19/2021,LV,,46.0,45.0,2021,10
+Morning Consult,Politico,B,Online,10/16/2021,10/18/2021,RV,,45.0,40.0,2021,10
+Morning Consult,,B,Online,10/16/2021,10/18/2021,RV,,43.0,42.0,2021,10
+McLaughlin & Associates,,C/D,Online,10/14/2021,10/18/2021,LV,,47.0,48.0,2021,10
+Morning Consult,,B,Online,10/15/2021,10/17/2021,RV,,43.0,43.0,2021,10
+Hart Research Associates/Public Opinion Strategies,CNBC,B+,Live Phone,10/14/2021,10/17/2021,A,,43.0,41.0,2021,10
+Morning Consult,,B,Online,10/14/2021,10/16/2021,RV,,43.0,42.0,2021,10
+Morning Consult,,B,Online,10/13/2021,10/15/2021,RV,,44.0,42.0,2021,10
+Cor Services,Foundation for Government Accountability,Unrated,IVR,10/12/2021,10/14/2021,LV,,39.0,49.0,2021,10
+Morning Consult,,B,Online,10/12/2021,10/14/2021,RV,,44.0,42.0,2021,10
+RMG Research,,B-,IVR/Online/Text,10/11/2021,10/13/2021,RV,,40.0,41.0,2021,10
+Morning Consult,,B,Online,10/11/2021,10/13/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,10/10/2021,10/12/2021,RV,,44.0,42.0,2021,10
+YouGov,Economist,B+,Online,10/09/2021,10/12/2021,RV,,45.0,37.0,2021,10
+RMG Research,,B-,IVR/Online/Text,10/10/2021,10/11/2021,RV,,40.0,40.0,2021,10
+Morning Consult,,B,Online,10/09/2021,10/11/2021,RV,,44.0,42.0,2021,10
+Morning Consult,Politico,B,Online,10/08/2021,10/11/2021,RV,,43.0,41.0,2021,10
+Morning Consult,,B,Online,10/08/2021,10/10/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,10/07/2021,10/09/2021,RV,,44.0,42.0,2021,10
+RMG Research,,B-,IVR/Online/Text,10/06/2021,10/09/2021,RV,,40.0,41.0,2021,10
+Morning Consult,,B,Online,10/06/2021,10/08/2021,RV,,43.0,42.0,2021,10
+Morning Consult,,B,Online,10/05/2021,10/07/2021,RV,,43.0,42.0,2021,10
+Morning Consult,,B,Online,10/04/2021,10/06/2021,RV,,43.0,42.0,2021,10
+YouGov,Economist,B+,Online,10/03/2021,10/05/2021,RV,,43.0,36.0,2021,10
+Morning Consult,,B,Online,10/03/2021,10/05/2021,RV,,44.0,42.0,2021,10
+Morning Consult,Politico,B,Online,10/02/2021,10/04/2021,RV,,43.0,42.0,2021,10
+Morning Consult,,B,Online,10/02/2021,10/04/2021,RV,,44.0,42.0,2021,10
+Quinnipiac University,,A-,Live Phone,10/01/2021,10/04/2021,A,,43.0,46.0,2021,10
+Quinnipiac University,,A-,Live Phone,10/01/2021,10/04/2021,RV,,44.0,47.0,2021,10
+YouGov,Yahoo News,B+,Online,10/01/2021,10/04/2021,A,,37.0,31.0,2021,10
+Morning Consult,,B,Online,10/01/2021,10/03/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,09/30/2021,10/02/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,09/29/2021,10/01/2021,RV,,44.0,42.0,2021,10
+Morning Consult,,B,Online,09/28/2021,09/30/2021,RV,,44.0,42.0,2021,9
+Morning Consult,,B,Online,09/27/2021,09/29/2021,RV,,44.0,42.0,2021,9
+Public Religion Research Institute,,A/B,Online,09/16/2021,09/29/2021,A,,37.0,29.0,2021,9
+YouGov,Economist,B+,Online,09/26/2021,09/28/2021,RV,,52.0,48.0,2021,9
+Morning Consult,,B,Online,09/26/2021,09/28/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,09/25/2021,09/27/2021,RV,,44.0,41.0,2021,9
+Morning Consult,Politico,B,Online,09/24/2021,09/27/2021,RV,,45.0,41.0,2021,9
+Morning Consult,,B,Online,09/24/2021,09/26/2021,RV,,44.0,41.0,2021,9
+Marist College,NPR | PBS NewsHour,A,Live Phone,09/20/2021,09/26/2021,RV,,46.0,38.0,2021,9
+Morning Consult,,B,Online,09/23/2021,09/25/2021,RV,,44.0,42.0,2021,9
+Lake Research Partners/Emerson College,All in Together,Unrated,IVR/Online/Text,09/22/2021,09/24/2021,RV,,45.0,41.0,2021,9
+Morning Consult,,B,Online,09/22/2021,09/24/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,09/21/2021,09/23/2021,RV,,44.0,41.0,2021,9
+Echelon Insights,,B/C,Online,09/17/2021,09/23/2021,RV,,47.0,40.0,2021,9
+Echelon Insights,,B/C,Online,09/17/2021,09/23/2021,LV,,50.0,40.0,2021,9
+RMG Research,,B-,IVR/Online/Text,09/22/2021,09/22/2021,RV,,41.0,40.0,2021,9
+Morning Consult,,B,Online,09/20/2021,09/22/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,09/19/2021,09/21/2021,RV,,44.0,41.0,2021,9
+YouGov,Economist,B+,Online,09/18/2021,09/21/2021,RV,,52.0,48.0,2021,9
+Morning Consult,Politico,B,Online,09/18/2021,09/20/2021,RV,,44.0,40.0,2021,9
+Morning Consult,,B,Online,09/18/2021,09/20/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,09/17/2021,09/19/2021,RV,,44.0,41.0,2021,9
+Pew Research Center,,B/C,Online,09/13/2021,09/19/2021,A,,45.0,40.0,2021,9
+Morning Consult,,B,Online,09/16/2021,09/18/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,09/15/2021,09/17/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,09/14/2021,09/16/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,09/13/2021,09/15/2021,RV,,44.0,42.0,2021,9
+Morning Consult,,B,Online,09/12/2021,09/14/2021,RV,,44.0,41.0,2021,9
+McLaughlin & Associates,,C/D,Online,09/09/2021,09/14/2021,LV,,46.0,47.0,2021,9
+Morning Consult,,B,Online,09/11/2021,09/13/2021,RV,,44.0,41.0,2021,9
+Morning Consult,Politico,B,Online,09/10/2021,09/13/2021,RV,,43.0,39.0,2021,9
+Quinnipiac University,,A-,Live Phone,09/10/2021,09/13/2021,A,,45.0,42.0,2021,9
+Quinnipiac University,,A-,Live Phone,09/10/2021,09/13/2021,RV,,47.0,43.0,2021,9
+YouGov,,B+,Online,09/10/2021,09/13/2021,RV,,43.0,37.0,2021,9
+Morning Consult,,B,Online,09/10/2021,09/12/2021,RV,,44.0,41.0,2021,9
+RMG Research,,B-,IVR/Online/Text,09/10/2021,09/11/2021,RV,,40.0,40.0,2021,9
+Morning Consult,,B,Online,09/09/2021,09/11/2021,RV,,44.0,42.0,2021,9
+Morning Consult,,B,Online,09/08/2021,09/10/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,09/07/2021,09/09/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,09/06/2021,09/08/2021,RV,,44.0,42.0,2021,9
+The Winston Group,Winning the Issues,A/B,Online,09/04/2021,09/08/2021,RV,REP,46.0,43.0,2021,9
+Public Opinion Strategies,,A-,Live Phone,09/01/2021,09/08/2021,RV,,42.0,42.0,2021,9
+Morning Consult,,B,Online,09/05/2021,09/07/2021,RV,,44.0,42.0,2021,9
+YouGov,Economist,B+,Online,09/04/2021,09/07/2021,RV,,43.0,37.0,2021,9
+SSRS,CNN,C,Live Phone/Online,08/03/2021,09/07/2021,A,,45.0,40.0,2021,9
+SSRS,CNN,C,Live Phone/Online,08/03/2021,09/07/2021,RV,,45.0,44.0,2021,9
+Morning Consult,,B,Online,09/04/2021,09/06/2021,RV,,43.0,42.0,2021,9
+Morning Consult,,B,Online,09/03/2021,09/05/2021,RV,,43.0,42.0,2021,9
+Morning Consult,,B,Online,09/02/2021,09/04/2021,RV,,43.0,41.0,2021,9
+Morning Consult,,B,Online,09/01/2021,09/03/2021,RV,,43.0,41.0,2021,9
+Morning Consult,,B,Online,08/31/2021,09/02/2021,RV,,44.0,41.0,2021,9
+Change Research,CNBC,B-,Online,08/30/2021,09/02/2021,RV,,46.0,45.0,2021,9
+Change Research,CNBC,B-,Online,08/30/2021,09/02/2021,LV,,49.0,45.0,2021,9
+Morning Consult,,B,Online,08/30/2021,09/01/2021,RV,,44.0,41.0,2021,9
+Morning Consult,,B,Online,08/29/2021,08/31/2021,RV,,44.0,42.0,2021,8
+YouGov,Economist,B+,Online,08/28/2021,08/31/2021,RV,,45.0,38.0,2021,8
+Morning Consult,,B,Online,08/28/2021,08/30/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/27/2021,08/29/2021,RV,,44.0,41.0,2021,8
+RMG Research,,B-,IVR/Online/Text,08/26/2021,08/29/2021,RV,,40.0,40.0,2021,8
+Morning Consult,,B,Online,08/26/2021,08/28/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/25/2021,08/27/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/24/2021,08/26/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/23/2021,08/25/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/22/2021,08/24/2021,RV,,44.0,41.0,2021,8
+YouGov,Economist,B+,Online,08/21/2021,08/24/2021,RV,,44.0,37.0,2021,8
+Morning Consult,,B,Online,08/21/2021,08/23/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/20/2021,08/22/2021,RV,,44.0,42.0,2021,8
+Morning Consult,,B,Online,08/19/2021,08/21/2021,RV,,44.0,42.0,2021,8
+Morning Consult,,B,Online,08/18/2021,08/20/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/17/2021,08/19/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/16/2021,08/18/2021,RV,,44.0,41.0,2021,8
+Echelon Insights,,B/C,Online,08/13/2021,08/18/2021,RV,,50.0,40.0,2021,8
+Susquehanna Polling & Research,The Federalist,B+,Live Phone,08/12/2021,08/18/2021,LV,,38.0,39.0,2021,8
+Schoen Cooperman Research,,B/C,Online/Text,08/10/2021,08/18/2021,LV,,46.0,48.0,2021,8
+Morning Consult,,B,Online,08/15/2021,08/17/2021,RV,,45.0,41.0,2021,8
+YouGov,Economist,B+,Online,08/14/2021,08/17/2021,RV,,43.0,38.0,2021,8
+Hart Research Associates/Public Opinion Strategies,NBC News,B+,Live Phone,08/14/2021,08/17/2021,RV,,47.0,46.0,2021,8
+Ipsos,Reuters,B-,Online,08/16/2021,08/16/2021,A,,40.0,37.0,2021,8
+Morning Consult,,B,Online,08/14/2021,08/16/2021,RV,,45.0,41.0,2021,8
+Morning Consult,,B,Online,08/13/2021,08/15/2021,RV,,45.0,41.0,2021,8
+Morning Consult,,B,Online,08/12/2021,08/14/2021,RV,,45.0,41.0,2021,8
+Morning Consult,,B,Online,08/11/2021,08/13/2021,RV,,45.0,41.0,2021,8
+Morning Consult,,B,Online,08/10/2021,08/12/2021,RV,,45.0,41.0,2021,8
+Morning Consult,,B,Online,08/09/2021,08/11/2021,RV,,45.0,41.0,2021,8
+Morning Consult,,B,Online,08/08/2021,08/10/2021,RV,,44.0,42.0,2021,8
+YouGov,Economist,B+,Online,08/07/2021,08/10/2021,RV,,45.0,37.0,2021,8
+Morning Consult,,B,Online,08/07/2021,08/09/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/06/2021,08/08/2021,RV,,44.0,41.0,2021,8
+RMG Research,,B-,IVR/Online/Text,08/05/2021,08/07/2021,RV,,42.0,40.0,2021,8
+Morning Consult,,B,Online,08/05/2021,08/07/2021,RV,,45.0,41.0,2021,8
+Morning Consult,,B,Online,08/04/2021,08/06/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,08/03/2021,08/05/2021,RV,,44.0,42.0,2021,8
+Morning Consult,,B,Online,08/02/2021,08/04/2021,RV,,44.0,42.0,2021,8
+Morning Consult,,B,Online,08/01/2021,08/03/2021,RV,,44.0,42.0,2021,8
+YouGov,Economist,B+,Online,07/31/2021,08/03/2021,RV,,45.0,37.0,2021,8
+McLaughlin & Associates,,C/D,Online,07/29/2021,08/03/2021,LV,,46.0,48.0,2021,8
+Morning Consult,,B,Online,07/31/2021,08/02/2021,RV,,44.0,41.0,2021,8
+Quinnipiac University,,A-,Live Phone,07/27/2021,08/02/2021,A,,45.0,42.0,2021,8
+Quinnipiac University,,A-,Live Phone,07/27/2021,08/02/2021,RV,,45.0,44.0,2021,8
+Morning Consult,,B,Online,07/30/2021,08/01/2021,RV,,44.0,41.0,2021,8
+Morning Consult,,B,Online,07/29/2021,07/31/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/28/2021,07/30/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/27/2021,07/29/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/26/2021,07/28/2021,RV,,44.0,41.0,2021,7
+WPA Intelligence,Club for Growth,B/C,Online,07/20/2021,07/28/2021,RV,REP,44.0,42.0,2021,7
+Morning Consult,,B,Online,07/25/2021,07/27/2021,RV,,44.0,42.0,2021,7
+YouGov,Economist,B+,Online,07/24/2021,07/27/2021,RV,,43.0,36.0,2021,7
+Morning Consult,,B,Online,07/24/2021,07/26/2021,RV,,44.0,42.0,2021,7
+Morning Consult,,B,Online,07/23/2021,07/25/2021,RV,,44.0,41.0,2021,7
+RMG Research,,B-,IVR/Online/Text,07/22/2021,07/24/2021,RV,,41.0,38.0,2021,7
+Morning Consult,,B,Online,07/22/2021,07/24/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/21/2021,07/23/2021,RV,,44.0,41.0,2021,7
+Echelon Insights,,B/C,Online,07/19/2021,07/23/2021,RV,,48.0,41.0,2021,7
+Morning Consult,,B,Online,07/20/2021,07/22/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/19/2021,07/21/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/18/2021,07/20/2021,RV,,44.0,41.0,2021,7
+YouGov,Economist,B+,Online,07/17/2021,07/20/2021,RV,,44.0,35.0,2021,7
+Morning Consult,,B,Online,07/17/2021,07/19/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/16/2021,07/18/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/15/2021,07/17/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/14/2021,07/16/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/13/2021,07/15/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/12/2021,07/14/2021,RV,,45.0,41.0,2021,7
+Morning Consult,,B,Online,07/11/2021,07/13/2021,RV,,45.0,41.0,2021,7
+YouGov,Economist,B+,Online,07/10/2021,07/13/2021,RV,,44.0,37.0,2021,7
+Morning Consult,,B,Online,07/10/2021,07/12/2021,RV,,45.0,41.0,2021,7
+Morning Consult,,B,Online,07/09/2021,07/11/2021,RV,,45.0,41.0,2021,7
+Morning Consult,,B,Online,07/08/2021,07/10/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/07/2021,07/09/2021,RV,,44.0,41.0,2021,7
+PEM Management Corporation,John Bolton Super PAC,Unrated,Live Phone,07/08/2021,07/08/2021,LV,REP,41.7,42.1,2021,7
+Morning Consult,,B,Online,07/06/2021,07/08/2021,RV,,44.0,40.0,2021,7
+Morning Consult,,B,Online,07/05/2021,07/07/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/04/2021,07/06/2021,RV,,44.0,41.0,2021,7
+YouGov,Economist,B+,Online,07/03/2021,07/06/2021,RV,,43.0,37.0,2021,7
+Morning Consult,,B,Online,07/03/2021,07/05/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/02/2021,07/04/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,07/01/2021,07/03/2021,RV,,44.0,41.0,2021,7
+Morning Consult,,B,Online,06/30/2021,07/02/2021,RV,,44.0,42.0,2021,7
+Morning Consult,,B,Online,06/29/2021,07/01/2021,RV,,44.0,42.0,2021,7
+Morning Consult,,B,Online,06/28/2021,06/30/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,06/27/2021,06/29/2021,RV,,44.0,41.0,2021,6
+YouGov,Economist,B+,Online,06/26/2021,06/29/2021,RV,,44.0,36.0,2021,6
+Morning Consult,,B,Online,06/26/2021,06/28/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,06/25/2021,06/27/2021,RV,,45.0,41.0,2021,6
+Morning Consult,,B,Online,06/24/2021,06/26/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,06/23/2021,06/25/2021,RV,,44.0,42.0,2021,6
+RMG Research,,B-,IVR/Online/Text,06/22/2021,06/24/2021,RV,,41.0,38.0,2021,6
+Morning Consult,,B,Online,06/22/2021,06/24/2021,RV,,43.0,42.0,2021,6
+Morning Consult,,B,Online,06/21/2021,06/23/2021,RV,,44.0,42.0,2021,6
+Morning Consult,,B,Online,06/20/2021,06/22/2021,RV,,44.0,42.0,2021,6
+YouGov,,B+,Online,06/19/2021,06/22/2021,RV,,44.0,37.0,2021,6
+Echelon Insights,,B/C,Online,06/18/2021,06/22/2021,RV,,46.0,42.0,2021,6
+Morning Consult,,B,Online,06/19/2021,06/21/2021,RV,,44.0,42.0,2021,6
+GQR,Democracy Corps,B,Online,06/14/2021,06/21/2021,RV,DEM,46.0,44.0,2021,6
+Morning Consult,,B,Online,06/18/2021,06/20/2021,RV,,44.0,42.0,2021,6
+McLaughlin & Associates,,C/D,Online,06/16/2021,06/20/2021,LV,,46.0,47.0,2021,6
+Morning Consult,,B,Online,06/17/2021,06/19/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,06/16/2021,06/18/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,06/15/2021,06/17/2021,RV,,44.0,41.0,2021,6
+Ipsos,Reuters,B-,Online,06/11/2021,06/17/2021,A,,37.0,30.0,2021,6
+Morning Consult,,B,Online,06/14/2021,06/16/2021,RV,,43.0,41.0,2021,6
+Morning Consult,,B,Online,06/13/2021,06/15/2021,RV,,43.0,42.0,2021,6
+YouGov,,B+,Online,06/12/2021,06/15/2021,RV,,41.0,34.0,2021,6
+Morning Consult,,B,Online,06/12/2021,06/14/2021,RV,,44.0,42.0,2021,6
+Morning Consult,,B,Online,06/11/2021,06/13/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,06/10/2021,06/12/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,06/09/2021,06/11/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,06/08/2021,06/10/2021,RV,,44.0,42.0,2021,6
+The Winston Group,Winning the Issues,A/B,Online,06/07/2021,06/10/2021,RV,REP,46.0,42.0,2021,6
+Morning Consult,,B,Online,06/07/2021,06/09/2021,RV,,43.0,42.0,2021,6
+Morning Consult,,B,Online,06/06/2021,06/08/2021,RV,,44.0,42.0,2021,6
+YouGov,,B+,Online,06/05/2021,06/08/2021,RV,,46.0,37.0,2021,6
+ALG Research,Third Way,B/C,Online/Text,06/02/2021,06/08/2021,LV,,46.0,46.0,2021,6
+Morning Consult,,B,Online,06/05/2021,06/07/2021,RV,,43.0,41.0,2021,6
+Morning Consult,,B,Online,06/04/2021,06/06/2021,RV,,43.0,41.0,2021,6
+Morning Consult,,B,Online,06/03/2021,06/05/2021,RV,,43.0,41.0,2021,6
+Cor Services,Foundation for Government Accountability,Unrated,IVR,06/02/2021,06/05/2021,LV,,41.0,37.0,2021,6
+Morning Consult,,B,Online,06/02/2021,06/04/2021,RV,,43.0,41.0,2021,6
+Morning Consult,,B,Online,06/01/2021,06/03/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,05/31/2021,06/02/2021,RV,,44.0,41.0,2021,6
+Morning Consult,,B,Online,05/30/2021,06/01/2021,RV,,44.0,41.0,2021,6
+YouGov,Economist,B+,Online,05/29/2021,06/01/2021,RV,,43.0,35.0,2021,6
+Morning Consult,,B,Online,05/29/2021,05/31/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/28/2021,05/30/2021,RV,,44.0,42.0,2021,5
+Morning Consult,,B,Online,05/27/2021,05/29/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/26/2021,05/28/2021,RV,,44.0,42.0,2021,5
+Morning Consult,,B,Online,05/25/2021,05/27/2021,RV,,44.0,42.0,2021,5
+Morning Consult,,B,Online,05/24/2021,05/26/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/23/2021,05/25/2021,RV,,44.0,41.0,2021,5
+YouGov,Economist,B+,Online,05/22/2021,05/25/2021,RV,,46.0,37.0,2021,5
+ALG Research/Hart Research Associates,Americans for Tax Fairness Action Fund,Unrated,Online,05/20/2021,05/25/2021,RV,,39.0,37.0,2021,5
+Morning Consult,,B,Online,05/22/2021,05/24/2021,RV,,44.0,41.0,2021,5
+Quinnipiac University,,A-,Live Phone,05/18/2021,05/24/2021,A,,49.0,40.0,2021,5
+Quinnipiac University,,A-,Live Phone,05/18/2021,05/24/2021,RV,,50.0,41.0,2021,5
+Morning Consult,,B,Online,05/21/2021,05/23/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/20/2021,05/22/2021,RV,,43.0,41.0,2021,5
+Morning Consult,,B,Online,05/19/2021,05/21/2021,RV,,43.0,41.0,2021,5
+Morning Consult,,B,Online,05/18/2021,05/20/2021,RV,,43.0,42.0,2021,5
+Morning Consult,,B,Online,05/17/2021,05/19/2021,RV,,43.0,42.0,2021,5
+Morning Consult,,B,Online,05/16/2021,05/18/2021,RV,,44.0,41.0,2021,5
+YouGov,Economist,B+,Online,05/15/2021,05/18/2021,RV,,47.0,38.0,2021,5
+McLaughlin & Associates,,C/D,Online,05/12/2021,05/18/2021,LV,,46.0,47.0,2021,5
+Morning Consult,,B,Online,05/15/2021,05/17/2021,RV,,44.0,41.0,2021,5
+Echelon Insights,,B/C,Online,05/14/2021,05/17/2021,RV,,50.0,40.0,2021,5
+Morning Consult,,B,Online,05/14/2021,05/16/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/13/2021,05/15/2021,RV,,43.0,41.0,2021,5
+Morning Consult,,B,Online,05/12/2021,05/14/2021,RV,,43.0,42.0,2021,5
+Morning Consult,,B,Online,05/11/2021,05/13/2021,RV,,43.0,42.0,2021,5
+Morning Consult,,B,Online,05/10/2021,05/12/2021,RV,,43.0,41.0,2021,5
+Morning Consult,,B,Online,05/09/2021,05/11/2021,RV,,44.0,41.0,2021,5
+YouGov,Economist,B+,Online,05/08/2021,05/11/2021,RV,,45.0,39.0,2021,5
+Morning Consult,,B,Online,05/08/2021,05/10/2021,RV,,44.0,41.0,2021,5
+Redfield & Wilton Strategies,,B/C,Online,05/08/2021,05/09/2021,RV,,41.0,36.0,2021,5
+Redfield & Wilton Strategies,,B/C,Online,05/08/2021,05/09/2021,LV,,44.0,37.0,2021,5
+Morning Consult,,B,Online,05/07/2021,05/09/2021,RV,,45.0,41.0,2021,5
+Cygnal,,B+,Online,05/05/2021,05/09/2021,A,,43.9,41.4,2021,5
+RMG Research,,B-,IVR/Online/Text,05/06/2021,05/08/2021,RV,,41.0,40.0,2021,5
+Morning Consult,,B,Online,05/06/2021,05/08/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/05/2021,05/07/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/04/2021,05/06/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/03/2021,05/05/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/02/2021,05/04/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,05/01/2021,05/03/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,04/30/2021,05/02/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,04/29/2021,05/01/2021,RV,,44.0,41.0,2021,5
+Morning Consult,,B,Online,04/28/2021,04/30/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,04/27/2021,04/29/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,04/26/2021,04/28/2021,RV,,43.0,41.0,2021,4
+Morning Consult,,B,Online,04/25/2021,04/27/2021,RV,,43.0,41.0,2021,4
+YouGov,,B+,Online,04/24/2021,04/27/2021,RV,,43.0,38.0,2021,4
+Morning Consult,,B,Online,04/24/2021,04/26/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,04/23/2021,04/25/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,04/22/2021,04/24/2021,RV,,44.0,41.0,2021,4
+YouGov,UMass Amherst | WCVB-TV,B+,Online,04/21/2021,04/23/2021,A,,45.0,38.0,2021,4
+Morning Consult,,B,Online,04/21/2021,04/23/2021,RV,,43.0,41.0,2021,4
+Echelon Insights,,B/C,Online,04/16/2021,04/23/2021,RV,,46.0,42.0,2021,4
+Morning Consult,,B,Online,04/20/2021,04/22/2021,RV,,43.0,41.0,2021,4
+Morning Consult,,B,Online,04/19/2021,04/21/2021,RV,,43.0,42.0,2021,4
+Morning Consult,,B,Online,04/18/2021,04/20/2021,RV,,43.0,41.0,2021,4
+YouGov,Economist,B+,Online,04/17/2021,04/20/2021,RV,,45.0,37.0,2021,4
+Hart Research Associates/Public Opinion Strategies,NBC News,B+,Live Phone,04/17/2021,04/20/2021,RV,,47.0,42.0,2021,4
+Change Research,,B-,Online/Text,04/15/2021,04/20/2021,RV,,48.0,43.0,2021,4
+Morning Consult,,B,Online,04/17/2021,04/19/2021,RV,,43.0,41.0,2021,4
+Morning Consult,,B,Online,04/16/2021,04/18/2021,RV,,44.0,41.0,2021,4
+RMG Research,,B-,IVR/Online/Text,04/15/2021,04/17/2021,RV,,43.0,39.0,2021,4
+Morning Consult,,B,Online,04/15/2021,04/17/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,04/14/2021,04/16/2021,RV,,44.0,41.0,2021,4
+Ipsos,,B-,Online,04/12/2021,04/16/2021,A,,39.0,31.0,2021,4
+Morning Consult,,B,Online,04/13/2021,04/15/2021,RV,,43.0,41.0,2021,4
+Morning Consult,,B,Online,04/12/2021,04/14/2021,RV,,43.0,41.0,2021,4
+Morning Consult,,B,Online,04/11/2021,04/13/2021,RV,,43.0,41.0,2021,4
+McLaughlin & Associates,,C/D,Online,04/08/2021,04/13/2021,LV,,46.0,46.4,2021,4
+Morning Consult,,B,Online,04/10/2021,04/12/2021,RV,,44.0,42.0,2021,4
+Morning Consult,,B,Online,04/09/2021,04/11/2021,RV,,44.0,42.0,2021,4
+The Winston Group,Winning the Issues,A/B,Online,04/07/2021,04/11/2021,RV,REP,45.0,41.0,2021,4
+Morning Consult,,B,Online,04/08/2021,04/10/2021,RV,,44.0,42.0,2021,4
+Morning Consult,,B,Online,04/07/2021,04/09/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,04/06/2021,04/08/2021,RV,,44.0,40.0,2021,4
+Morning Consult,,B,Online,04/05/2021,04/07/2021,RV,,44.0,40.0,2021,4
+PEM Management Corporation,John Bolton Super PAC,Unrated,Live Phone,04/03/2021,04/07/2021,LV,REP,39.8,42.7,2021,4
+Morning Consult,,B,Online,04/04/2021,04/06/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,04/03/2021,04/05/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,04/02/2021,04/04/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,04/01/2021,04/03/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,03/31/2021,04/02/2021,RV,,44.0,41.0,2021,4
+Morning Consult,,B,Online,03/30/2021,04/01/2021,RV,,43.0,41.0,2021,4
+Morning Consult,,B,Online,03/29/2021,03/31/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/28/2021,03/30/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/27/2021,03/29/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/26/2021,03/28/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/25/2021,03/27/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/24/2021,03/26/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/23/2021,03/25/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/22/2021,03/24/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/21/2021,03/23/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/20/2021,03/22/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/19/2021,03/21/2021,RV,,44.0,41.0,2021,3
+Echelon Insights,,B/C,Online,03/15/2021,03/21/2021,RV,,46.0,42.0,2021,3
+Morning Consult,,B,Online,03/18/2021,03/20/2021,RV,,44.0,40.0,2021,3
+Morning Consult,,B,Online,03/17/2021,03/19/2021,RV,,44.0,40.0,2021,3
+Morning Consult,,B,Online,03/16/2021,03/18/2021,RV,,44.0,40.0,2021,3
+Morning Consult,,B,Online,03/15/2021,03/17/2021,RV,,45.0,40.0,2021,3
+Morning Consult,,B,Online,03/14/2021,03/16/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/13/2021,03/15/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/12/2021,03/14/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/11/2021,03/13/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/10/2021,03/12/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/09/2021,03/11/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/08/2021,03/10/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/07/2021,03/09/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/06/2021,03/08/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,03/05/2021,03/07/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/04/2021,03/06/2021,RV,,44.0,42.0,2021,3
+Morning Consult,,B,Online,03/03/2021,03/05/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/02/2021,03/04/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,03/01/2021,03/03/2021,RV,,44.0,41.0,2021,3
+Morning Consult,,B,Online,02/28/2021,03/02/2021,RV,,45.0,41.0,2021,3
+Morning Consult,,B,Online,02/27/2021,03/01/2021,RV,,45.0,41.0,2021,3
+Léger,The Canadian Press,B/C,Online,02/26/2021,02/28/2021,A,,39.0,31.0,2021,2
+Morning Consult,,B,Online,02/26/2021,02/28/2021,RV,,45.0,41.0,2021,2
+McLaughlin & Associates,,C/D,Online,02/24/2021,02/28/2021,LV,,46.0,46.0,2021,2
+Morning Consult,,B,Online,02/25/2021,02/27/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/24/2021,02/26/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/23/2021,02/25/2021,RV,,44.0,41.0,2021,2
+NRSC,NRSC,Unrated,,02/22/2021,02/25/2021,LV,REP,39.0,38.0,2021,2
+Morning Consult,,B,Online,02/22/2021,02/24/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/21/2021,02/23/2021,RV,,44.0,41.0,2021,2
+GQR,Democracy Corps,B,Live Phone,02/18/2021,02/23/2021,RV,DEM,48.0,42.0,2021,2
+GQR,Democracy Corps,B,Live Phone,02/18/2021,02/23/2021,RV,DEM,48.0,42.0,2021,2
+GQR,Democracy Corps,B,Live Phone,02/18/2021,02/23/2021,RV,DEM,47.0,43.0,2021,2
+Morning Consult,,B,Online,02/20/2021,02/22/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/19/2021,02/21/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/18/2021,02/20/2021,RV,,45.0,40.0,2021,2
+Morning Consult,,B,Online,02/17/2021,02/19/2021,RV,,45.0,40.0,2021,2
+Morning Consult,,B,Online,02/16/2021,02/18/2021,RV,,45.0,41.0,2021,2
+Echelon Insights,,B/C,Online,02/12/2021,02/18/2021,RV,,44.0,44.0,2021,2
+Morning Consult,,B,Online,02/15/2021,02/17/2021,RV,,45.0,41.0,2021,2
+Morning Consult,,B,Online,02/14/2021,02/16/2021,RV,,45.0,41.0,2021,2
+Morning Consult,,B,Online,02/13/2021,02/15/2021,RV,,45.0,41.0,2021,2
+Morning Consult,,B,Online,02/12/2021,02/14/2021,RV,,45.0,40.0,2021,2
+Morning Consult,,B,Online,02/11/2021,02/13/2021,RV,,45.0,40.0,2021,2
+Morning Consult,,B,Online,02/10/2021,02/12/2021,RV,,45.0,40.0,2021,2
+Morning Consult,,B,Online,02/09/2021,02/11/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/08/2021,02/10/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/07/2021,02/09/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/06/2021,02/08/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/05/2021,02/07/2021,RV,,44.0,41.0,2021,2
+Morning Consult,,B,Online,02/04/2021,02/06/2021,RV,,45.0,41.0,2021,2
+Morning Consult,,B,Online,02/03/2021,02/05/2021,RV,,45.0,41.0,2021,2
+Morning Consult,,B,Online,02/02/2021,02/04/2021,RV,,45.0,41.0,2021,2
+Morning Consult,,B,Online,02/01/2021,02/03/2021,RV,,45.0,41.0,2021,2
+Morning Consult,,B,Online,01/31/2021,02/02/2021,RV,,45.0,41.0,2021,2
+Morning Consult,,B,Online,01/30/2021,02/01/2021,RV,,45.0,41.0,2021,2
+Morning Consult,,B,Online,01/29/2021,01/31/2021,RV,,45.0,41.0,2021,1
+Morning Consult,,B,Online,01/28/2021,01/30/2021,RV,,45.0,40.0,2021,1
+Morning Consult,,B,Online,01/27/2021,01/29/2021,RV,,44.0,40.0,2021,1
+Morning Consult,,B,Online,01/26/2021,01/28/2021,RV,,45.0,40.0,2021,1
+Morning Consult,,B,Online,01/25/2021,01/27/2021,RV,,44.0,40.0,2021,1
+Morning Consult,,B,Online,01/24/2021,01/26/2021,RV,,45.0,40.0,2021,1
+Morning Consult,,B,Online,01/23/2021,01/25/2021,RV,,45.0,40.0,2021,1
+Morning Consult,,B,Online,01/22/2021,01/24/2021,RV,,45.0,41.0,2021,1
+Morning Consult,,B,Online,01/21/2021,01/23/2021,RV,,45.0,40.0,2021,1
+Morning Consult,,B,Online,01/20/2021,01/22/2021,RV,,45.0,41.0,2021,1
+McLaughlin & Associates,,C/D,,12/09/2020,12/13/2020,LV,,46.0,48.0,2020,12
+McLaughlin & Associates,Newsmax,C/D,Online,11/21/2020,11/23/2020,LV,,45.0,47.0,2020,11

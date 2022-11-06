@@ -70,15 +70,8 @@ def _remerge_and_save(df: pd.DataFrame, label: str, *args, **kwargs) -> None:
 def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
     df = _normalize_data(_filter_data(df))
     _remerge_and_save(df, '1-Dobbs (YTD split at 6.24)', (2022, 6, 24))
-    _remerge_and_save(df, '2-MAL Raid (6.24-8.9 vs 8.9-Today)', first_date=(2022, 6, 24), split_date=(2022, 8, 9))
-    _remerge_and_save(df, '3-Student Loan Forgiveness (6.24-8.24 vs 8.24-Today)', first_date=(
+    _remerge_and_save(df, '2-Student Loan Forgiveness (6.24-8.24 vs 8.24-Today)', first_date=(
         2022, 6, 24), split_date=(2022, 8, 24))
-    _remerge_and_save(df, '4-\'Soul of the Nation\' Speech (6.24-9.1 vs 9.1-Today)', first_date=(
-        2022, 6, 24), split_date=(2022, 9, 1))
-    _remerge_and_save(df, '5-\'Commitment to America\' (6.24-9.23 vs 9.23-Today)', first_date=(
-        2022, 6, 24), split_date=(2022, 9, 23))
-    _remerge_and_save(df, '6-Marijuana Reform Announcement (6.24-10.6 vs 10.6-Today)', first_date=(
-        2022, 6, 24), split_date=(2022, 10, 6))
 
 
 def create_gcb_polls_trimmed() -> None:
@@ -92,11 +85,3 @@ def create_gcb_polls_trimmed() -> None:
     for col in ('startDate', 'endDate'):
         df[col] = df[col].apply(lambda x: x.strftime('%m/%d/%Y'))
     df.to_csv(f'{FOLDER}generic_ballot_polls.trimmed.csv', index=False)
-
-
-def main() -> None:
-    create_gcb_polls_trimmed()
-
-
-if __name__ == '__main__':
-    main()

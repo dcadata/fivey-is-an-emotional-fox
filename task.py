@@ -70,7 +70,8 @@ def _update_latest(new_data: dict) -> None:
 
 
 def _get_gcb_average(session: requests.Session) -> str:
-    if not _CONFIG['gcb_average'].getboolean('notify'):
+    use_gcb_tracking = _CONFIG['gcb_tracking'].getboolean('use')
+    if not use_gcb_tracking and not _CONFIG['gcb_average'].getboolean('notify'):
         return ''
 
     data_filename = _GCB_FILENAMES['averages']
@@ -84,7 +85,7 @@ def _get_gcb_average(session: requests.Session) -> str:
     unrounded_estimates = data.groupby('party').pct_estimate.sum()
     unrounded_lead = unrounded_estimates['D'] - unrounded_estimates['R']
 
-    if _CONFIG['gcb_tracking'].getboolean('use'):
+    if use_gcb_tracking:
         _refresh_gcb_rolling_means()
         _refresh_gcb_polls_trackers(session)
         gcb_polls_movement.create_gcb_polls_trimmed()

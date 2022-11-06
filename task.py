@@ -111,9 +111,7 @@ def _refresh_gcb_rolling_means() -> None:
     if not os.path.exists(data_filepath):
         data_filepath = _FTE_POLLS_BASE_URL + data_filename
 
-    df = pd.read_csv(data_filepath, usecols=['candidate', 'pct_estimate', 'date', 'election'])
-    df = df[df.election == '2022-11-08'].drop(columns='election')
-
+    df = pd.read_csv(data_filepath, usecols=['candidate', 'pct_estimate', 'date'])
     df.date = df.date.apply(lambda x: pd.to_datetime(x).date())
 
     _separate_party = lambda p: df[df.candidate == p].drop(columns='candidate').rename(columns=dict(
@@ -124,7 +122,8 @@ def _refresh_gcb_rolling_means() -> None:
     for day_period in (7, 14, 21, 28):
         df[f'{day_period}-day'] = df.margin.rolling(day_period).mean()  # EMA: df.margin.ewm(day_period).mean()
 
-    df = df[df.date >= datetime.date(2022, 1, 1)].sort_values('date', ascending=False)
+    oldest_date_cutoff = (datetime.datetime.today() - datetime.timedelta(days=365)).date()
+    df = df[df.date >= oldest_date_cutoff].sort_values('date', ascending=False)
     df.to_csv(gcb_polls_movement.FOLDER + 'GCB Average Movement.csv', index=False)
 
 

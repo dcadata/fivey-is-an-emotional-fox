@@ -65,6 +65,7 @@ def _remerge_data(df: pd.DataFrame, split_date: tuple, first_date: tuple = (2022
 
 def _remerge_and_save(df: pd.DataFrame, label: str, *args, **kwargs) -> None:
     _remerge_data(df, *args, **kwargs).to_csv(f'{FOLDER}{label}.csv', index=False)
+    return
 
 
 def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
@@ -72,6 +73,7 @@ def create_gcb_polls_movement_trackers(df: pd.DataFrame) -> None:
     _remerge_and_save(df, '1-Dobbs (YTD split at 6.24)', (2022, 6, 24))
     _remerge_and_save(df, '2-Student Loan Forgiveness (6.24-8.24 vs 8.24-Today)', first_date=(
         2022, 6, 24), split_date=(2022, 8, 24))
+    return
 
 
 def create_gcb_polls_trimmed() -> None:
@@ -85,3 +87,4 @@ def create_gcb_polls_trimmed() -> None:
     for col in ('startDate', 'endDate'):
         df[col] = df[col].apply(lambda x: x.strftime('%m/%d/%Y'))
     df.to_csv(f'{FOLDER}generic_ballot_polls.trimmed.csv', index=False)
+    return

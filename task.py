@@ -70,8 +70,9 @@ def _update_latest(new_data: dict) -> None:
 
 
 def _get_gcb_average(session: requests.Session) -> str:
+    notify = _CONFIG['gcb_average'].getboolean('notify')
     use_gcb_tracking = _CONFIG['gcb_tracking'].getboolean('use')
-    if not use_gcb_tracking and not _CONFIG['gcb_average'].getboolean('notify'):
+    if not (notify or use_gcb_tracking):
         return ''
 
     data_filename = _GCB_FILENAMES['averages']
@@ -94,6 +95,9 @@ def _get_gcb_average(session: requests.Session) -> str:
     if abs(change_from_previous) < _CONFIG['gcb_average'].getfloat('threshold'):
         return ''
     _update_latest(dict(gcb_average=unrounded_lead))
+
+    if not notify:
+        return ''
 
     data.pct_estimate = data.pct_estimate.round(2)
     return 'GCB\nD:{D} R:{R}\n{leader}+{lead} (chg: {change_gainer}+{change})'.format(

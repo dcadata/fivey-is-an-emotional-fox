@@ -55,8 +55,7 @@ def _get_gcb_average(session: requests.Session) -> str:
     data_filepath = f'data/{data_filename}'
     open(data_filepath, 'wb').write(session.get(_FTE_POLLS_BASE_URL + data_filename).content)
 
-    data = pd.read_csv(data_filepath, usecols=['candidate', 'pct_estimate', 'election'])
-    data = data[data.election == '2022-11-08'].drop(columns=['election']).iloc[-2:]
+    data = pd.read_csv(data_filepath, usecols=['candidate', 'pct_estimate']).iloc[-2:]
     data['party'] = data.candidate.apply(lambda x: x[0])
 
     unrounded_estimates = data.groupby('party').pct_estimate.sum()

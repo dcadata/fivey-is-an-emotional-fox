@@ -3,14 +3,11 @@ import datetime
 import json
 import os
 import re
-from email.mime.text import MIMEText
-from smtplib import SMTP_SSL
 from time import sleep
 
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-from twilio.rest import Client
 
 import gcb_polls_movement
 
@@ -33,29 +30,8 @@ _DISTRICT_TOPLINE_FILENAMES = dict(
 )
 
 
-def _send_email(subject: str, body: str) -> None:
-    sender = os.environ['EMAIL_SENDER']
-    msg = MIMEText(body)
-    msg['Subject'] = subject
-    msg['From'] = sender
-    msg['To'] = os.environ['EMAIL_RECIPIENT']
-
-    server = SMTP_SSL(host='smtp.gmail.com', port=465)
-    server.login(sender, os.environ['EMAIL_PASSWORD'])
-    server.send_message(msg)
-    server.quit()
-
-
-def _send_text(body: str) -> None:
-    client = Client(os.environ['ACCT_SID'], os.environ['TOKEN'])
-    client.messages.create(to=os.environ['PHONE_NUMBER'], body=body, messaging_service_sid=os.environ['SERV_SID'])
-
-
-def _send_message(body: str) -> None:
-    if os.environ.get('PHONE_NUMBER'):
-        _send_text(body)
-    else:
-        _send_email('Forecast/Poll Alert', body)
+def _send_notification(body: str) -> None:
+    print(body)  # to be set up with pushbullet later
 
 
 def _read_latest() -> dict:
@@ -351,11 +327,11 @@ def _get_fte_messages(session: requests.Session) -> list:
 def main():
     session = requests.Session()
     if fte_messages := '\n\n'.join(_get_fte_messages(session)):
-        _send_message(fte_messages)
+        _send_notification(fte_messages)
     session.close()
 
     if twitter_message := _get_twitter_feeds():
-        _send_message(twitter_message)
+        _send_notification(twitter_message)
 
 
 if __name__ == '__main__':
